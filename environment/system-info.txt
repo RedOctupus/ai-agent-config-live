@@ -1,0 +1,14 @@
+﻿# System Information
+OS: $([System.Environment]::OSVersion.VersionString)
+PowerShell: $($PSVersionTable.PSVersion)
+
+# Tool Versions
+Python: $(python --version 2>&1)
+Node.js: $(node --version 2>&1)
+npm: $(npm --version 2>&1)
+Git: $(git --version 2>&1)
+OpenClaw: $(openclaw --version 2>&1)
+ClawHub: $(clawhub -V 2>&1)
+
+# Environment Variables
+PATH: $($env:PATH -replace ';', "`n  ")

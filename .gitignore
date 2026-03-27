@@ -1,0 +1,55 @@
+# Backup directories
+backup/
+test-backup/
+temp-backup/
+*.backup
+
+# Sensitive configuration files
+configs/openclaw/openclaw.json
+configs/openclaw/exec-approvals.json
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PowerShell
+*.ps1xml
+*.pssc
+*.psm1
+
+# Test outputs
+test-results/
+coverage/
+
+# Personal notes
+personal-notes.md
+todo.md
