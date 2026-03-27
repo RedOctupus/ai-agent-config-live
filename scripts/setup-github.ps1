@@ -112,7 +112,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 # Set up authentication for push
-$remoteUrl = $liveRepo.clone_url -replace "https://", "https://$GitHubUsername:$GitHubToken@"
+$remoteUrl = $liveRepo.clone_url -replace "https://", "https://${GitHubUsername}:${GitHubToken}@"
 git remote set-url origin $remoteUrl
 
 Write-Host "Pushing to GitHub..." -ForegroundColor Green
@@ -145,7 +145,7 @@ Write-Host "⚙️ Creating GitHub Actions workflow..." -ForegroundColor Green
 $workflowDir = ".github\workflows"
 New-Item -ItemType Directory -Path $workflowDir -Force | Out-Null
 
-$workflowContent = @"
+$workflowContent = @'
 name: Auto Backup Configuration
 on:
   schedule:
@@ -160,7 +160,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        token: \${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Setup Python
       uses: actions/setup-python@v5
@@ -175,7 +175,7 @@ jobs:
     - name: Run backup collection (simulation)
       run: |
         echo "Backup simulation - real implementation would collect configuration"
-        echo "Date: \$(date)" > backup-info.txt
+        echo "Date: $(date)" > backup-info.txt
         echo "This is a placeholder for actual backup logic" >> backup-info.txt
     
     - name: Commit and push if changed
@@ -183,9 +183,9 @@ jobs:
         git config --global user.name 'GitHub Actions'
         git config --global user.email 'actions@github.com'
         git add -A
-        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-backup: \$(date)"
+        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-backup: $(date)"
         git push
-"@
+'@
 
 $workflowContent | Out-File "$workflowDir\auto-backup.yml" -Encoding UTF8
 Write-Host "✅ GitHub Actions workflow created: .github/workflows/auto-backup.yml" -ForegroundColor Green
