@@ -5,19 +5,25 @@ This repository contains backup and restoration scripts for AI Agent development
 ## 📁 Repository Structure
 
 ```
-ai-agent-config-backup/
+ai-agent-config-live/
 ├── scripts/
-│   ├── collect.ps1          # Configuration collection script
-│   └── install.ps1          # Configuration restoration script
+│   ├── collect.ps1              # Phase 1-2 collection script
+│   ├── install.ps1              # Phase 1 restoration script
+│   ├── install-phase2.ps1       # Phase 2 restoration guidance
+│   ├── clean-sensitive.ps1      # Sensitive data cleaner
+│   ├── setup-github.ps1         # GitHub repository automation
+│   ├── create-stable-release.ps1 # Stable version publisher
+│   ├── test-phase2.ps1          # Phase 2 validation
+│   └── INSTALL-GUIDE-PHASE2.md  # Phase 2 detailed guide
 ├── configs/
-│   └── openclaw/           # OpenClaw configuration files
-├── skills/
-│   ├── builtin-skills.txt  # List of built-in OpenClaw skills
-│   ├── clawhub-skills.txt  # List of ClawHub installed skills
-│   └── custom-skills.txt   # List of custom skills
-├── environment/
-│   └── system-info.txt     # System environment information
-└── README.md               # This file
+│   └── openclaw/                # OpenClaw configuration files
+├── skills/                      # Skill inventories
+├── cli-tools/                   # CLI tool information
+├── environment/                 # System environment info
+├── environments/                # Python/Node.js environments
+├── .github/workflows/
+│   └── auto-backup.yml          # Daily backup automation
+└── README.md                    # This file
 ```
 
 ## 🚀 Quick Start
@@ -39,17 +45,21 @@ This will create a `backup` directory with:
 ```powershell
 # First, clone this repository
 git clone <repository-url>
-cd ai-agent-config-backup
+cd ai-agent-config-live
 
-# Run the installation script
+# Phase 1: Restore core configuration
 .\scripts\install.ps1 -ConfigPath .\backup
+
+# Phase 2: CLI tools and environments
+.\scripts\install-phase2.ps1 -ConfigPath .\backup
 ```
 
-**Important:** The installation script will:
+**Important:** The installation scripts will:
 - Backup your existing OpenClaw configuration
 - Restore configuration files from the backup
-- Show you what skills were installed
-- Provide next steps for manual configuration
+- Show what skills were installed
+- Provide platform-specific CLI tool installation guides
+- Guide you through environment setup
 
 ## 🔧 Prerequisites
 
@@ -61,23 +71,32 @@ Before restoring configuration, ensure you have:
 - [Git](https://git-scm.com/)
 - [ClawHub CLI](https://clawhub.ai/) (optional, for skill management)
 
-## 📋 What's Included (Phase 1)
+## 📋 What's Included (Phase 1 & 2)
 
-### Core Configuration
-- OpenClaw main configuration (`openclaw.json`)
-- Model provider settings
-- Skill enable/disable states
-- Gateway configuration
+### Phase 1: Core Configuration & Skills
+- **OpenClaw configuration**: `openclaw.json`, model providers, gateway settings
+- **Skill inventory**: Built-in (52), ClawHub (0), custom (0) skills
+- **Environment snapshot**: OS info, tool versions, system paths
 
-### Skill Inventory
-- **Built-in skills**: All skills included with OpenClaw installation
-- **ClawHub skills**: Skills installed via ClawHub registry
-- **Custom skills**: User-created skills in workspace
+### Phase 2: CLI Tools & Development Environments
+- **CLI tool inventory**: Git, Node.js, Python, OpenClaw, ClawHub, etc.
+- **Python environment**: 432 packages, virtual environment configuration
+- **Node.js environment**: Global packages, npm configuration
+- **Cross-platform recovery guides**: Windows (PowerShell), macOS (Homebrew), Linux (apt)
 
-### Environment Information
-- Operating system details
-- Tool versions (Python, Node.js, Git, etc.)
-- Important environment paths
+### Phase 2 Files Generated
+```
+backup/
+├── cli-tools/
+│   └── installed-cli.txt      # CLI tools with versions
+├── environments/
+│   ├── python-info.txt       # Python environment details
+│   ├── python-requirements.txt # 432 packages list
+│   ├── python-packages.txt   # Complete package list
+│   ├── nodejs-info.txt       # Node.js environment details
+│   ├── nodejs-packages.txt   # Global npm packages
+│   └── environment-vars.txt  # Key environment variables
+```
 
 ## ⚠️ Security Notes
 
@@ -130,12 +149,20 @@ Some configuration cannot be fully automated:
 
 4. **Environment Variables**: Set up any required environment variables
 
-## 📈 Future Enhancements (Planned)
+## 📈 Current Status & Future Plans
 
-- **Phase 2**: CLI tool installation automation
-- **Phase 3**: Virtual environment setup (Python, Node.js)
-- **Phase 4**: GitHub Actions for automatic backup
-- **Phase 5**: Stable version repository with release tags
+### ✅ Completed Phases
+- **Phase 1**: Core OpenClaw configuration backup & restore
+- **Phase 2**: CLI tools & development environment backup
+
+### 🔄 In Development
+- **Phase 3**: CLI tool automated installation scripts
+- **Phase 4**: Virtual environment auto-setup (venv, nvm, pyenv)
+
+### 📅 Planned Enhancements
+- **Phase 5**: Claude Code/Codex configuration integration
+- **Phase 6**: Docker containerization support
+- **Phase 7**: Health check & configuration drift detection
 
 ## 🤝 Contributing
 
@@ -235,20 +262,20 @@ Edit `.github/workflows/auto-backup.yml` to:
 2. **Branch protection** for stable repository
 3. **Secrets management** for automation tokens
 
-## 📈 Future Enhancements
+## 📈 Development Roadmap
 
-### Phase 3 Planned Features
-- CLI tool installation automation
-- Virtual environment setup scripts
-- Cross-platform support (Linux, macOS)
-- Health check and validation scripts
-- Integration with Claude Code and Codex configurations
+### ✅ Completed Phases
+- **Phase 1**: Core OpenClaw configuration backup & restore
+- **Phase 2**: CLI tools & development environment backup
 
-### Phase 4 Planned Features
-- Docker containerization
-- Cloud backup integration
-- Configuration drift detection
-- Automated testing of restoration
+### 🔄 Active Development
+- **Phase 3**: CLI tool automated installation scripts
+- **Phase 4**: Virtual environment auto-setup (venv, nvm, pyenv)
+
+### 📅 Future Plans
+- **Phase 5**: Claude Code/Codex configuration integration  
+- **Phase 6**: Docker containerization support
+- **Phase 7**: Health check & configuration drift detection
 
 ## 🤝 Contributing
 
