@@ -4,9 +4,9 @@ test-backup/
 temp-backup/
 *.backup
 
-# Sensitive configuration files
-configs/openclaw/openclaw.json
-configs/openclaw/exec-approvals.json
+# Sensitive configuration files (commented out after cleaning)
+# configs/openclaw/openclaw.json
+# configs/openclaw/exec-approvals.json
 
 # Temporary files
 *.tmp

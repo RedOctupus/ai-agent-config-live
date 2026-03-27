@@ -145,12 +145,128 @@ This is a personal configuration backup system. Feel free to adapt it for your o
 2. Modifying the scripts for your environment
 3. Adding support for additional tools (Claude Code, Codex, etc.)
 
+## 🚀 GitHub Repository Setup
+
+### Two-Repository Strategy
+
+This project uses two GitHub repositories:
+
+1. **`ai-agent-config-live`** - Continuous updates, daily backups
+2. **`ai-agent-config-stable`** - Versioned releases, manual updates
+
+### Automated Setup
+
+Run the setup script to create both repositories:
+
+```powershell
+.\scripts\setup-github.ps1 -GitHubUsername "your-username"
+```
+
+You'll need a [GitHub Personal Access Token](https://github.com/settings/tokens) with `repo` and `workflow` scopes.
+
+### Manual Setup
+
+1. **Create repositories on GitHub:**
+   - `ai-agent-config-live` (private recommended)
+   - `ai-agent-config-stable` (private recommended)
+
+2. **Push to live repository:**
+   ```bash
+   git remote add origin https://github.com/your-username/ai-agent-config-live.git
+   git push -u origin master
+   ```
+
+3. **Set up stable repository:**
+   ```bash
+   git clone https://github.com/your-username/ai-agent-config-live.git ai-agent-config-stable
+   cd ai-agent-config-stable
+   git remote set-url origin https://github.com/your-username/ai-agent-config-stable.git
+   git push -u origin master
+   ```
+
+### Creating Stable Releases
+
+To create a stable release from the live repository:
+
+```powershell
+.\scripts\create-stable-release.ps1 -Version "v1.0.0"
+```
+
+This will:
+1. Create a Git tag for the version
+2. Generate release notes
+3. Optionally update the stable repository
+
+## ⚙️ Automation
+
+### GitHub Actions
+The repository includes a GitHub Actions workflow (`.github/workflows/auto-backup.yml`) that:
+- Runs daily at 12:00 UTC
+- Can be triggered manually
+- Simulates backup collection (needs customization for your environment)
+
+### Customizing Automation
+Edit `.github/workflows/auto-backup.yml` to:
+- Add actual configuration collection
+- Set up environment-specific triggers
+- Configure notification settings
+
+## 🔒 Security Best Practices
+
+### Before Committing
+1. Run the sensitivity cleaning script:
+   ```powershell
+   .\scripts\clean-sensitive.ps1
+   ```
+
+2. Review configuration files for:
+   - API keys and tokens
+   - Personal information
+   - Machine-specific paths
+
+3. Use environment variables for sensitive data:
+   ```powershell
+   # Instead of hardcoded values in configs
+   $env:OPENCLAW_API_KEY = "your-key-here"
+   ```
+
+### Repository Settings
+1. **Private repositories** recommended for personal configurations
+2. **Branch protection** for stable repository
+3. **Secrets management** for automation tokens
+
+## 📈 Future Enhancements
+
+### Phase 3 Planned Features
+- CLI tool installation automation
+- Virtual environment setup scripts
+- Cross-platform support (Linux, macOS)
+- Health check and validation scripts
+- Integration with Claude Code and Codex configurations
+
+### Phase 4 Planned Features
+- Docker containerization
+- Cloud backup integration
+- Configuration drift detection
+- Automated testing of restoration
+
+## 🤝 Contributing
+
+This is a personal configuration backup system. Feel free to adapt it for your own needs by:
+
+1. Forking the repository
+2. Modifying the scripts for your environment
+3. Adding support for additional tools (Claude Code, Codex, etc.)
+4. Sharing improvements via pull requests
+
 ## 📄 License
 
 This repository is for personal use. No specific license is applied.
 
 ---
 
-**Last Updated**: $(Get-Date -Format 'yyyy-MM-dd')
+**Last Updated**: 2026-03-27
 
-**Phase**: 1 - Core OpenClaw Configuration Backup
+**Phase**: 1-2 - Core Configuration + CLI/Environment Backup
+
+**Status**: ✅ GitHub ready, automation configured
