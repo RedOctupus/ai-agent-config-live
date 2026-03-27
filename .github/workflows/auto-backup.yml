@@ -1,4 +1,4 @@
-name: Auto Backup Configuration
+﻿name: Auto Backup Configuration
 on:
   schedule:
     - cron: '0 12 * * *'  # Daily at 12:00 UTC
