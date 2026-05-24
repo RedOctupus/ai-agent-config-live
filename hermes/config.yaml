@@ -1,0 +1,37 @@
+# Hermes Agent Configuration - Redacted Backup
+# Generated: 2026-05-24
+# Hermes version: 0.14.0
+# All API keys replaced with $ENV_VAR references
+
+model:
+  default: deepseek-v4-pro
+  provider: deepseek
+  base_url: https://api.deepseek.com/v1
+
+agent:
+  max_turns: 90
+  tool_use_enforcement: auto
+  reasoning_effort: medium
+
+terminal:
+  backend: local
+  timeout: 180
+  persistent_shell: true
+
+display:
+  personality: kawaii
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+
+delegation:
+  max_iterations: 50
+  max_concurrent_children: 3
+  orchestrator_enabled: true
+
+skills:
+  template_vars: true
+
+toolsets:
+  - hermes-cli
