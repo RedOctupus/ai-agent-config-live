@@ -1,0 +1,1 @@
+用户 Hongyu Zhang (RedOctupus)，邮箱 zhhongyu01@gmail.com。中文交流。Windows 10 环境。OpenAI Pro 订阅用户，已配置 Codex CLI 和 GitHub。开发 AI 相关项目（仓库包括 ai-agent-config-live、Uniflo 等）。偏好完整端到端验证而非半途而废。
