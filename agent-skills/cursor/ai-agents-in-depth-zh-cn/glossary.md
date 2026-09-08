@@ -1,0 +1,97 @@
+# Glossary
+
+所有关键术语按拼音首字母排序，括号内标注所在章节。
+
+- **Agent** — 能自主规划执行步骤、调用工具、根据反馈调整策略的智能系统。区别于被动问答，Agent 以完成目标为核心。（Ch 1）
+- **Agent 状态栏（Agent Status Bar）** — 在上下文中承载 Agent 状态、进度、时间感知的元信息结构，增强轨迹管理。（Ch 2）
+- **Agentic RAG** — 把知识检索工具化的范式，让 Agent 主动决定何时检索、查什么、如何综合。（Ch 3）
+- **ASR（Automatic Speech Recognition）** — 自动语音识别，把音频转成文字。（Ch 9）
+- **Bash / Shell** — 命令行终端工具，Coding Agent 七个核心工具之一。（Ch 5）
+- **Chat Completions API** — 以消息列表（messages）为核心的 LLM API 调用模式。（Ch 2）
+- **Chat Template** — 从 API 消息到模型 Token 的转换模板，决定消息如何被序列化和角色编码。（Ch 2）
+- **Code Interpreter** — 带沙箱的代码解释器，Coding Agent 七个核心工具之一。（Ch 5）
+- **Coding Agent** — 能自主编写、修改、执行代码的 Agent，是通用 Agent 的核心基座。（Ch 5）
+- **Computer Use** — 让 Agent 像人一样操作电脑屏幕的视觉-动作交互能力。（Ch 9）
+- **Context Engineering** — 上下文工程，系统性地设计、组织和管理 Agent 在每个决策点能看到的全部信息。（Ch 2）
+- **Docling** — 技术 PDF 结构感知提取器，可保留表格、代码、公式布局。（Ch 2 提取说明）
+- **Edit File** — 对现有文件做局部修改的工具，代码维护和迭代的核心操作。（Ch 5）
+- **Embedding** — 嵌入，将文本/数据映射到向量空间以支持语义检索。（Ch 3）
+- **EPUB** — 电子书格式，book-to-skill 支持的输入格式之一。
+- **Event-Triggered Tool** — 事件触发工具，由外部事件（邮件、Webhook、定时器）唤醒 Agent 执行。（Ch 4）
+- **Execution Tool** — 执行工具，Agent 改变外部世界的方式（写文件、执行命令、调用 API）。（Ch 4）
+- **Full-Duplex Voice** — 全双工语音，模型边听边说、边说边听，取消轮次假设。（Ch 9）
+- **Glob** — 文件名模式匹配搜索工具，Coding Agent 七个核心工具之一。（Ch 5）
+- **Glossary Agent** — 负责识别术语并生成术语表的子 Agent 角色示例。（Ch 10）
+- **GraphRAG** — 基于图结构的知识表示与检索方法，超越扁平文本索引。（Ch 3）
+- **Grep** — 文件内容搜索工具，Coding Agent 七个核心工具之一。（Ch 5）
+- **Hallucination** — 幻觉，模型生成与事实不符的内容；在评估中通常作为否决项。（Ch 6）
+- **Harness 工程** — 模型之外的工程竞争力，包括 Loop 工程、工具设计、编排、护栏、缓存、评估等。（Ch 1）
+- **Hybrid Retrieval** — 混合检索，结合稠密嵌入、稀疏嵌入、关键词等多种检索方式。（Ch 3）
+- **IPC（Inter-Process Communication）** — 进程间通信，Agent 间通信可借鉴的共享内存/消息传递两大范式。（Ch 10）
+- **KV Cache** — Transformer 推理中的 Key-Value 缓存，避免重复计算前缀，是上下文设计的重要约束。（Ch 2）
+- **Knowledge Base** — 知识库，面向所有用户共享的集体知识，如行业法规、公司流程、专业文档。（Ch 3）
+- **Latent Bridge** — 快慢模型之间传递中间结果的隐式通道，超越纯文本通信。（Ch 9）
+- **LLM** — 大语言模型，Agent 的大脑，负责理解、规划、推理、决策。（Ch 1）
+- **LLM-as-a-Judge** — 用大语言模型作为评委自动评分，需要逐项打分、引用证据。（Ch 6）
+- **MCP（Model Context Protocol）** — 模型上下文协议，统一工具描述、发现和调用标准。（Ch 4）
+- **Mem0 / Memobase** — 代表性用户记忆框架。（Ch 3）
+- **Message Bus** — 消息总线，Agent 间异步消息中转机制，适合并行协调。（Ch 10）
+- **Multi-Agent System** — 多 Agent 系统，多个 Agent 协同完成任务的架构。（Ch 10）
+- **Observation Space** — 观察空间，学术概念，对应 Agent 的上下文（眼睛）。（Ch 1）
+- **Omni Model** — 端到端全模态模型，能直接听音频、想回复、说出来，但仍基于轮次。（Ch 9）
+- **PDF** — 便携式文档格式，book-to-skill 支持的输入格式之一。
+- **Perception Tool** — 感知工具，Agent 主动获取信息（搜索、读文件、查数据库）。（Ch 4）
+- **Policy** — 策略，学术概念，对应 Agent 的 LLM 决策逻辑（大脑）。（Ch 1）
+- **Pre-training** — 预训练，在大量文本上做预测下一个词训练，学习语言和世界知识。（Ch 7）
+- **Prompt Cache** — API 层对重复前缀的缓存机制，降低长上下文成本。（Ch 2）
+- **Prompt Engineering** — 提示工程，通过优化提示词设计提升模型输出质量。（Ch 2）
+- **Prompt Injection** — 提示注入，恶意输入劫持模型行为的攻击方式，是上下文安全核心威胁。（Ch 2）
+- **RAG（Retrieval-Augmented Generation）** — 检索增强生成，把外部知识注入上下文的机制。（Ch 3）
+- **RAPTOR** — Recursive Abstractive Processing for Tree-Organized Retrieval，递归树形检索索引。（Ch 3）
+- **Read File** — 读取文件工具，Coding Agent 七个核心工具之一。（Ch 5）
+- **ReAct** — Reasoning + Acting 循环，Agent 思考→行动→观察→再思考的迭代模式。（Ch 1）
+- **Regression** — 模型升级后在某些任务上性能退化。（Ch 6 / Ch 7）
+- **RL（Reinforcement Learning）** — 强化学习，让模型根据奖励信号在环境中试错优化策略。（Ch 7）
+- **RPA（Robotic Process Automation）** — 机器人流程自动化，把操作序列固化为可复用代码。（Ch 5 / Ch 8）
+- **Rubric** — 评分量表，把 Agent 轨迹拆成多个维度逐项评分。（Ch 6）
+- **Sandbox** — 沙箱，与主系统隔离的安全执行环境。（Ch 5）
+- **Sessionless** — 无 session 设计，Agent 状态持久化在文件系统而非长对话中。（Ch 5）
+- **SFT（Supervised Fine-Tuning）** — 监督微调，用输入-输出示范对训练模型。（Ch 7）
+- **Shared Context** — 共享上下文，子 Agent 继承父 Agent 的完整对话历史和轨迹。（Ch 10）
+- **Skill** — 领域能力的可组合单元，可作为上下文模块化注入 Agent。（Ch 2 / Ch 4）
+- **Sparse Embedding** — 稀疏嵌入，基于关键词精确匹配，与稠密嵌入互补。（Ch 3）
+- **System Prompt** — 系统提示词，定义 Agent 身份、行为规则、约束条件，最高优先级指令。（Ch 2）
+- **TTS（Text-to-Speech）** — 文本到语音合成。（Ch 9）
+- **Tool** — 工具，Agent 与外部世界交互的能力单元。（Ch 4）
+- **Tool Calling** — 工具调用，LLM 通过结构化方式调用外部工具的机制。（Ch 1 / Ch 4）
+- **Tool Schema** — 工具 schema，定义工具名称、描述、参数结构。（Ch 4）
+- **Trajectory** — 运行轨迹，包含 Agent 的思考、动作、工具调用、结果、反馈。（Ch 6 / Ch 8）
+- **User Communication Tool** — 用户沟通工具，Agent 主动向用户传递信息。（Ch 4）
+- **User Memory** — 用户记忆，针对单个用户的持久化个性化知识模型。（Ch 3）
+- **VAD（Voice Activity Detection）** — 语音活动检测，判断用户何时说完。（Ch 9）
+- **Write File** — 写文件工具，Coding Agent 七个核心工具之一。（Ch 5）
+- **Zero-shot Generalization** — 零样本泛化，LLM Agent 面对未见过任务时组合已有知识直接处理。（Ch 1）
+- **上下文（Context）** — Agent 在每个决策点能看到的全部信息，包括系统提示、工具定义、对话历史、工具结果、环境信息。（Ch 1 / Ch 2）
+- **上下文压缩（Context Compression）** — 在保留关键信息前提下减少上下文长度的策略。（Ch 2）
+- **上下文感知检索（Context-aware Retrieval）** — 根据当前任务和上下文动态选择检索策略和来源。（Ch 3）
+- **消融实验（Ablation Study）** — 逐一关闭系统组件，判断其真实贡献的实验方法。（Ch 6）
+- **可观测性（Observability）** — 记录运行轨迹、工具调用、中间状态、延迟、成本，支持评估和诊断。（Ch 6）
+- **多会话检索** — 记忆系统能力层级之一，跨多个会话/对象/时期检索相关信息并推理。（Ch 3）
+- **多模态与实时交互** — Agent 同时处理文字、语音、图像、视频、动作等多种信息形式，并在严格时间预算内响应。（Ch 9）
+- **基础回忆** — 记忆系统能力层级之一，准确存储和检索用户直接提供的结构化信息。（Ch 3）
+- **复杂联合推理** — 记忆系统能力层级之一，基于多个记忆片段联合思考、处理冲突、时间感知。（Ch 3）
+- **持续进化（Continuous Evolution）** — 从运行经验中提取、验证、发布更新的闭环能力。（Ch 8）
+- **提示词敏感性评估** — 评估系统对提示词变化的稳定性。（Ch 6）
+- **文档分块（Chunking）** — 把文档切分成适合检索和嵌入的片段。（Ch 3）
+- **消息四角色** — system、user、assistant、tool 四种消息角色，是 API 上下文结构基础。（Ch 2）
+- **模型替换实验（Model Swap）** — 固定 Harness 只换模型，定位瓶颈在模型还是 Harness。（Ch 6）
+- **混合检索（Hybrid Retrieval）** — 结合稠密与稀疏等多种检索方式。（Ch 3）
+- **知识库（Knowledge Base）** — 见 Knowledge Base。
+- **群体智能（Collective Intelligence）** — 多个 Agent 协同涌现出的超越个体简单相加的能力。（Ch 10）
+- **自主学习（Online Learning）** — 模型在运行中持续更新自身能力。（Ch 8）
+- **行为策略（Policy）** — 模型决定“下一步做什么”的决策逻辑。（Ch 1）
+- **评估 Harness（Evaluation Harness）** — 评估套件，包含环境、数据集、指标、评分器。（Ch 6）
+- **重排序（Rerank）** — 在检索后对相关结果二次排序，提升最终质量。（Ch 3）
+- **错误恢复（Fault Recovery）** — Agent 在工具失败或任务中断后恢复并继续执行的能力。（Ch 5）
+- **隐私感知日志（Privacy-aware Logging）** — 对敏感信息进行脱敏和分级的日志处理。（Ch 3）
+- **静态分析（Linter）** — 代码审查工具，Coding Agent 常用工具之一。（Ch 5）

@@ -1,0 +1,82 @@
+# 协作与模式（按需读）
+
+不拷进业务项目。用户说 init、大任务定型、或问 Ask/Plan/Agent 时再读。
+
+## 讨论顺序
+
+```text
+服务对象大环境  →  现状（ENVIRONMENT）；MEMORY 一句话
+需求讨论        →  条目（REQUIREMENTS）；MEMORY 一句话目的
+框架讨论        →  先逐项商量技术栈，用户同意后再写选型、模块（FRAMEWORK）；MEMORY 一句话骨架
+实现流程        →  端到端怎么走（FLOW）；MEMORY 一句话链路
+计划 / 落地     →  TODO 对照 REQUIREMENTS
+```
+
+MEMORY 只做各阶段快照。细节回源文件，不要把正文粘进 MEMORY。不要把项目目标写进大环境，也不要在目的未定前选型。项目里程碑默认不改大环境。
+
+大任务要进 Plan 或写代码时：FRAMEWORK 仍空则先提醒【框架讨论】；FLOW 仍空则先提醒【实现流程】。用户确认跳过或声明小任务后才能动手。**每一项技术栈须用户明确同意后才能当作已定**，禁止自行拍板。
+
+## 设计四层（对应讨论阶段）
+
+```text
+架构  →  系统长什么样     ← 框架讨论（FRAMEWORK）
+流程  →  事情怎么流转     ← 实现流程（FLOW）
+计划  →  什么时候做什么   ← Plan
+落地  →  文件、函数、命令 ← Agent
+```
+
+大任务：先对齐大环境，再需求讨论，再框架讨论，再定实现流程，再 Plan，再 Agent。小任务：直接 Agent，但验收标准要说清。
+
+## Cursor 模式
+
+| 模式 | 何时 |
+| --- | --- |
+| Ask | 概念、对比、定骨架 |
+| Plan | 多文件、改 schema、多条路径、边界未定 |
+| Agent | 路径已清，或单文件小改 |
+
+Plan 不是只排期，也不是再聊一遍选型。框架和实现流程应在进入 Plan 之前定型。Plan 负责拆任务、落文件、验证和风险。
+
+## 标准流程
+
+```text
+MEMORY 与源文件已有或先 init
+→ 大环境：写入 ENVIRONMENT；MEMORY 一句话
+→ 需求讨论：条目写入 REQUIREMENTS；MEMORY 一句话目的
+→ 框架讨论：每一项技术栈先商量、用户同意后再写入 FRAMEWORK；MEMORY 一句话骨架
+→ 实现流程：写入 FLOW；MEMORY 一句话链路
+→ TODO 对照 REQUIREMENTS 的 ID
+→ 大任务 Plan；小任务跳过 Plan
+→ Agent 最小修改
+→ 验收（对照事先标准）
+```
+
+返工：大环境错回大环境；需求错回需求讨论；框架错回框架讨论；实现流程错回实现流程；步骤错回 Plan；实现 bug 小修。
+
+## ITERATION 怎么记
+
+追加一行，不要改历史。「影响」列分开写：
+
+```text
+某阶段一句话 / 约束 / 入口  →  MEMORY
+服务对象真实办事方式        →  ENVIRONMENT
+具体需求条目增删改          →  REQUIREMENTS
+选型 / 能力模块 / 分层      →  FRAMEWORK
+端到端怎么走                →  FLOW
+```
+
+示例：收简历改走企微 = ENVIRONMENT；「检索要带 file_name」= REQUIREMENTS 一条，不要写进大环境，也不要写成 MEMORY 长文。
+
+## 口令
+
+```text
+【大环境】对齐服务对象大环境，写入 ENVIRONMENT；MEMORY 只留一句话
+【需求讨论】目的一句话 + 不做；条目写入 REQUIREMENTS
+【对照开发】按 REQUIREMENTS 的 ID；TODO 只写步骤
+【框架讨论】每一项技术栈先给候选和取舍，用户点头后再写入 FRAMEWORK；禁止自行拍板；先不定逐步怎么走
+【实现流程】端到端怎么走写入 FLOW；先不定文件清单
+【Plan】文件、步骤、验证、风险
+【Agent】按 Plan 最小修改
+【验收】命令 + 预期输出
+【叫停】先别写代码
+```

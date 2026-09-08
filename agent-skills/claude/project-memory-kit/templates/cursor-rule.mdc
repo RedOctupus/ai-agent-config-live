@@ -1,0 +1,14 @@
+---
+description: 日常只读 MEMORY 快照；细节回源文件。完整阅读表见 MEMORY 第 5 节。每轮注入，不依赖 Skill。
+alwaysApply: true
+---
+
+# 项目记忆
+
+改代码前默认只读 `docs/memory/MEMORY.md`。不要每个任务把 memory 目录读全。
+对照条目再读 REQUIREMENTS；模块/选型再读 FRAMEWORK；端到端怎么走再读 FLOW；现状再读 ENVIRONMENT。答不出 MEMORY 门闸则禁止编码。
+维护哪些文件、口令：只看 MEMORY 第 5–6 节，此处不重复。
+MEMORY 只改各阶段一句话和约束/入口，禁止粘源文件正文；变更追加 ITERATION。
+大任务要 Plan 或写代码：FRAMEWORK 仍空则先提醒【框架讨论】；FLOW 仍空则先提醒【实现流程】。用户确认跳过或声明小任务后才能动手。
+**技术选型硬阀门：** 每一项技术栈必须用户明确同意后才能写入 FRAMEWORK 或据此编码。禁止自行拍板。细则见 MEMORY 第 3 节与第 7 节。
+缺文件：同名补回；先恢复 git/旧内容，禁止静默用空模板盖进度。
