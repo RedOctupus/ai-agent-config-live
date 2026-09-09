@@ -31,5 +31,5 @@ agent-skills/
 | 夹 | 技能 |
 |---|---|
 | portable | anchoring-persona-memory |
-| cursor | anchoring-persona-memory, book-to-skill, ai-agents-in-depth-zh-cn, project-memory-kit, persona-jailbreak-inject, zimage-scene-image, codebase-to-course |
+| cursor | anchoring-persona-memory, book-to-skill, ai-agents-in-depth-zh-cn, project-memory-kit, persona-jailbreak-inject, zimage-scene-image, codebase-to-course, parallel-collaboration（总控）, collaboration-contract, compatibility-layer, mock-collaboration, legacy-mock-cleanup |
 | claude | canvas-design, notebook-tutor, task-framework, code-example, temp-literature-search, project-memory-kit |
