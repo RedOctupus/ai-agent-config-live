@@ -14,7 +14,8 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 - **只往远程更新**：本机 `~/.cursor/skills` → 本仓库；有变化才提交推送。
 - **不自动拉本机、不自动注册**：除非明确说从远端拉某个技能下来用。
 - **目录**：目前一个运行时夹里平铺；成套技能放 `cursor/suites/`。以后技能多了可能再分类。
-- **不含**：Cursor 内置 `skills-cursor`、插件技能（如 superpowers 插件缓存）。
+- **含 Superpowers 插件技能备份**：落到 `agent-skills/cursor/plugins/superpowers/`（来自插件缓存，不是 `~/.cursor/skills`）。
+- **不含**：Cursor 内置 `skills-cursor`；其他插件默认仍不备份。
 
 ## Quick Recovery
 
