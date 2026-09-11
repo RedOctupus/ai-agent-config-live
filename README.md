@@ -6,6 +6,16 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 **Hermes:** v0.14.0 (DeepSeek v4 Pro)  
 **Last sync:** 2026-05-24
 
+
+## Cursor 个人技能备份规则
+
+仓库：`agent-skills/cursor/`（详见 [`agent-skills/README.md`](agent-skills/README.md)）。
+
+- **只往远程更新**：本机 `~/.cursor/skills` → 本仓库；有变化才提交推送。
+- **不自动拉本机、不自动注册**：除非明确说从远端拉某个技能下来用。
+- **目录**：目前一个运行时夹里平铺；成套技能放 `cursor/suites/`。以后技能多了可能再分类。
+- **不含**：Cursor 内置 `skills-cursor`、插件技能（如 superpowers 插件缓存）。
+
 ## Quick Recovery
 
 ```bash
@@ -33,8 +43,10 @@ hermes
 │   ├── config.yaml        ← Key settings (no API keys)
 │   ├── SOUL.md            ← Agent persona
 │   └── .env.template      ← Required env vars
-├── skills/                ← Full skill backup (89 skills)
+├── skills/                ← Hermes skill backup
 │   └── <category>/<name>/SKILL.md
+├── agent-skills/          ← 按运行时分类的个人技能（Cursor/Claude/portable）
+│   └── cursor/            ← 平铺技能 + suites/ 成套技能
 ├── memory/                ← Persistent memory exports
 │   ├── user-profile.md
 │   ├── environment.md
