@@ -13,7 +13,14 @@
 - **当前进度：**（一句话 + 关键数字）
 - **端到端 / 测试覆盖：** 一行一个 TEST-LOG 指针（细节回 `tests/`）
 - **已拍板（跨线规则）：** 一行一条，只留结论
-- **工作分支：** 分支名 + HEAD
+- **工作分支：** 分支名 + HEAD（HEAD 易腐：大任务开始前 `git rev-parse --short HEAD` 校准；不确定就只留分支名）
+
+**正反例（只留指针，不贴正文）：**
+
+| ❌ 坏（贴正文进 §0） | ✅ 好（一句话 + 指针） |
+| --- | --- |
+| `多轮对话三缺陷：RAG 只用当前消息……逐条 +90/−20` | `多轮对话三缺陷：见 [ITERATION](ITERATION.md)` |
+| `E2E 第 5 轮 137/6 逐用例结论…` | `E2E 补测：见 [TEST-LOG](tests/…)` |
 
 ------
 
@@ -92,7 +99,7 @@
 | `docs/memory/FLOW.md` | 人定型，Agent 同步链路 | 实现流程定稿或端到端怎么走变了 |
 | `docs/memory/TODO.md` | Agent 随任务 | 大任务开始/完成打钩。只留项目级进行中/待办/已完成，不堆聊天清单 |
 | `docs/memory/ITERATION.md` | Agent | 目的/范围/条目/框架/链路变更时追加 |
-| `docs/memory/tests/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制 |
+| `docs/memory/tests/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制；**里程碑后旧 TEST-LOG 归档 `tests/_archive/`** |
 | 项目根 `AGENTS.md` | Init 由 `templates/AGENTS.md` 生成 | Claude Code / 非 Cursor Agent 的**常驻管理文件**；不读 `.cursor` 的 Agent 以它为准 |
 | `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
@@ -134,6 +141,8 @@
 | 大任务定型、Ask / Plan、讨论顺序不清 | `references/collaboration.md` |
 | 不确定改法、高风险、测试汇报怎么写 | `references/agent-rules.md` |
 | 用户点名要工程脚手架 | `references/scaffold.md` |
+| 已有 `docs/memory/` 但不符合本骨架（存量收敛） | `references/migration.md` |
+| 项目有多个维护者 / 多模块 | `references/team.md` |
 
 禁止：为了「保险」每个任务都把 references 读一遍；禁止把 references 拷进业务项目。
 
@@ -157,6 +166,17 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 - 小改动若各阶段一句话和约束都没变：**不要**改 MEMORY。
 - **测试 / 验收战报不进 MEMORY。** E2E 逐轮结果、逐缺陷状态、复跑取证 → 写 `tests/` 各 TEST-LOG；MEMORY（含 §0）只留一句「见 [TEST-LOG](...)」指针。
 - **测试取证不入库。** 截图 / 原始 JSON / stdout / SQL 快照 → 放 `tests/*/_raw/`，并在 `.gitignore` 加 `docs/memory/tests/*/_raw/shots/`；只提交手写的 TEST-LOG `.md`。
+
+**裁剪门闸（超了就裁，别等它自己瘦）：**
+
+触发：`python scripts/check-memory-size.py` 报超阈值（全文 >200 行 / §0 >15 行），或单节明显超 40 行。
+
+怎么裁（只外移，不删除）：
+1. 逐轮战报 / 逐缺陷状态 / E2E 明细 → 回 `tests/` 各 TEST-LOG，MEMORY 只留指针。
+2. 模块 / 仓库地图 / 文件索引 → 挪到 `FRAMEWORK.md`。
+3. 源文件正文 → 删掉，留源文件名。
+4. 已过里程碑的正文 → 挪到 `ITERATION.md`（变更史）。
+5. 裁完再跑一次 check，达标再动手。
 
 ------
 

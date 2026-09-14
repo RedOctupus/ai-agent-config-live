@@ -33,9 +33,19 @@ AGENTS.md
 
 Windows 示例：`C:\Users\Windows\.cursor\skills\project-memory-kit\`
 
-改完治理框架里的源之后，再拷一次覆盖个人 skills，否则两套会分叉。
+改完治理框架里的源之后，必须 re-copy 覆盖两处个人 skills，否则分叉：
 
-仍可用：把本仓库加进工作区，或对话里 `@SKILL.md`。
+```text
+源（治理框架 project-memory-kit/）
+  → %USERPROFILE%\.cursor\skills\project-memory-kit\    （Cursor）
+  → %USERPROFILE%\.claude\skills\project-memory-kit\     （Claude Code）
+```
+
+同步范围：`SKILL.md`、`README.md`、`templates/`、`references/`、`scripts/`；**排除 `_sandbox/`**。改完 `diff -r` 校验一致。
+
+仍可用：把本仓库加进工作区，或对话里 `@SKILL.md`。已有 `docs/memory/` 但不合骨架 → 走 `references/migration.md` 收敛。
+
+体量自检：`python scripts/check-memory-size.py [docs/memory/MEMORY.md]`，超阈值（全文 >200 / §0 >15）exit 1，裁剪 SOP 见 `templates/MEMORY.md` §5。
 
 ## 几份文档各写什么
 
@@ -52,3 +62,7 @@ Windows 示例：`C:\Users\Windows\.cursor\skills\project-memory-kit\`
 **只有服务对象真实办事方式变了**才改 ENVIRONMENT。不要把源文件正文堆进 MEMORY。
 
 日常阅读规则（含 TODO、测试日志、待办、`references/`）在项目里的 `MEMORY.md` 第 5 节，**不在**这份 README 里。Skill 只负责 init 和按需打开 `references/`。
+
+## 多人 / 多模块
+
+多个维护者 / 多模块、或有跨模块共享层（DB / 认证 / 接口）时 → `references/team.md`：按模块拆目录、owner 认领、大记忆不可动、共享层变更协议、merge 策略、kit 分发。

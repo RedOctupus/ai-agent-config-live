@@ -35,6 +35,8 @@ AGENTS.md
 - 协作 / 模式选择：[references/collaboration.md](references/collaboration.md)
 - 阅读、最小修改、测试汇报：[references/agent-rules.md](references/agent-rules.md)
 - MVC 与工程骨架：[references/scaffold.md](references/scaffold.md)
+- 存量项目收敛：[references/migration.md](references/migration.md)
+- 多人 / 多模块维护：[references/team.md](references/team.md)
 
 ## 本 Skill 何时打开（不是日常阅读策略）
 
@@ -48,12 +50,14 @@ AGENTS.md
 | 大任务定型、Ask/Plan | [references/collaboration.md](references/collaboration.md) |
 | 不确定改法、怎么验 | [references/agent-rules.md](references/agent-rules.md) |
 | 用户点名工程脚手架 | [references/scaffold.md](references/scaffold.md) |
+| 已有 memory 但不符合骨架（收敛） | [references/migration.md](references/migration.md) |
+| 项目有多个维护者 / 多模块 | [references/team.md](references/team.md) |
 
 ## Init（用户说 init 新项目 / 初始化项目记忆）
 
 目标目录：当前工作区根；若用户指定了路径，用用户路径。
 
-1. 若目标已有完整 `docs/memory/MEMORY.md`，不要覆盖；询问是否只补缺文件。
+1. 若目标已有 `docs/memory/MEMORY.md`：结构不合骨架（缺源文件 / 超长 / 战报堆正文）→ 走 [references/migration.md](references/migration.md) 收敛；结构已合则只补缺文件、不覆盖。
 2. 从本 Skill 的 `templates/` 拷贝（本 SKILL.md 所在目录为 kit 根）：
 
 | 源 | 目标 |
@@ -69,6 +73,8 @@ AGENTS.md
 | `templates/AGENTS.md` | 项目根 `AGENTS.md`（已有则合并指针，不抹掉用户原文） |
 | `templates/cursor-rule.mdc` | `.cursor/rules/project-memory.mdc` |
 
+多模块 / 多人：走 [references/team.md](references/team.md)；根索引用 `templates/ROOT-MEMORY.md`、认领表用 `templates/OWNERS.md`，模块子目录复用上表单项目模板。
+
 3. 只填 MEMORY 里立刻知道的项（文件夹名、当前阶段若用户已说）。其余留空，不编造业务。
 4. **默认只 init 记忆目录。** 仅当用户明确要工程脚手架时，再按 `references/scaffold.md` 生成 `.gitignore`、`.env.example`、`README.md` 骨架。不要默认生成 RBAC、JWT、Docker。
 5. 向用户汇报创建了哪些路径。
@@ -79,7 +85,7 @@ AGENTS.md
 
 | 事件 | 动作 |
 | --- | --- |
-| 大任务开始 | 对齐 `ENVIRONMENT.md`；需求写入 `REQUIREMENTS.md`；框架写入 `FRAMEWORK.md`（**每一项技术栈须用户确认后才能当作已定**）；实现流程写入 `FLOW.md`；MEMORY 只改对应一句话；再更新 `TODO.md` |
+| 大任务开始 | 对齐 `ENVIRONMENT.md`；需求写入 `REQUIREMENTS.md`；框架写入 `FRAMEWORK.md`（**每一项技术栈须用户确认后才能当作已定**）；实现流程写入 `FLOW.md`；MEMORY 只改对应一句话；再更新 `TODO.md`；**先跑 `python scripts/check-memory-size.py` 校验体量（超阈值先裁剪）并刷新 §0 HEAD** |
 | 需求讨论定稿或条目增删 | 改 `REQUIREMENTS.md`；目的一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
 | 选型或模块变更 | 先与用户确认该技术栈；再改 `FRAMEWORK.md`；骨架一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
 | 实现流程变更 | 改 `FLOW.md`；链路一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
@@ -113,6 +119,19 @@ AGENTS.md
 ## 测试日志文件名
 
 `docs/memory/tests/YYYYMMDD-短任务名.md`，例如 `20260828-milvus-bm25.md`。
+
+每个里程碑收口后，把旧的 TEST-LOG 挪到 `docs/memory/tests/_archive/`，MEMORY §0 只留最近里程碑的指针，避免 `tests/` 无限累积。
+
+## 改 kit 本身（同步）
+
+改本 Skill 源（课程治理框架里的 `project-memory-kit/`）后，必须 re-copy 到个人 skills 并 diff 校验，否则两套分叉：
+
+```text
+源 → %USERPROFILE%\.cursor\skills\project-memory-kit\   （Cursor）
+源 → %USERPROFILE%\.claude\skills\project-memory-kit\    （Claude Code）
+```
+
+同步范围：`SKILL.md`、`README.md`、`templates/`、`references/`、`scripts/`；排除 `_sandbox/`。改完 `diff -r` 确认一致。
 
 ## 明确不做
 
