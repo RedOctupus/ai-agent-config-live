@@ -2,7 +2,7 @@
 """检查 docs/memory/MEMORY.md 的体量是否在 kit 约定的预算内。
 
 规则（与 templates/MEMORY.md §5「体量」节一致）：
-- 全文 ≤ ~200 行
+- 全文 ≤ ~400 行
 - §0「交接清单」≤ ~15 行（多模块根索引 / 模块 mini 若无此节，§0 计 0，只查全文）
 
 用法：
@@ -17,7 +17,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
-TOTAL_BUDGET = 200
+TOTAL_BUDGET = 400
 SECTION0_BUDGET = 15
 
 

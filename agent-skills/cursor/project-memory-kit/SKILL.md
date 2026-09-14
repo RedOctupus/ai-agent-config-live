@@ -58,7 +58,7 @@ AGENTS.md
 目标目录：当前工作区根；若用户指定了路径，用用户路径。
 
 1. 若目标已有 `docs/memory/MEMORY.md`：结构不合骨架（缺源文件 / 超长 / 战报堆正文）→ 走 [references/migration.md](references/migration.md) 收敛；结构已合则只补缺文件、不覆盖。
-2. 从本 Skill 的 `templates/` 拷贝（本 SKILL.md 所在目录为 kit 根）：
+2. 从本 Skill 的 `templates/` 与 `scripts/` 拷贝（本 SKILL.md 所在目录为 kit 根）：
 
 | 源 | 目标 |
 | --- | --- |
@@ -70,13 +70,14 @@ AGENTS.md
 | `templates/ENVIRONMENT.md` | `docs/memory/ENVIRONMENT.md` |
 | `templates/ITERATION.md` | `docs/memory/ITERATION.md` |
 | `templates/tests/_TEMPLATE.md` | `docs/memory/tests/_TEMPLATE.md` |
+| `scripts/check-memory-size.py` | `scripts/check-memory-size.py`（体量门闸；AGENTS.md / MEMORY 按**项目内相对路径**调用它，故须随 init 落地，否则那条命令在项目根直接失败） |
 | `templates/AGENTS.md` | 项目根 `AGENTS.md`（已有则合并指针，不抹掉用户原文） |
 | `templates/cursor-rule.mdc` | `.cursor/rules/project-memory.mdc` |
 
 多模块 / 多人：走 [references/team.md](references/team.md)；根索引用 `templates/ROOT-MEMORY.md`、认领表用 `templates/OWNERS.md`，模块子目录复用上表单项目模板。
 
 3. 只填 MEMORY 里立刻知道的项（文件夹名、当前阶段若用户已说）。其余留空，不编造业务。
-4. **默认只 init 记忆目录。** 仅当用户明确要工程脚手架时，再按 `references/scaffold.md` 生成 `.gitignore`、`.env.example`、`README.md` 骨架。不要默认生成 RBAC、JWT、Docker。
+4. **默认只 init 记忆目录 + 体量门闸脚本。** 仅当用户明确要工程脚手架时，再按 `references/scaffold.md` 生成 `.gitignore`、`.env.example`、`README.md` 骨架。不要默认生成 RBAC、JWT、Docker。
 5. 向用户汇报创建了哪些路径。
 
 ## 日常维护（已 init）

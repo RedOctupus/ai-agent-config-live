@@ -17,7 +17,7 @@
    - 选型 / 能力模块 / 分层 / 仓库地图 → `FRAMEWORK.md`
    - 端到端怎么走 → `FLOW.md`
    - 变更史 → `ITERATION.md`
-4. **MEMORY 裁回 ≤200 行**：只留各阶段一句话 + 约束/入口 + §0 指针；跑 `python scripts/check-memory-size.py` 确认达标。
+4. **MEMORY 裁回 ≤400 行**：只留各阶段一句话 + 约束/入口 + §0 指针；跑 `python scripts/check-memory-size.py` 确认达标。
 5. **不可丢内容用指针保留**：任何舍不得删的正文，都放回对应源文件，MEMORY 里留「见 X.md」指针，而不是留在 MEMORY 里。
 
 ## 注意

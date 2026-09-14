@@ -6,7 +6,7 @@
 
 1. 本机已同步到 `%USERPROFILE%\.cursor\skills\project-memory-kit\` 时，任意仓库说 `init 新项目` 即可（新开的 Cursor 窗口才一定加载得到）。
 2. 否则：把治理框架加进工作区，或 `@SKILL.md`。
-3. Agent 把 `templates/` 拷到目标项目：
+3. Agent 把 `templates/` 与体量门闸脚本拷到目标项目：
 
 ```text
 docs/memory/MEMORY.md       # 各阶段一句话快照、约束、入口
@@ -17,11 +17,12 @@ docs/memory/FLOW.md         # 实现流程
 docs/memory/TODO.md
 docs/memory/ITERATION.md
 docs/memory/tests/_TEMPLATE.md
+scripts/check-memory-size.py # 体量门闸（模板按项目内相对路径调用，故须随 init 落地）
 AGENTS.md
 .cursor/rules/project-memory.mdc
 ```
 
-默认**只** init 记忆目录。要 `.gitignore` / `.env.example` / `README.md` 骨架时，需另外点名「工程脚手架」。
+默认**只** init 记忆目录 + 上述脚本。要 `.gitignore` / `.env.example` / `README.md` 骨架时，需另外点名「工程脚手架」。
 
 ## 希望任意仓库随口都能 init
 
@@ -45,7 +46,7 @@ Windows 示例：`C:\Users\Windows\.cursor\skills\project-memory-kit\`
 
 仍可用：把本仓库加进工作区，或对话里 `@SKILL.md`。已有 `docs/memory/` 但不合骨架 → 走 `references/migration.md` 收敛。
 
-体量自检：`python scripts/check-memory-size.py [docs/memory/MEMORY.md]`，超阈值（全文 >200 / §0 >15）exit 1，裁剪 SOP 见 `templates/MEMORY.md` §5。
+体量自检：`python scripts/check-memory-size.py [docs/memory/MEMORY.md]`，超阈值（全文 >400 / §0 >15）exit 1，裁剪 SOP 见 `templates/MEMORY.md` §5。
 
 ## 几份文档各写什么
 
