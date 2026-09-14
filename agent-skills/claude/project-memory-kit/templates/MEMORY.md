@@ -5,6 +5,18 @@
 
 ------
 
+## 0. 交接清单（可选 · ≤ 15 行）
+
+> 给无上下文的新 Agent 5 分钟交接。**只放指针和一句话结论，禁放逐轮战报、逐缺陷状态、E2E 明细**——那些回 `tests/` 各 TEST-LOG。
+
+- **项目是什么：**（一句话）
+- **当前进度：**（一句话 + 关键数字）
+- **端到端 / 测试覆盖：** 一行一个 TEST-LOG 指针（细节回 `tests/`）
+- **已拍板（跨线规则）：** 一行一条，只留结论
+- **工作分支：** 分支名 + HEAD
+
+------
+
 ## 1. 项目简介
 
 - **名称：**
@@ -81,7 +93,11 @@
 | `docs/memory/TODO.md` | Agent 随任务 | 大任务开始/完成打钩。只留项目级进行中/待办/已完成，不堆聊天清单 |
 | `docs/memory/ITERATION.md` | Agent | 目的/范围/条目/框架/链路变更时追加 |
 | `docs/memory/tests/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制 |
+| 项目根 `AGENTS.md` | Init 由 `templates/AGENTS.md` 生成 | Claude Code / 非 Cursor Agent 的**常驻管理文件**；不读 `.cursor` 的 Agent 以它为准 |
+| `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
+
+> **编辑器部署：** 本 Skill 部署到 **Cursor** 落在 `.cursor/rules/project-memory.mdc`（rules，每轮注入）；**Claude Code** 等不读 `.cursor` 的 Agent 用项目根 `AGENTS.md` 作**等价管理文件**。两者同源，都只做「读 `docs/memory/MEMORY.md` + 门闸提醒」，正文仍只在 `docs/memory/`。
 
 ### 阅读策略（默认只读 MEMORY）
 
@@ -139,6 +155,8 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 - **超了就外移。** 单节超过约 40 行：删细节，留源文件名。
 - **全文建议不超过约 200 行。**
 - 小改动若各阶段一句话和约束都没变：**不要**改 MEMORY。
+- **测试 / 验收战报不进 MEMORY。** E2E 逐轮结果、逐缺陷状态、复跑取证 → 写 `tests/` 各 TEST-LOG；MEMORY（含 §0）只留一句「见 [TEST-LOG](...)」指针。
+- **测试取证不入库。** 截图 / 原始 JSON / stdout / SQL 快照 → 放 `tests/*/_raw/`，并在 `.gitignore` 加 `docs/memory/tests/*/_raw/shots/`；只提交手写的 TEST-LOG `.md`。
 
 ------
 

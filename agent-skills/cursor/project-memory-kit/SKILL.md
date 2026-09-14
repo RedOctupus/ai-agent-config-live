@@ -90,6 +90,8 @@ AGENTS.md
 
 更新 MEMORY 时：**只改快照一句话和约束/入口，禁止往里粘源文件正文。** 变更记录只追加 `ITERATION.md`。详见 MEMORY 模板「体量」节。
 
+测试 / 验收：新建 `tests/YYYYMMDD-任务名.md` 写战报；逐轮结果、逐缺陷状态、复跑取证只进 `tests/`，**不进 MEMORY**；截图 / 原始 JSON / stdout 放 `tests/*/_raw/` 并 `.gitignore` 掉 `_raw/shots/`，只提交手写 `.md`。
+
 **不**在日常任务里创建行事哲学 01~05、`references/` 副本、额外哲学文档。
 
 缺约定文件（被删或 init 不完整）：
