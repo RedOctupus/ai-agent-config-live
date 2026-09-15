@@ -5,7 +5,7 @@
 
 ------
 
-## 0. 交接清单（可选 · ≤ 15 行）
+## 0. 交接清单（可选 · ≤ 15 行 / ≤ 900 字符）
 
 > 给无上下文的新 Agent 5 分钟交接。**只放指针和一句话结论，禁放逐轮战报、逐缺陷状态、E2E 明细**——那些回 `tests/` 各 TEST-LOG。
 
@@ -124,7 +124,8 @@
 
 **Skill `references/`（不在本仓库）**
 
-位置：`%USERPROFILE%\.cursor\skills\project-memory-kit\references\`，或治理框架工作区里的同名目录。
+位置：本机安装的 `%USERPROFILE%\.claude\skills\project-memory-kit\references\`（Cursor 下为 `%USERPROFILE%\.cursor\skills\...`）。
+权威源：[github.com/RedOctupus/ai-agent-config-live](https://github.com/RedOctupus/ai-agent-config-live) 的 `agent-skills/`。
 
 | 这时才打开 | 文件 |
 | --- | --- |
@@ -153,10 +154,12 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 
 - **改写快照，不堆历史。** 源文件改了，只在某阶段一句话变了时改本表；小改动若各阶段一句话和约束都没变，**不要**动 MEMORY。
 - **超了就外移。** 单节 >40 行删细节留文件名；全文 >400 行走下方裁剪门闸。
+- **指针也会堆（行数看不出来）。** §0 是「一句话 + 指针」的写法，每加一份 TEST-LOG 链接它就长一截 —— **行数不动，字符在涨**，只数行的门闸一次都不会响。所以 §0 **≤ 15 行 且 ≤ 900 字符**，**单行 ≤ 300 字符**。
+  超了别只是删链接：把旧 TEST-LOG 归档到 `tests/_archive/`，§0 只留**最近一份**，更早的合并成一句「更早见 `tests/`」。
 - **战报不进 MEMORY。** E2E 逐轮结果 / 逐缺陷状态 / 复跑取证 → `tests/` 各 TEST-LOG，MEMORY（含 §0）只留一句指针。
-- **取证不入库。** 截图 / 原始 JSON / stdout / SQL 快照 → `tests/*/_raw/`，并在 `.gitignore` 加 `docs/memory/tests/*/_raw/shots/`；只提交手写的 TEST-LOG `.md`。
+- **取证不入库。** 截图 / 原始 JSON / stdout / SQL 快照 → `docs/memory/tests/_raw/`，`.gitignore` 加同名路径；只提交手写的 TEST-LOG `.md`。（`tests/` 若按任务分子目录，则用 `docs/memory/tests/*/_raw/`。）
 
-**裁剪门闸（超了就裁，别等它自己瘦）：** 跑 `python scripts/check-memory-size.py`，报超阈值（全文 >400 / §0 >15）或单节明显 >40 行即触发。**只外移，不删除：** ① 战报 / 缺陷状态 / E2E 明细 → `tests/`，MEMORY 留指针 ② 模块 / 仓库地图 / 文件索引 → `FRAMEWORK.md` ③ 源文件正文 → 删掉，留文件名 ④ 已过里程碑的正文 → `ITERATION.md`。裁完再跑一次 check，达标再动手。
+**裁剪门闸（超了就裁，别等它自己瘦）：** 跑 `python scripts/check-memory-size.py`，报超阈值（全文 >400 行 / §0 >15 行或 >900 字符 / 单行 >300 字符）或单节明显 >40 行即触发。**只外移，不删除：** ① 战报 / 缺陷状态 / E2E 明细 → `tests/`，MEMORY 留指针 ② 模块 / 仓库地图 / 文件索引 → `FRAMEWORK.md` ③ 源文件正文 → 删掉，留文件名 ④ 已过里程碑的正文 → `ITERATION.md`。裁完再跑一次 check，达标再动手。
 
 ------
 

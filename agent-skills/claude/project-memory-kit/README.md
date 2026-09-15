@@ -5,7 +5,7 @@
 ## 新项目怎么 init
 
 1. 本机已同步到 `%USERPROFILE%\.cursor\skills\project-memory-kit\` 时，任意仓库说 `init 新项目` 即可（新开的 Cursor 窗口才一定加载得到）。
-2. 否则：把治理框架加进工作区，或 `@SKILL.md`。
+2. 否则：从权威源 [github.com/RedOctupus/ai-agent-config-live](https://github.com/RedOctupus/ai-agent-config-live) 的 `agent-skills/<你的 Agent>/project-memory-kit/` 取，或对话里 `@SKILL.md`。
 3. Agent 把 `templates/` 与体量门闸脚本拷到目标项目：
 
 ```text
@@ -34,19 +34,25 @@ AGENTS.md
 
 Windows 示例：`C:\Users\Windows\.cursor\skills\project-memory-kit\`
 
-改完治理框架里的源之后，必须 re-copy 覆盖两处个人 skills，否则分叉：
+**权威源在远端仓库，不在本机：**
 
 ```text
-源（治理框架 project-memory-kit/）
-  → %USERPROFILE%\.cursor\skills\project-memory-kit\    （Cursor）
-  → %USERPROFILE%\.claude\skills\project-memory-kit\     （Claude Code）
+https://github.com/RedOctupus/ai-agent-config-live
+  └── agent-skills/claude/project-memory-kit/    ← Claude Code 副本
+  └── agent-skills/cursor/project-memory-kit/    ← Cursor 副本
+
+装到本机（由上面拷贝，不是源）：
+  → %USERPROFILE%\.claude\skills\project-memory-kit\
+  → %USERPROFILE%\.cursor\skills\project-memory-kit\
 ```
 
-同步范围：`SKILL.md`、`README.md`、`templates/`、`references/`、`scripts/`；**排除 `_sandbox/`**。改完 `diff -r` 校验一致。
+改任一副本 → push 到该仓库 → 另一份同步 → `diff -r` 校验逐字一致，否则分叉。
+
+同步范围：`SKILL.md`、`README.md`、`templates/`、`references/`、`scripts/`；**排除 `_sandbox/`**。
 
 仍可用：把本仓库加进工作区，或对话里 `@SKILL.md`。已有 `docs/memory/` 但不合骨架 → 走 `references/migration.md` 收敛。
 
-体量自检：`python scripts/check-memory-size.py [docs/memory/MEMORY.md]`，超阈值（全文 >400 / §0 >15）exit 1，裁剪 SOP 见 `templates/MEMORY.md` §5。
+体量自检：`python scripts/check-memory-size.py [docs/memory/MEMORY.md]`，超阈值（全文 >400 行 / §0 >15 行或 >900 字符 / 单行 >300 字符）exit 1，裁剪 SOP 见 `templates/MEMORY.md` §5。
 
 ## 几份文档各写什么
 

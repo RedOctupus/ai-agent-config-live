@@ -77,8 +77,13 @@ AGENTS.md
 多模块 / 多人：走 [references/team.md](references/team.md)；根索引用 `templates/ROOT-MEMORY.md`、认领表用 `templates/OWNERS.md`，模块子目录复用上表单项目模板。
 
 3. 只填 MEMORY 里立刻知道的项（文件夹名、当前阶段若用户已说）。其余留空，不编造业务。
-4. **默认只 init 记忆目录 + 体量门闸脚本。** 仅当用户明确要工程脚手架时，再按 `references/scaffold.md` 生成 `.gitignore`、`.env.example`、`README.md` 骨架。不要默认生成 RBAC、JWT、Docker。
-5. 向用户汇报创建了哪些路径。
+4. **老项目补句**：目标已有 `AGENTS.md` 或 `.cursor/rules/project-memory.mdc` 时（常见于早先 init 的项目），除合并指针外逐条核对是否带下面两句，**缺则补**：
+   - 「**改完就同步记忆，别等用户问。** …」—— 没有它，Agent 不会主动维护记忆，全靠用户想起来催
+   - 「大任务开始前先跑 `python scripts/check-memory-size.py` …」
+
+   只补这两句，不重写用户原文。
+5. **默认只 init 记忆目录 + 体量门闸脚本。** 仅当用户明确要工程脚手架时，再按 `references/scaffold.md` 生成 `.gitignore`、`.env.example`、`README.md` 骨架。不要默认生成 RBAC、JWT、Docker。
+6. 向用户汇报创建了哪些路径。
 
 ## 日常维护（已 init）
 
@@ -97,7 +102,7 @@ AGENTS.md
 
 更新 MEMORY 时：**只改快照一句话和约束/入口，禁止往里粘源文件正文。** 变更记录只追加 `ITERATION.md`。详见 MEMORY 模板「体量」节。
 
-测试 / 验收：新建 `tests/YYYYMMDD-任务名.md` 写战报；逐轮结果、逐缺陷状态、复跑取证只进 `tests/`，**不进 MEMORY**；截图 / 原始 JSON / stdout 放 `tests/*/_raw/` 并 `.gitignore` 掉 `_raw/shots/`，只提交手写 `.md`。
+测试 / 验收：新建 `tests/YYYYMMDD-任务名.md` 写战报；逐轮结果、逐缺陷状态、复跑取证只进 `tests/`，**不进 MEMORY**；截图 / 原始 JSON / stdout 放 `docs/memory/tests/_raw/`，`.gitignore` 加同名路径，只提交手写 `.md`（`tests/` 若按任务分子目录，则用 `docs/memory/tests/*/_raw/`）。
 
 **不**在日常任务里创建行事哲学 01~05、`references/` 副本、额外哲学文档。
 
@@ -125,14 +130,25 @@ AGENTS.md
 
 ## 改 kit 本身（同步）
 
-改本 Skill 源（课程治理框架里的 `project-memory-kit/`）后，必须 re-copy 到个人 skills 并 diff 校验，否则两套分叉：
+**权威源在远端仓库，不在本机。**
 
 ```text
-源 → %USERPROFILE%\.cursor\skills\project-memory-kit\   （Cursor）
-源 → %USERPROFILE%\.claude\skills\project-memory-kit\    （Claude Code）
+https://github.com/RedOctupus/ai-agent-config-live
+  └── agent-skills/claude/project-memory-kit/    ← Claude Code 副本
+  └── agent-skills/cursor/project-memory-kit/    ← Cursor 副本
 ```
 
-同步范围：`SKILL.md`、`README.md`、`templates/`、`references/`、`scripts/`；排除 `_sandbox/`。改完 `diff -r` 确认一致。
+改动流程：改任一副本 → push 到该仓库 → 另一份同步 → **`diff -r` 校验逐字一致**。
+（两份分叉过一次，别再让它发生。）
+
+本机这两处是由远端拷贝来的**安装位置，不是源**：
+
+```text
+%USERPROFILE%\.claude\skills\project-memory-kit\
+%USERPROFILE%\.cursor\skills\project-memory-kit\
+```
+
+同步范围：`SKILL.md`、`README.md`、`templates/`、`references/`、`scripts/`；排除 `_sandbox/`。
 
 ## 明确不做
 
