@@ -26,6 +26,7 @@ docs/memory/FLOW.md         # 实现流程：端到端怎么走
 docs/memory/TODO.md
 docs/memory/ITERATION.md
 docs/memory/HANDOVER.md     # 跨阶段必知事实（可增删改，非追加）
+docs/memory/REFERENCES.md   # 外部对标 / 外部系统 / 来源的地址簿（可增删改）
 docs/memory/tests/YYYYMMDD-任务名.md
 AGENTS.md
 .cursor/rules/project-memory.mdc
@@ -71,6 +72,7 @@ AGENTS.md
 | `templates/ENVIRONMENT.md` | `docs/memory/ENVIRONMENT.md` |
 | `templates/ITERATION.md` | `docs/memory/ITERATION.md` |
 | `templates/HANDOVER.md` | `docs/memory/HANDOVER.md` |
+| `templates/REFERENCES.md` | `docs/memory/REFERENCES.md` |
 | `templates/tests/_TEMPLATE.md` | `docs/memory/tests/_TEMPLATE.md` |
 | `scripts/check-memory-size.py` | `scripts/check-memory-size.py`（体量门闸；AGENTS.md / MEMORY 按**项目内相对路径**调用它，故须随 init 落地，否则那条命令在项目根直接失败） |
 | `templates/AGENTS.md` | 项目根 `AGENTS.md`（已有则合并指针，不抹掉用户原文） |
@@ -100,6 +102,7 @@ AGENTS.md
 | 交付 / 验收相关改动 | 新建 `docs/memory/tests/YYYYMMDD-任务名.md`（用 `_TEMPLATE.md`） |
 | 服务对象**真实办事方式**变了 | 才更新 `ENVIRONMENT.md`；大环境一句话变了才改 MEMORY 快照 |
 | 发现 / 修改**跨阶段必知事实**（环境、路径、账号位置、工具版本、研究结论、坑、已排除的路） | 改 `HANDOVER.md`（**行内改，可增删**，不是追加）；刷新该条「核实日期」与顶部「最后核实」；追加一行 `ITERATION.md`（影响写 `HANDOVER.md`）；MEMORY 不动 |
+| 新增 / 删除**外部对标、外部系统、来源地址**（对标产品文档、外部服务端点与本机路径、参考仓库 @ commit） | 改 `REFERENCES.md`（**行内改，可增删**）；研究正文另写 `tests/` 一份、这里只留指针；追加一行 `ITERATION.md`（影响写 `REFERENCES.md`）；MEMORY 不动 |
 | 项目里程碑 | 源文件若变了就改源文件；MEMORY 只改变了的那句快照；追加 `ITERATION.md`；**默认不改大环境** |
 | 小改动 | 仅当状态变化时改 MEMORY/TODO；不强制写源文件或测试日志 |
 
@@ -125,6 +128,7 @@ AGENTS.md
 - 选型 / 能力模块 / 分层 → 影响 FRAMEWORK
 - 端到端怎么走 → 影响 FLOW
 - 跨阶段必知事实（环境 / 路径 / 账号位置 / 工具 / 结论 / 坑）→ 影响 HANDOVER
+- 外部对标 / 外部系统 / 来源地址 → 影响 REFERENCES
 
 ## 测试日志文件名
 

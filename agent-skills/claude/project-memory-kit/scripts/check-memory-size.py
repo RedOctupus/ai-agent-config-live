@@ -17,6 +17,11 @@
 HANDOVER 是「必知事实」的终点——没有 tests/ 那样的外移退路，「超了就裁」的 SOP 在那里不成立
 （过期事实该删、现状事实必须留）。过提醒线时该做的是逐条问「这条还成立吗」，不成立就删。
 
+同样**顺带报告**同目录 REFERENCES.md 的**行数与条目数**（条目 = 行首 "## "），超过 80 行时提醒：
+**只提醒，不影响退出码**。地址簿的真实故障不是「太长」，而是「某一条慢慢变成研究正文」
+（实测踩过：把研究正文写进地址簿，最后不得不整段移出去）。约束写在 templates/REFERENCES.md
+正文里，这里只给一个可见的数字，不替人做判断。
+
 用法：
     python scripts/check-memory-size.py [path/to/MEMORY.md]
 默认路径：docs/memory/MEMORY.md
@@ -35,6 +40,7 @@ SECTION0_BUDGET = 15
 SECTION0_CHAR_BUDGET = 900
 LINE_CHAR_BUDGET = 300
 HANDOVER_WARN_LINES = 200
+REFERENCES_WARN_LINES = 80
 
 
 def report_handover(memory_path: str) -> None:
@@ -55,6 +61,31 @@ def report_handover(memory_path: str) -> None:
         print(
             f"  ⚠ HANDOVER 全文 {n} 行 > 提醒线 {HANDOVER_WARN_LINES}：逐条问「这条还成立吗」，"
             "不成立就删。它是必知事实的终点、没有外移退路，唯一瘦身方式是删。"
+        )
+
+
+def report_references(memory_path: str) -> None:
+    """顺带报告同目录 REFERENCES.md 的行数与条目数。只报告，无预算，不参与退出码。
+
+    条目 = 行首 "## " 的行（templates/REFERENCES.md 约定：每条参考用 ##，说明性段落不用）。
+    """
+    refs = os.path.join(os.path.dirname(memory_path) or ".", "REFERENCES.md")
+    shown = refs.replace("\\", "/")  # 与上面 MEMORY 那行的正斜杠保持一致
+    try:
+        with open(refs, encoding="utf-8") as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        return
+    except OSError as e:
+        print(f"[check-memory-size] {shown}: 读取失败（{e}），跳过")
+        return
+    n = len(lines)
+    entries = sum(1 for ln in lines if ln.startswith("## "))
+    print(f"[check-memory-size] {shown}: 全文 {n} 行 / 条目 {entries} 个（仅供参考，不影响退出码）")
+    if n > REFERENCES_WARN_LINES:
+        print(
+            f"  ⚠ REFERENCES 全文 {n} 行 > 提醒线 {REFERENCES_WARN_LINES}：逐条问「这个还在用吗」，"
+            "不用的直接删（地址簿的瘦身方式是删死链，不是外移）。"
         )
 
 
@@ -126,6 +157,7 @@ def main() -> int:
         + f" / 最长行 {longest_len} 字符（第 {longest_no} 行）"
     )
     report_handover(path)
+    report_references(path)
     if problems:
         for p in problems:
             print(f"  ✗ {p}")

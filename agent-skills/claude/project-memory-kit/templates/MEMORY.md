@@ -11,7 +11,7 @@
 - **当前进度：**（一句话 + 关键数字）
 - **端到端 / 测试覆盖：** 一行一个 TEST-LOG 指针（细节回 `tests/`）
 - **必知事实（环境 / 路径 / 账号 / 工具 / 结论 / 坑）：** 见 [HANDOVER](HANDOVER.md)（**仅供参考，行动前先核实**）
-- **外部资产（不在 `docs/memory/` 下）：** 见 [specs](…) · [plans](…)
+- **外部：** 参考见 [REFERENCES](REFERENCES.md)；资产见 [specs](…) · [plans](…)
 - **工作分支：** 分支名 + HEAD（HEAD 易腐：大任务开始前 `git rev-parse --short HEAD` 校准；不确定就只留分支名）
 
 > **配额：≤ 15 行实义内容 / ≤ 900 字符。** 空行、标题、本说明块**不计**——它们不产生阅读负担，不该跟指针抢配额。
@@ -104,6 +104,7 @@
 | `docs/memory/ITERATION.md` | Agent | 目的/范围/条目/框架/链路变更时追加 |
 | `docs/memory/tests/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制；**里程碑后旧 TEST-LOG 归档 `tests/_archive/`** |
 | `docs/memory/HANDOVER.md` | 人为主，Agent 随任务 | **跨阶段必知事实**（环境 / 路径 / 账号位置 / 工具版本 / 结论 / 坑 / 已排除的路）；**行内改，可增删**（≠ ITERATION 只追加）；改完刷新「核实日期」并追加一行 `ITERATION.md` |
+| `docs/memory/REFERENCES.md` | 人为主，Agent 随任务 | **外部对标 / 外部系统 / 来源的地址簿**；**行内改，可增删**；**只放指针**，原文摘录 / 提示词 / 阈值另写 `tests/` 一份；不再用的条目**直接删** |
 | 项目根 `AGENTS.md` | Init 由 `templates/AGENTS.md` 生成 | Claude Code / 非 Cursor Agent 的**常驻管理文件**；不读 `.cursor` 的 Agent 以它为准 |
 | `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
@@ -122,6 +123,7 @@
 | 端到端怎么走不够 | `FLOW.md` |
 | 服务对象现状不够 | `ENVIRONMENT.md` |
 | 环境 / 路径 / 账号位置 / 命令 / 已知的坑不够 | `HANDOVER.md`（**事实仅供参考，用前核实未过时**） |
+| 要对标某个外部产品 / 查外部系统怎么接 / 找参考实现 | `REFERENCES.md`（**只放地址；研究正文在 `tests/`**） |
 
 **TODO、待办、测试、变更史**
 
@@ -162,6 +164,7 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 | 实现流程一句话 | 步骤、分支、每步 I/O → `FLOW.md` |
 | 约束与入口（短） | 函数、参数、schema → 代码；步骤/待办 → `TODO.md`；验证记录 → `tests/`；变更史 → `ITERATION.md` |
 | 必知事实（只留指针，见 §0） | 环境 / 路径 / 账号位置 / 工具版本 / 结论 / 坑 → `HANDOVER.md` |
+| 外部地址（只留指针，见 §0） | 对标产品文档 / 外部服务端点与本机路径 / 参考仓库 → `REFERENCES.md` |
 
 规则：
 
@@ -174,7 +177,7 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 - **取证不入库。** 截图 / 原始 JSON / stdout / SQL 快照 → `docs/memory/tests/_raw/`，`.gitignore` 加同名路径；只提交手写的 TEST-LOG `.md`。（`tests/` 若按任务分子目录，则用 `docs/memory/tests/*/_raw/`。）
 
 **裁剪门闸（超了就裁，别等它自己瘦）：** 跑 `python scripts/check-memory-size.py`，报超阈值（全文 >400 行 / §0 实义 >15 行或 >900 字符 / 单行 >300 字符）或单节明显 >40 行即触发。
-**只外移，不删除：** ① 战报 / 缺陷状态 / E2E 明细 → `tests/`，MEMORY 留指针 ② 模块 / 仓库地图 / 文件索引 → `FRAMEWORK.md` ③ 源文件正文 → 删掉，留文件名 ④ 已过里程碑的正文 → `ITERATION.md` ⑤ 跨阶段必知事实 → `HANDOVER.md`。裁完再跑一次 check，达标再动手。
+**只外移，不删除：** ① 战报 / 缺陷状态 / E2E 明细 → `tests/`，MEMORY 留指针 ② 模块 / 仓库地图 / 文件索引 → `FRAMEWORK.md` ③ 源文件正文 → 删掉，留文件名 ④ 已过里程碑的正文 → `ITERATION.md` ⑤ 跨阶段必知事实 → `HANDOVER.md` ⑥ 外部对标 / 外部系统地址 → `REFERENCES.md`。裁完再跑一次 check，达标再动手。
 
 **外移必须核对，别靠印象搬。** 外移是「复制 + 删除」两步，凭记忆一次做完最容易漏——尤其是**决策条目**（「XX 未拍板」这类长得像备注，最常被跳过，实测丢过一条）。强制顺序：**先复制到新处 → 逐条回读原处对照（按条目 / 关键词点名核，不靠通读印象）→ 确认零遗漏 → 才允许删原处。**
 
