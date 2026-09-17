@@ -51,7 +51,7 @@ AGENTS.md
 | 大任务定型、Ask/Plan | [references/collaboration.md](references/collaboration.md) |
 | 不确定改法、怎么验 | [references/agent-rules.md](references/agent-rules.md) |
 | 用户点名工程脚手架 | [references/scaffold.md](references/scaffold.md) |
-| 已有 memory 但不符合骨架（收敛） | [references/migration.md](references/migration.md) |
+| 已有 memory 但不符合骨架（收敛），或 kit 升级后老项目要跟版 | [references/migration.md](references/migration.md) |
 | 项目有多个维护者 / 多模块 | [references/team.md](references/team.md) |
 
 ## Init（用户说 init 新项目 / 初始化项目记忆）
@@ -79,11 +79,11 @@ AGENTS.md
 多模块 / 多人：走 [references/team.md](references/team.md)；根索引用 `templates/ROOT-MEMORY.md`、认领表用 `templates/OWNERS.md`，模块子目录复用上表单项目模板。
 
 3. 只填 MEMORY 里立刻知道的项（文件夹名、当前阶段若用户已说）。其余留空，不编造业务。
-4. **老项目补句**：目标已有 `AGENTS.md` 或 `.cursor/rules/project-memory.mdc` 时（常见于早先 init 的项目），除合并指针外逐条核对是否带下面两句，**缺则补**：
-   - 「**改完就同步记忆，别等用户问。** …」—— 没有它，Agent 不会主动维护记忆，全靠用户想起来催
-   - 「大任务开始前先跑 `python scripts/check-memory-size.py` …」
+4. **老项目补句**：目标已有 `AGENTS.md` 或 `.cursor/rules/project-memory.mdc` 时（常见于早先 init 的项目），除合并指针外，**逐句对照本 kit 的 `templates/AGENTS.md` 与 `templates/cursor-rule.mdc`**，缺哪句补哪句。两处都是每轮注入，**必须同时改**——只改一处，不读 `.cursor` 的 Agent 就漏了。
 
-   只补这两句，不重写用户原文。
+   **清单以 templates 为准，本 SKILL 不枚举。** 曾经的枚举会随模板升级变旧：HANDOVER 那次就是因为这份清单没跟上模板，老项目永远补不进新增的维护口令。典型必带句（**举例，非清单**）：「**改完就同步记忆，别等用户问**」、「大任务开始前先跑 `python scripts/check-memory-size.py`」。
+
+   只补缺句，不重写用户原文。
 5. **默认只 init 记忆目录 + 体量门闸脚本。** 仅当用户明确要工程脚手架时，再按 `references/scaffold.md` 生成 `.gitignore`、`.env.example`、`README.md` 骨架。不要默认生成 RBAC、JWT、Docker。
 6. 向用户汇报创建了哪些路径。
 

@@ -53,7 +53,8 @@ https://github.com/RedOctupus/ai-agent-config-live
 
 仍可用：把本仓库加进工作区，或对话里 `@SKILL.md`。已有 `docs/memory/` 但不合骨架 → 走 `references/migration.md` 收敛。
 
-体量自检：`python scripts/check-memory-size.py [docs/memory/MEMORY.md]`，超阈值（全文 >400 行 / §0 >15 行或 >900 字符 / 单行 >300 字符）exit 1，裁剪 SOP 见 `templates/MEMORY.md` §5。
+体量自检：`python scripts/check-memory-size.py [docs/memory/MEMORY.md]`，超阈值（全文 >400 行 / §0 **实义** >15 行或 >900 字符 / 单行 >300 字符）exit 1，裁剪 SOP 见 `templates/MEMORY.md` §5。
+§0 只数**实义行**：空行、标题、`>` 说明块不计（它们不产生阅读负担，却会吃掉行预算）。脚本另会报告同目录 `HANDOVER.md` 行数，超 200 行给提醒，**不影响退出码**。
 
 ## 几份文档各写什么
 
