@@ -10,11 +10,16 @@
 每加一份 TEST-LOG 就多一个链接——**行数还是 13 行，字符却一路涨**，
 只数行的门闸一次都不会响。（实测某项目 §0 一行塞了 3 个链接、243 字符。）
 
+另外**顺带报告**同目录 HANDOVER.md 的行数：**只报告，不设预算，不影响退出码**。
+HANDOVER 是「必知事实」的终点——没有 tests/ 那样的外移退路，「超了就裁」的 SOP 在那里不成立
+（过期事实该删、现状事实必须留）。留个数字只为给维护一个触发器。
+
 用法：
     python scripts/check-memory-size.py [path/to/MEMORY.md]
 默认路径：docs/memory/MEMORY.md
-退出码：0 = 达标；1 = 超预算（需裁剪）
+退出码：0 = 达标；1 = 超预算（需裁剪）。**仅由 MEMORY 决定，HANDOVER 不参与。**
 """
+import os
 import sys
 
 # Windows 默认 GBK 控制台会因 ✗/✓ 等符号抛 UnicodeEncodeError；强制 UTF-8 输出。
@@ -26,6 +31,22 @@ TOTAL_BUDGET = 400
 SECTION0_BUDGET = 15
 SECTION0_CHAR_BUDGET = 900
 LINE_CHAR_BUDGET = 300
+
+
+def report_handover(memory_path: str) -> None:
+    """顺带报告同目录 HANDOVER.md 的行数。只报告，无预算，不参与退出码。"""
+    handover = os.path.join(os.path.dirname(memory_path) or ".", "HANDOVER.md")
+    # Windows 下 os.path.join 产出反斜杠，与上面 MEMORY 那行的正斜杠不一致；显示统一用正斜杠
+    shown = handover.replace("\\", "/")
+    try:
+        with open(handover, encoding="utf-8") as f:
+            n = len(f.readlines())
+    except FileNotFoundError:
+        return
+    except OSError as e:
+        print(f"[check-memory-size] {shown}: 读取失败（{e}），跳过")
+        return
+    print(f"[check-memory-size] {shown}: 全文 {n} 行（供参考，无预算）")
 
 
 def main() -> int:
@@ -87,6 +108,7 @@ def main() -> int:
         f"[check-memory-size] {path}: 全文 {total} 行 / "
         f"§0 {sec0} 行·{sec0_chars} 字符 / 最长行 {longest_len} 字符（第 {longest_no} 行）"
     )
+    report_handover(path)
     if problems:
         for p in problems:
             print(f"  ✗ {p}")

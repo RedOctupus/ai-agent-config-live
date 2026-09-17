@@ -13,6 +13,7 @@
 - **当前进度：**（一句话 + 关键数字）
 - **端到端 / 测试覆盖：** 一行一个 TEST-LOG 指针（细节回 `tests/`）
 - **已拍板（跨线规则）：** 一行一条，只留结论
+- **必知事实（环境 / 路径 / 账号 / 工具 / 结论 / 坑）：** 见 [HANDOVER](HANDOVER.md)（**仅供参考，行动前先核实**）
 - **工作分支：** 分支名 + HEAD（HEAD 易腐：大任务开始前 `git rev-parse --short HEAD` 校准；不确定就只留分支名）
 
 正反例：❌ `多轮对话三缺陷：RAG 只用当前消息……逐条 +90/−20`（贴正文）→ ✅ `多轮对话三缺陷：见 [ITERATION](ITERATION.md)`（一句话 + 指针）
@@ -93,6 +94,7 @@
 | `docs/memory/TODO.md` | Agent 随任务 | 大任务开始/完成打钩。只留项目级进行中/待办/已完成，不堆聊天清单 |
 | `docs/memory/ITERATION.md` | Agent | 目的/范围/条目/框架/链路变更时追加 |
 | `docs/memory/tests/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制；**里程碑后旧 TEST-LOG 归档 `tests/_archive/`** |
+| `docs/memory/HANDOVER.md` | 人为主，Agent 随任务 | **跨阶段必知事实**（环境 / 路径 / 账号位置 / 工具版本 / 结论 / 坑 / 已排除的路）；**行内改，可增删**（≠ ITERATION 只追加）；改完刷新「核实日期」并追加一行 `ITERATION.md` |
 | 项目根 `AGENTS.md` | Init 由 `templates/AGENTS.md` 生成 | Claude Code / 非 Cursor Agent 的**常驻管理文件**；不读 `.cursor` 的 Agent 以它为准 |
 | `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
@@ -110,6 +112,7 @@
 | 模块 / 选型不够 | `FRAMEWORK.md` |
 | 端到端怎么走不够 | `FLOW.md` |
 | 服务对象现状不够 | `ENVIRONMENT.md` |
+| 环境 / 路径 / 账号位置 / 命令 / 已知的坑不够 | `HANDOVER.md`（**事实仅供参考，用前核实未过时**） |
 
 **TODO、待办、测试、变更史**
 
@@ -149,6 +152,7 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 | 框架骨架一句话 | 选型、模块表、分层 → `FRAMEWORK.md` |
 | 实现流程一句话 | 步骤、分支、每步 I/O → `FLOW.md` |
 | 约束与入口（短） | 函数、参数、schema → 代码；步骤/待办 → `TODO.md`；验证记录 → `tests/`；变更史 → `ITERATION.md` |
+| 必知事实（只留指针，见 §0） | 环境 / 路径 / 账号位置 / 工具版本 / 结论 / 坑 → `HANDOVER.md` |
 
 规则：
 
@@ -193,3 +197,4 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 6. **大任务**要进 Plan 或写代码时：`FRAMEWORK.md` 仍空 → 先提醒【框架讨论】；`FLOW.md` 仍空 → 先提醒【实现流程】。用户书面确认跳过、或声明这是小任务后，才可以动手。
 7. **技术选型硬阀门：** 框架未立或某技术栈用户未点头 → 禁止写入「已定」、禁止按该栈编码。先列出待选，逐项等确认。建议不等于已定。
 8. 交付时写测试日志；打钩看 TODO。不要为答门闸去读完全部 `tests/` 或 Skill `references/`。
+9. **碰环境 / 路径 / 账号 / 命令前：** 先看 `HANDOVER.md`，并核对它的「核实日期」与顶部「最后核实」没过时。那里的事实**仅供参考**，用前核实；与现场冲突以现场为准。

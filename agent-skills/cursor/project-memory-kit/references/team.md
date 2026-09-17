@@ -11,6 +11,7 @@ docs/memory/
 ├── ENVIRONMENT.md  # 服务对象大环境 —— 项目级一份，全模块共享
 ├── TODO.md         # 项目级待办（跨模块 / 里程碑）
 ├── ITERATION.md    # 项目级变更史 —— 追加型，人人可写，merge=union
+├── HANDOVER.md     # 跨阶段必知事实 —— 项目级一份，**行内改（非追加），禁止 union merge**
 ├── GLOBAL/         # 共享层（DB/认证/API 约定）→ 架构负责人单一 owner + 版本号
 │   └── FRAMEWORK.md
 └── <模块>/         # 各模块 mini memory 包（见下）
@@ -34,6 +35,7 @@ docs/memory/
 | `REQUIREMENTS.md` | 各模块 | 需求天然按模块拆；跨模块需求极少，记根 MEMORY 一句话 |
 | `TODO.md` | 根（项目级）+ 各模块 | 项目级待办根一份；模块待办模块目录一份 |
 | `ITERATION.md` | 根（项目级，追加型） | 追加一行 union merge 不冲突；模块级变更进模块 tests / 模块内记录 |
+| `HANDOVER.md` | 根（一份）+ 模块可选 | 必知事实的典型内容（环境 / 路径 / 账号位置 / 工具版本）对所有模块一样，同 `ENVIRONMENT.md` 的处理；模块独有的结论 / 坑可在模块目录再放一份 |
 | `MEMORY.md` | 根（索引）+ 各模块（mini 快照） | 根=静态指针（负责人+子目录）；模块目录=各模块自己的快照（一句话/进度） |
 
 ## 三层所有权（冲突面归零）
@@ -72,6 +74,7 @@ docs/memory/
 docs/memory/ITERATION.md merge=union
 ```
 
+- `HANDOVER.md`：**行内改**文件，**不得**套用上面的 union —— union 会把旧值和新值都留在文件里，而「改一条事实」的语义必须人工取舍。规则：改前先 pull，冲突人工解；改完追加一行 `ITERATION.md` 留痕（多 Agent 同机未提交时，那行是唯一线索）
 - `tests/`：文件名带日期+任务，不同人不同文件，物理不冲突
 
 ## 两拨「文件」别混

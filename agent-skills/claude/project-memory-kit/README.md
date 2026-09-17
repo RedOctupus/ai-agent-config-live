@@ -16,6 +16,7 @@ docs/memory/FRAMEWORK.md    # 项目框架
 docs/memory/FLOW.md         # 实现流程
 docs/memory/TODO.md
 docs/memory/ITERATION.md
+docs/memory/HANDOVER.md     # 跨阶段必知事实（可增删改）
 docs/memory/tests/_TEMPLATE.md
 scripts/check-memory-size.py # 体量门闸（模板按项目内相对路径调用，故须随 init 落地）
 AGENTS.md
@@ -63,7 +64,8 @@ https://github.com/RedOctupus/ai-agent-config-live
 | `REQUIREMENTS.md` | **拆解条目**：可感知行为 + 验收句 + 状态 |
 | `FRAMEWORK.md` | **项目框架**：技术选型（须用户逐项确认）、能力模块、分层 |
 | `FLOW.md` | **实现流程**：端到端步骤、分支、每步 I/O |
-| `ITERATION.md` | 变更记录 |
+| `ITERATION.md` | 变更记录（**只追加**） |
+| `HANDOVER.md` | **跨阶段必知事实**：环境 / 路径 / 账号位置 / 工具版本 / 研究结论 / 坑 / 已排除的路。**可增删改**，不是追加 |
 
 项目做完一版：勾 `REQUIREMENTS` 状态；改对应源文件；MEMORY 只改变了的那句快照；写 ITERATION 和测试日志。  
 **只有服务对象真实办事方式变了**才改 ENVIRONMENT。不要把源文件正文堆进 MEMORY。
