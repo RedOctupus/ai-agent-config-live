@@ -100,7 +100,7 @@
 | `docs/memory/REQUIREMENTS.md` | 人定稿条目，Agent 改状态 | 需求讨论定稿、条目增删、对照验收打状态 |
 | `docs/memory/FRAMEWORK.md` | 人定型，Agent 同步选型/模块 | 框架讨论定稿或选型/模块变更 |
 | `docs/memory/FLOW.md` | 人定型，Agent 同步链路 | 实现流程定稿或端到端怎么走变了 |
-| `docs/memory/TODO.md` | Agent 随任务 | 大任务开始/完成打钩。只留项目级进行中/待办/已完成，不堆聊天清单 |
+| `docs/memory/TODO.md` | Agent 随任务 | 大任务开始/完成打钩。**每条要有可判定的验收**（写不出 ⇒ 还不是待办）；已知限制归 HANDOVER，不进 TODO；结构约定见模板 |
 | `docs/memory/ITERATION.md` | Agent | 目的/范围/条目/框架/链路变更时追加 |
 | `docs/memory/tests/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制；**里程碑后旧 TEST-LOG 归档 `tests/_archive/`** |
 | `docs/memory/HANDOVER.md` | 人为主，Agent 随任务 | **跨阶段必知事实**（环境 / 路径 / 账号位置 / 工具版本 / 结论 / 坑 / 已排除的路）；**行内改，可增删**（≠ ITERATION 只追加）；改完刷新「核实日期」并追加一行 `ITERATION.md` |

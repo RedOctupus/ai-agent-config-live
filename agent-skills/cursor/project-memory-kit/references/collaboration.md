@@ -83,7 +83,7 @@ MEMORY 与源文件已有或先 init
 ```text
 【大环境】对齐服务对象大环境，写入 ENVIRONMENT；MEMORY 只留一句话
 【需求讨论】目的一句话 + 不做；条目写入 REQUIREMENTS
-【对照开发】按 REQUIREMENTS 的 ID；TODO 只写步骤
+【对照开发】按 REQUIREMENTS 的 ID；TODO 每条带验收（可观察量 / 预期值 / 命令+预期输出）
 【框架讨论】每一项技术栈先给候选和取舍，用户点头后再写入 FRAMEWORK；禁止自行拍板；先不定逐步怎么走
 【实现流程】端到端怎么走写入 FLOW；先不定文件清单
 【Plan】文件、步骤、验证、风险
