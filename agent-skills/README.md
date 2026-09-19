@@ -39,7 +39,7 @@ agent-skills/
 | 夹 | 技能 |
 |---|---|
 | portable | anchoring-persona-memory |
-| cursor（平铺） | anchoring-persona-memory, book-to-skill, ai-agents-in-depth-zh-cn, project-memory-kit, persona-jailbreak-inject, zimage-scene-image, codebase-to-course |
+| cursor（平铺） | anchoring-persona-memory, book-to-skill, ai-agents-in-depth-zh-cn, ai-finance-dev-guide, project-memory-kit, persona-jailbreak-inject, zimage-scene-image, codebase-to-course |
 | cursor/suites/parallel-collaboration | parallel-collaboration（总控）, collaboration-contract, compatibility-layer, mock-collaboration, legacy-mock-cleanup |
 | cursor/plugins/superpowers | Superpowers 插件 skills（brainstorming、tdd、writing-plans 等） |
 | claude | canvas-design, notebook-tutor, task-framework, code-example, temp-literature-search, project-memory-kit |
