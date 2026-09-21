@@ -166,3 +166,5 @@ CLI 与 plugin 是两件事。Plugin 只把官方 skill 暴露给 Cursor，**代
 3. GitHub 下载失败：问用户是否设 `OCR_GITHUB_MIRROR`（路径前缀镜像）或改 npm。
 4. `init-llm`：AskQuestion 选 OCR API 或委托；key 只用 `ocr config set`，然后 `ocr llm test`。
 5. 通过后跑 `scripts/start-viewer.ps1`，再调度审查。
+
+GitHub Actions / CI 部署不是本机装 CLI：打开 [cicd.md](cicd.md)，按上游文档接 Action。

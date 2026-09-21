@@ -35,8 +35,9 @@
 
 ```text
 - **去哪看：** https://github.com/alibaba/open-code-review ；NPM @alibaba-group/open-code-review
+- **CI/CD：** https://open-codereview.ai/docs/cicd ；GitHub Actions 示例 https://github.com/alibaba/open-code-review/blob/main/examples/github_actions/README.md ；Action 定义 https://github.com/alibaba/open-code-review/blob/main/action.yml
 - **本项目用途：** Cursor 平铺技能 materials/agent-skills/cursor/open-code-review/
-- **相关指针：** 该目录 SKILL.md · install.md
+- **相关指针：** 该目录 SKILL.md · install.md · cicd.md
 - **最近核实：** 2026-09-21
 ```
 
