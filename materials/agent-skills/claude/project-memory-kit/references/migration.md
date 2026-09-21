@@ -65,7 +65,7 @@
 
 ## 二、骨架升级（kit 出了新版，已有 `docs/memory/` 要跟上）
 
-和「存量收敛」的区别：项目结构**本来就合骨架**，是 kit 新增了文件或改了维护口令，老项目要跟版。典型触发：`templates/` 多了文件（如 `HANDOVER.md`），或常驻口令变了。
+和「存量收敛」的区别：项目结构**本来就合骨架**，是 kit 新增了文件或改了维护口令，老项目要跟版。典型触发：`templates/` 多了文件（如 `HANDOVER.md`），或常驻口令变了（如 v1.3.0：MEMORY §0 去掉短哈希，只留分支名）。
 
 1. **比对差异**：先读项目 `MEMORY.md` §5 记的 **kit 版本**，与本 kit 的 `SKILL.md` 顶部版本对比——差了几版就把这期间新增的文件与口令**一并**补上（只对照最新 `templates/` 容易漏掉中间版本的中间状态）。再拿项目里的 `docs/memory/` + `AGENTS.md` + `.cursor/rules/project-memory.mdc` 逐句对照当前 `templates/`，列出缺哪些**文件**、缺哪些**口令**。别凭印象，逐句看。
 2. **建缺的文件**：从 `templates/` 拷同名空白模板（kit 新版新增的文件，如 `HANDOVER.md`、`REFERENCES.md`、`annex/_INDEX.md`）。**先查 git / 对话里有没有旧内容**，有则恢复，别用空模板盖进度。若项目里误拷成无日期的 `annex/INDEX.md`，改名为 `_INDEX.md`。`.gitignore` 的取证忽略片段用 `templates/gitignore-memory.txt` **追加**（别覆盖已有内容）。

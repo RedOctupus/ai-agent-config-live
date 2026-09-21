@@ -9,7 +9,7 @@ alwaysApply: true
 对照条目再读 REQUIREMENTS；模块/选型再读 FRAMEWORK；端到端怎么走再读 FLOW；现状再读 ENVIRONMENT；环境/路径/账号/命令再读 HANDOVER（事实仅供参考，用前核实未过时）；找外部对标/外部系统再读 REFERENCES。答不出 MEMORY 门闸则禁止编码。
 维护哪些文件、口令：只看 MEMORY 第 5–6 节，此处不重复。
 MEMORY 只改各阶段一句话和约束/入口，禁止粘源文件正文；变更追加 ITERATION。
-MEMORY 全文 ≤ ~400 行、单节 ≤ ~40 行；超了把细节外移到源文件 / annex / ITERATION，MEMORY 只留指针。VERIFY 战报、逐缺陷状态、截图不进 MEMORY；取证进 `annex/_raw/` 且不入库。**大任务开始前先跑 `python scaffold/scripts/check-memory-size.py`（超阈值先裁剪再动手），并刷新 §0 工作分支 HEAD（`git rev-parse --short HEAD`）。**
+MEMORY 全文 ≤ ~400 行、单节 ≤ ~40 行；超了把细节外移到源文件 / annex / ITERATION，MEMORY 只留指针。VERIFY 战报、逐缺陷状态、截图不进 MEMORY；取证进 `annex/_raw/` 且不入库。**大任务开始前先跑 `python scaffold/scripts/check-memory-size.py`（超阈值先裁剪再动手）。** §0「工作分支」只留分支名；短哈希只写 `HANDOVER.md` 顶部「最后核实」。
 大任务要 Plan 或写代码：FRAMEWORK 仍空则先提醒【框架讨论】；FLOW 仍空则先提醒【实现流程】。用户确认跳过或声明小任务后才能动手。
 **技术选型硬阀门：** 每一项技术栈必须用户明确同意后才能写入 FRAMEWORK 或据此编码。禁止自行拍板。细则见 MEMORY 第 3 节与第 7 节。
 缺文件：同名补回；先恢复 git/旧内容，禁止静默用空模板盖进度。

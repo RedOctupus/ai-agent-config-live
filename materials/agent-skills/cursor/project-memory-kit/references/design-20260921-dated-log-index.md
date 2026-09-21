@@ -1,7 +1,7 @@
 # 设计：支持「当日索引」 + JinRong 存量收敛
 
 > 日期 2026-09-21 · 状态：**已获用户批准**（双向改动 + 按日期日志降级为当日索引）
-> **实施进度：Part 1 已实施并校验（kit `v1.1.0`）；v1.1.1 把 init 模板改名为 `templates/annex/_INDEX.md`（避免与 `INDEX-YYYYMMDD.md` 撞名）；Part 2 未开始**——用户指示先搁置 JinRong、专做 kit 迭代。
+> **实施进度：Part 1 已实施并校验（kit `v1.1.0`）；`v1.1.1` 把 init 模板改名为 `templates/annex/_INDEX.md`（避免与 `INDEX-YYYYMMDD.md` 撞名）；`v1.2.0` 为纠正版本号——该改名动了 init 拷贝目标，按升版规则算「改维护口令」，应为中位 +1，原先记成 `1.1.1` 属误标；`v1.2.1` 补 `templates/MEMORY.md` §5 的 HANDOVER 行漏写的「顶部『最后核实』」，并把「补句 vs 改口令」判据补进 `SKILL.md` 升版规则；`v1.3.0` MEMORY §0「工作分支」只留分支名，短哈希只写 HANDOVER 顶部「最后核实」；Part 2 未开始**——用户指示先搁置 JinRong、专做 kit 迭代。
 > 落地对象：`project-memory-kit`（`claude/` 与 `cursor/` 两份副本，改完 `diff -r` 逐字校验）
 > 本文是 kit 的**演进设计记录**，不是操作指引——日常任务不要读它。
 
@@ -82,6 +82,8 @@ docs/memory/annex/*/_raw/
 - `SKILL.md` frontmatter 区加 `kit-version: 1.1.0`（首个带版本号的基线）。
 - `templates/MEMORY.md` §5 文档资产表加一行：「本记忆按 kit **v1.1.0** 建立；kit 升版后按 `references/migration.md` 二、骨架升级跟版」。
 - 理由：没有版本号，「该跟版」这件事永远只能靠人想起来——JinRong 停版正是这个后果。
+
+> **落地戳（2026-09-21）：** 本节两条里的 `1.1.0` 是**设计当时的基线号**，不是当前版本——照本节动手时按当前版本号写，别照抄 `1.1.0`。实际落地为 `kit-version` YAML + 正文双写；当前版本见文首进度戳与 `SKILL.md` 顶部。
 
 ### 3.5 顺带修：权威源路径过时
 

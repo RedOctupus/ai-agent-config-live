@@ -52,7 +52,7 @@ https://github.com/RedOctupus/ai-agent-config-live
 
 > 路径含 `materials/` 前缀：本仓库做过目录三分（`scaffold/` · `memory/` · `materials/`），kit 落在 `materials/` 下。按 `agent-skills/...` 找会落空。
 
-**版本：** 本 kit 当前 `v1.1.1`，见 `SKILL.md` 顶部 `kit-version`。项目侧在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用来判断是否该跟版（`references/migration.md` 二、骨架升级）。
+**版本：** 本 kit 当前 `v1.3.0`，见 `SKILL.md` 顶部 `kit-version`。项目侧在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用来判断是否该跟版（`references/migration.md` 二、骨架升级）。
 
 改任一副本 → push 到该仓库 → 另一份同步 → `diff -r` 校验逐字一致，否则分叉。
 

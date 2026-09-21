@@ -1,6 +1,6 @@
 ---
 name: project-memory-kit
-kit-version: 1.1.1
+kit-version: 1.3.0
 description: >-
   Initializes and maintains compact project memory for humans and agents.
   Use when the user says init a new project, 初始化项目记忆, 新建项目脚手架,
@@ -11,7 +11,7 @@ description: >-
 
 # Project Memory Kit
 
-> **kit v1.1.1** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
+> **kit v1.3.0** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
 
 人读 [README.md](README.md)。Agent 以本文件为准。
 
@@ -105,7 +105,7 @@ AGENTS.md
 
 | 事件 | 动作 |
 | --- | --- |
-| 大任务开始 | 对齐 `ENVIRONMENT.md`；需求写入 `REQUIREMENTS.md`；框架写入 `FRAMEWORK.md`（**每一项技术栈须用户确认后才能当作已定**）；实现流程写入 `FLOW.md`；MEMORY 只改对应一句话；再更新 `TODO.md`；**先跑 `python scripts/check-memory-size.py` 校验体量（超阈值先裁剪）并刷新 §0 HEAD** |
+| 大任务开始 | 对齐 `ENVIRONMENT.md`；需求写入 `REQUIREMENTS.md`；框架写入 `FRAMEWORK.md`（**每一项技术栈须用户确认后才能当作已定**）；实现流程写入 `FLOW.md`；MEMORY 只改对应一句话；再更新 `TODO.md`；**先跑 `python scripts/check-memory-size.py` 校验体量（超阈值先裁剪）**。§0「工作分支」只留分支名，不要刷短哈希 |
 | 需求讨论定稿或条目增删 | 改 `REQUIREMENTS.md`；目的一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
 | 选型或模块变更 | 先与用户确认该技术栈；再改 `FRAMEWORK.md`；骨架一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
 | 实现流程变更 | 改 `FLOW.md`；链路一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
@@ -170,8 +170,15 @@ https://github.com/RedOctupus/ai-agent-config-live
 （两份分叉过一次，别再让它发生。）
 
 **升版规则：** 动了 `templates/` / `references/` / `scripts/` 的可观察行为就改本文件顶部的 `kit v…`：
-补句 / 修错字 → 末位 +1（`1.1.1` → `1.1.2`）；新增文件或改维护口令 → 中位 +1（→ `1.2.0`）。
+补句 / 修错字 → 末位 +1（`1.3.0` → `1.3.1`）；新增文件或改维护口令 → 中位 +1（→ `1.4.0`）。
 项目侧靠 `MEMORY.md` §5 记的版本号判断该不该跟版。
+
+**判定「补句」还是「改口令」——看改完之后，照文档干活的 Agent 会不会多做 / 少做 / 换个做法：**
+
+- 只是让两处对**同一条既有口令**的表述对齐（其中一处本来就写全了）→ **补句**，末位 +1。
+- 让 Agent 真的**多刷一个字段、多写一份文件、换掉 init 拷贝目标** → **改口令**，中位 +1。
+
+拿不准时**按「改口令」高报**：高报只让人白跑一遍 `migration.md`，低报会让人跳过真要做的动作——JinRong 停版就是低报的后果。
 
 本机这两处是由远端拷贝来的**安装位置，不是源**：
 
