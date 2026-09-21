@@ -1,0 +1,6 @@
+# project-memory-kit · 取证不入库
+# 追加到项目根 .gitignore 末尾。
+# annex/ 只提交手写的 .md（VERIFY / NOTE / CHECKLIST / INDEX）；
+# 截图、原始 JSON、stdout、SQL 快照一律留在 _raw/，不进版本库。
+docs/memory/annex/_raw/
+docs/memory/annex/*/_raw/

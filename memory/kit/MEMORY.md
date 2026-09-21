@@ -9,10 +9,10 @@
 
 - **项目是什么：** 私人备份 Hermes / Cursor / Claude 技能与本机工具清单，并作为 project-memory-kit 权威仓。
 - **当前进度：** 目录已三分：`scaffold/`、`memory/{kit,hermes}/`、`materials/`。README Last sync **2026-05-24** 可能过期。
-- **端到端 / 交付记录：** [20260921-classify-repo-layout](annex/VERIFY-20260921-classify-repo-layout.md)
+- **端到端 / 交付记录：** [INDEX-20260921](annex/INDEX-20260921.md) · 最近 [kit-v1.1.1](annex/VERIFY-20260921-kit-v1.1.1.md)
 - **必知事实：** 见 [HANDOVER](HANDOVER.md)（仅供参考，行动前先核实）
 - **外部：** 见 [REFERENCES](REFERENCES.md)；计划见 [plans/2026-05-24_192600-agent-config-repo.md](../../materials/plans/2026-05-24_192600-agent-config-repo.md)
-- **工作分支：** `main` @ `5958bc1`
+- **工作分支：** `main` @ `ec15c94`
 
 ------
 
@@ -100,12 +100,14 @@ memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-mem
 | `memory/kit/FLOW.md` | 人定型，Agent 同步链路 | 实现流程定稿或端到端怎么走变了 |
 | `memory/kit/TODO.md` | Agent 随任务 | 大任务开始/完成打钩。**每条要有可判定的验收**（写不出 ⇒ 还不是待办）；已知限制归 HANDOVER，不进 TODO；结构约定见模板 |
 | `memory/kit/ITERATION.md` | Agent | 目的/范围/条目/框架/链路变更时追加 |
-| `memory/kit/annex/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制；**里程碑后旧 VERIFY 归档 `annex/_archive/`** |
+| `memory/kit/annex/*.md` | Agent | **代码实现后的交付**新建一份 `VERIFY-`；**一天做成多件事**再加一份 `INDEX-YYYYMMDD.md` 串起来（只放指针）；小改动不强制；**里程碑后旧 VERIFY / INDEX 归档 `annex/_archive/`** |
 | `memory/kit/HANDOVER.md` | 人为主，Agent 随任务 | **跨阶段必知事实**（环境 / 路径 / 账号位置 / 工具版本 / 结论 / 坑 / 已排除的路）；**行内改，可增删**（≠ ITERATION 只追加）；改完刷新「核实日期」并追加一行 `ITERATION.md` |
 | `memory/kit/REFERENCES.md` | 人为主，Agent 随任务 | **外部对标 / 外部系统 / 来源的地址簿**；**行内改，可增删**；**只放指针**，原文摘录 / 提示词 / 阈值另写 `annex/NOTE-YYYYMMDD-短名.md`；不再用的条目**直接删** |
 | 项目根 `AGENTS.md` | Init 由 `templates/AGENTS.md` 生成 | Claude Code / 非 Cursor Agent 的**常驻管理文件**；不读 `.cursor` 的 Agent 以它为准 |
 | `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
+
+> **本记忆按 kit v1.1.1 建立。** 判断该不该跟版：读 kit `SKILL.md` 顶部的 `kit-version` / `kit v…` 与本行比对，不同则按 `references/migration.md` 的「二、骨架升级」补齐，改完把本行版本号更新。
 
 ### 阅读策略（默认只读 MEMORY）
 
@@ -130,6 +132,7 @@ memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-mem
 | 开始或接续大任务、看进度、打钩 | 打开 `TODO.md`（进行中 / 待办 / 已完成） |
 | 一次性聊天里的零碎清单 | **不要**写入 TODO；TODO 只留项目级待办 |
 | **代码实现后要交付 / 验收** | 新建 `memory/kit/annex/VERIFY-YYYYMMDD-任务名.md`（模板 `VERIFY.md`） |
+| **一天做成多件事** | 每件事各写一份 `VERIFY-…`；再建 `annex/INDEX-YYYYMMDD.md`（从 `_INDEX.md` 复制改名；**只放指针**；一天一事就不建） |
 | 小改动、改文案、明确小 bug | 不强制写 VERIFY |
 | 续做同一任务、或用户问上次怎么验 | 只打开**那一份** VERIFY，不要读完全部 `annex/` |
 | 查或记「为什么变成现在这样」 | 打开 / 追加 `ITERATION.md` |

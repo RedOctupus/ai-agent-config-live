@@ -3,7 +3,7 @@
 > 接手先看这里。事实仅供参考，用前核实；与现场冲突以现场为准。
 > 2026-09-21 从 README、tools/catalog.md、memory 导出、git、本机 hostname 搜集；catalog 停在 2026-05-24。
 
-**最后核实：** `2026-09-21` · HEAD `5958bc1`（目录三分尚未提交）
+**最后核实：** `2026-09-21` · HEAD `ec15c94`（kit v1.1.1 改动尚未提交）
 
 ------
 
@@ -54,6 +54,7 @@
 | 本次会话本机抽查 | git `2.55.0.windows.3`；Node `v22.23.1`（Winget Node 22 路径） | 同机其它任务 `git --version` / `node -v` | 2026-09-21 |
 | GPU 档案 | RTX 5070 Ti 16GB；CUDA driver 13.2 / toolkit 13.1 | `memory/hermes/machine.md` | 2026-05-24 |
 | catalog 维护说明 | Git Bash (MSYS) 不用 PowerShell；与 Cursor Agent 常用 PowerShell **可能不一致** | `materials/tools/catalog.md` | 2026-05-24 |
+| project-memory-kit 版本 | **`v1.1.1`**（记在 kit `SKILL.md` 顶部 YAML `kit-version` 与正文 `kit v…`）；项目侧应在自己 `MEMORY.md` §5 记录所依版本，用于判断是否该跟版 | kit `SKILL.md` | 2026-09-21 |
 
 ## 5. 研究结论（已确认）
 
@@ -62,6 +63,7 @@
 | kit 权威源在本仓 | Cursor/Claude 两份 `project-memory-kit` 应逐字一致 | kit `SKILL.md`「改 kit 本身」 | 2026-09-21 |
 | 本仓 kit 路径是特例 | 本仓用 `memory/kit/`；kit 模板副本仍写 `docs/memory/`（给其它项目用） | 用户要求三分目录；未改 kit 模板 | 2026-09-21 |
 | 根目录无 AGENTS.md（init 前） | 本次由模板生成 | `Test-Path AGENTS.md` 曾为 False | 2026-09-21 |
+| kit 提供「当日索引」 | 一天做多件事时用 `annex/INDEX-YYYYMMDD.md` 串起当日指针（**不是工作日志，禁贴正文**）；一天只有一件事则不建。**init 拷的是模板 `_INDEX.md`**（v1.1.1 改名，避免与带日期文件撞名） | kit `templates/annex/_INDEX.md` · `annex/VERIFY-20260921-kit-v1.1.1.md` | 2026-09-21 |
 
 ## 6. 已知的坑 / 反直觉行为
 
@@ -79,7 +81,7 @@
 | --- | --- | --- | --- |
 | 备份 Cursor 内置技能 | 明确不含 `~/.cursor/skills-cursor` | `materials/agent-skills/README.md` | 2026-09-21 |
 | clone 完自动注册全部技能 | 「不自动拉本机、不自动注册」 | 同上第 2 条 | 2026-09-21 |
-| 改 kit 模板里的默认路径来迁就本仓 | 其它项目仍用 `docs/memory/` | 用户约束：不改 skill 备份里的 kit 副本 | 2026-09-21 |
+| 改 kit 模板里的**默认路径**来迁就本仓 | 其它项目仍用 `docs/memory/` | 用户约束：不改 kit 副本的默认路径。**改副本内容本身是允许的**——走 kit `SKILL.md`「改 kit 本身（同步）」，两份保持一致即可（2026-09-21 用户即指派迭代 kit，见 `ITERATION.md`） | 2026-09-21 |
 
 ------
 

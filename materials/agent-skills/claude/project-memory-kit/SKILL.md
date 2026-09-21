@@ -1,13 +1,17 @@
 ---
 name: project-memory-kit
+kit-version: 1.1.1
 description: >-
   Initializes and maintains compact project memory for humans and agents.
   Use when the user says init a new project, 初始化项目记忆, 新建项目脚手架,
   or when a repo already has docs/memory/ and the task changes requirements,
-  requirement breakdown, architecture, TODOs, 服务对象大环境, 项目框架, 实现流程, or needs an annex VERIFY / NOTE / CHECKLIST.
+  requirement breakdown, architecture, TODOs, 服务对象大环境, 项目框架, 实现流程,
+  or needs an annex VERIFY / NOTE / CHECKLIST / INDEX.
 ---
 
 # Project Memory Kit
+
+> **kit v1.1.1** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
 
 人读 [README.md](README.md)。Agent 以本文件为准。
 
@@ -27,7 +31,8 @@ docs/memory/TODO.md
 docs/memory/ITERATION.md
 docs/memory/HANDOVER.md     # 跨阶段必知事实（可增删改，非追加）
 docs/memory/REFERENCES.md   # 外部对标 / 外部系统 / 来源的地址簿（可增删改）
-docs/memory/annex/VERIFY-YYYYMMDD-任务名.md   # 外移夹：VERIFY / NOTE / CHECKLIST / _raw；不是 pytest、不是评测集
+docs/memory/annex/VERIFY-YYYYMMDD-任务名.md   # 外移夹：VERIFY / NOTE / CHECKLIST / INDEX-YYYYMMDD / _raw
+docs/memory/annex/_INDEX.md                 # 当日索引模板（真下发文件名是 INDEX-YYYYMMDD.md）
 AGENTS.md
 .cursor/rules/project-memory.mdc
 ```
@@ -77,9 +82,11 @@ AGENTS.md
 | `templates/annex/VERIFY.md` | `docs/memory/annex/VERIFY.md` |
 | `templates/annex/NOTE.md` | `docs/memory/annex/NOTE.md` |
 | `templates/annex/CHECKLIST.md` | `docs/memory/annex/CHECKLIST.md` |
+| `templates/annex/_INDEX.md` | `docs/memory/annex/_INDEX.md`（当日索引**模板**；真下发是 `INDEX-YYYYMMDD.md`） |
 | `scripts/check-memory-size.py` | `scripts/check-memory-size.py`（体量门闸；AGENTS.md / MEMORY 按**项目内相对路径**调用它，故须随 init 落地，否则那条命令在项目根直接失败） |
 | `templates/AGENTS.md` | 项目根 `AGENTS.md`（已有则合并指针，不抹掉用户原文） |
 | `templates/cursor-rule.mdc` | `.cursor/rules/project-memory.mdc` |
+| `templates/gitignore-memory.txt` | 项目根 `.gitignore`（把内容**追加**进去——已有 `.gitignore` 时不要覆盖） |
 
 多模块 / 多人：走 [references/team.md](references/team.md)；根索引用 `templates/ROOT-MEMORY.md`、认领表用 `templates/OWNERS.md`，模块子目录复用上表单项目模板。
 
@@ -107,6 +114,7 @@ AGENTS.md
 | 发现 / 修改**跨阶段必知事实**（环境、路径、账号位置、工具版本、研究结论、坑、已排除的路） | 改 `HANDOVER.md`（**行内改，可增删**，不是追加）；刷新该条「核实日期」与顶部「最后核实」；追加一行 `ITERATION.md`（影响写 `HANDOVER.md`）；MEMORY 不动 |
 | 新增 / 删除**外部对标、外部系统、来源地址**（对标产品文档、外部服务端点与本机路径、参考仓库 @ commit） | 改 `REFERENCES.md`（**行内改，可增删**）；研究正文另写 `annex/NOTE-YYYYMMDD-短名.md`、这里只留指针；追加一行 `ITERATION.md`（影响写 `REFERENCES.md`）；MEMORY 不动 |
 | 项目里程碑 | 源文件若变了就改源文件；MEMORY 只改变了的那句快照；追加 `ITERATION.md`；**默认不改大环境** |
+| 一天做成多件事 | 每件事各写一份 `annex/VERIFY-…`；再建一份 `annex/INDEX-YYYYMMDD.md` 串起来（**只放指针，禁贴正文**；一天只有一件事就不建） |
 | 小改动 | 仅当状态变化时改 MEMORY/TODO；不强制写源文件或 VERIFY |
 
 更新 MEMORY 时：**只改快照一句话和约束/入口，禁止往里粘源文件正文。** 变更记录只追加 `ITERATION.md`。详见 MEMORY 模板「体量」节。
@@ -142,10 +150,9 @@ AGENTS.md
 | `VERIFY-` | 交付验收：改了什么、跑过什么 | `VERIFY-20260828-milvus-bm25.md` |
 | `NOTE-` | REFERENCES 研究正文 | `NOTE-20260828-zimage-preset.md` |
 | `CHECKLIST-` | 给人走的手工步骤 | `CHECKLIST-20260828-seed-l1.md` |
+| `INDEX-` | **一天多件事**的当日索引：一行一事 + 指针，禁止贴正文 | `INDEX-20260828.md`（模板 `_INDEX.md`） |
 
-取证进 `_raw/`。任务很大可建 `YYYYMMDD-短名/` 子目录，日志仍用上述前缀。
-
-每个里程碑收口后，把旧的 VERIFY 挪到 `docs/memory/annex/_archive/`，MEMORY §0 只留最近里程碑的指针，避免 `annex/` 无限累积。
+取证进 `_raw/`（`.gitignore` 用 `templates/gitignore-memory.txt` 追加）。一天一事不建 INDEX。里程碑后旧 VERIFY / INDEX 进 `annex/_archive/`。
 
 ## 改 kit 本身（同步）
 
@@ -153,12 +160,18 @@ AGENTS.md
 
 ```text
 https://github.com/RedOctupus/ai-agent-config-live
-  └── agent-skills/claude/project-memory-kit/    ← Claude Code 副本
-  └── agent-skills/cursor/project-memory-kit/    ← Cursor 副本
+  └── materials/agent-skills/claude/project-memory-kit/    ← Claude Code 副本
+  └── materials/agent-skills/cursor/project-memory-kit/    ← Cursor 副本
 ```
+
+> 路径含 `materials/` 前缀：本仓库做过目录三分（`scaffold/` · `memory/` · `materials/`），kit 落在 `materials/` 下。按 `agent-skills/...` 找会落空。
 
 改动流程：改任一副本 → push 到该仓库 → 另一份同步 → **`diff -r` 校验逐字一致**。
 （两份分叉过一次，别再让它发生。）
+
+**升版规则：** 动了 `templates/` / `references/` / `scripts/` 的可观察行为就改本文件顶部的 `kit v…`：
+补句 / 修错字 → 末位 +1（`1.1.1` → `1.1.2`）；新增文件或改维护口令 → 中位 +1（→ `1.2.0`）。
+项目侧靠 `MEMORY.md` §5 记的版本号判断该不该跟版。
 
 本机这两处是由远端拷贝来的**安装位置，不是源**：
 
