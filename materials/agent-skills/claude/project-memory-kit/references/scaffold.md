@@ -38,4 +38,4 @@
 
 ## 日志
 
-应用日志用于跟操作路径、定位 bug；与 `docs/memory/tests/` 测试报告不是同一件事。
+应用日志用于跟操作路径、定位 bug；与 `docs/memory/annex/` annex 交付记录不是同一件事。

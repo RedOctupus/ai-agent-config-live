@@ -4,14 +4,14 @@ description: >-
   Initializes and maintains compact project memory for humans and agents.
   Use when the user says init a new project, 初始化项目记忆, 新建项目脚手架,
   or when a repo already has docs/memory/ and the task changes requirements,
-  requirement breakdown, architecture, TODOs, 服务对象大环境, 项目框架, 实现流程, or needs a test report.
+  requirement breakdown, architecture, TODOs, 服务对象大环境, 项目框架, 实现流程, or needs an annex VERIFY / NOTE / CHECKLIST.
 ---
 
 # Project Memory Kit
 
 人读 [README.md](README.md)。Agent 以本文件为准。
 
-人机共用上下文：MEMORY 快照 + ENVIRONMENT / REQUIREMENTS / FRAMEWORK / FLOW 源文件 + 迭代 / TODO / 测试日志。行事哲学原文不拷进项目。
+人机共用上下文：MEMORY 快照 + ENVIRONMENT / REQUIREMENTS / FRAMEWORK / FLOW 源文件 + 迭代 / TODO / 交付记录（annex）。行事哲学原文不拷进项目。
 
 ## 路径约定
 
@@ -27,7 +27,7 @@ docs/memory/TODO.md
 docs/memory/ITERATION.md
 docs/memory/HANDOVER.md     # 跨阶段必知事实（可增删改，非追加）
 docs/memory/REFERENCES.md   # 外部对标 / 外部系统 / 来源的地址簿（可增删改）
-docs/memory/tests/YYYYMMDD-任务名.md
+docs/memory/annex/VERIFY-YYYYMMDD-任务名.md   # 外移夹：VERIFY / NOTE / CHECKLIST / _raw；不是 pytest、不是评测集
 AGENTS.md
 .cursor/rules/project-memory.mdc
 ```
@@ -42,7 +42,7 @@ AGENTS.md
 
 ## 本 Skill 何时打开（不是日常阅读策略）
 
-日常改代码**不会**读这份 SKILL。何时读 TODO / 测试日志 / 源文件 / `references/`：**以项目里 `MEMORY.md` 第 5 节为准。**
+日常改代码**不会**读这份 SKILL。何时读 TODO / annex / 源文件 / `references/`：**以项目里 `MEMORY.md` 第 5 节为准。**
 
 本 SKILL 只在这些时候打开（与 MEMORY 第 5 节「Skill references」一致）：
 
@@ -73,7 +73,10 @@ AGENTS.md
 | `templates/ITERATION.md` | `docs/memory/ITERATION.md` |
 | `templates/HANDOVER.md` | `docs/memory/HANDOVER.md` |
 | `templates/REFERENCES.md` | `docs/memory/REFERENCES.md` |
-| `templates/tests/_TEMPLATE.md` | `docs/memory/tests/_TEMPLATE.md` |
+| `templates/annex/_TEMPLATE.md` | `docs/memory/annex/_TEMPLATE.md`（选哪种） |
+| `templates/annex/VERIFY.md` | `docs/memory/annex/VERIFY.md` |
+| `templates/annex/NOTE.md` | `docs/memory/annex/NOTE.md` |
+| `templates/annex/CHECKLIST.md` | `docs/memory/annex/CHECKLIST.md` |
 | `scripts/check-memory-size.py` | `scripts/check-memory-size.py`（体量门闸；AGENTS.md / MEMORY 按**项目内相对路径**调用它，故须随 init 落地，否则那条命令在项目根直接失败） |
 | `templates/AGENTS.md` | 项目根 `AGENTS.md`（已有则合并指针，不抹掉用户原文） |
 | `templates/cursor-rule.mdc` | `.cursor/rules/project-memory.mdc` |
@@ -99,16 +102,16 @@ AGENTS.md
 | 需求讨论定稿或条目增删 | 改 `REQUIREMENTS.md`；目的一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
 | 选型或模块变更 | 先与用户确认该技术栈；再改 `FRAMEWORK.md`；骨架一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
 | 实现流程变更 | 改 `FLOW.md`；链路一句话变了才改 MEMORY 快照；追加 `ITERATION.md` |
-| 交付 / 验收相关改动 | 新建 `docs/memory/tests/YYYYMMDD-任务名.md`（用 `_TEMPLATE.md`） |
+| 交付 / 验收相关改动 | 新建 `docs/memory/annex/VERIFY-YYYYMMDD-任务名.md`（模板 `VERIFY.md`） |
 | 服务对象**真实办事方式**变了 | 才更新 `ENVIRONMENT.md`；大环境一句话变了才改 MEMORY 快照 |
 | 发现 / 修改**跨阶段必知事实**（环境、路径、账号位置、工具版本、研究结论、坑、已排除的路） | 改 `HANDOVER.md`（**行内改，可增删**，不是追加）；刷新该条「核实日期」与顶部「最后核实」；追加一行 `ITERATION.md`（影响写 `HANDOVER.md`）；MEMORY 不动 |
-| 新增 / 删除**外部对标、外部系统、来源地址**（对标产品文档、外部服务端点与本机路径、参考仓库 @ commit） | 改 `REFERENCES.md`（**行内改，可增删**）；研究正文另写 `tests/` 一份、这里只留指针；追加一行 `ITERATION.md`（影响写 `REFERENCES.md`）；MEMORY 不动 |
+| 新增 / 删除**外部对标、外部系统、来源地址**（对标产品文档、外部服务端点与本机路径、参考仓库 @ commit） | 改 `REFERENCES.md`（**行内改，可增删**）；研究正文另写 `annex/NOTE-YYYYMMDD-短名.md`、这里只留指针；追加一行 `ITERATION.md`（影响写 `REFERENCES.md`）；MEMORY 不动 |
 | 项目里程碑 | 源文件若变了就改源文件；MEMORY 只改变了的那句快照；追加 `ITERATION.md`；**默认不改大环境** |
-| 小改动 | 仅当状态变化时改 MEMORY/TODO；不强制写源文件或测试日志 |
+| 小改动 | 仅当状态变化时改 MEMORY/TODO；不强制写源文件或 VERIFY |
 
 更新 MEMORY 时：**只改快照一句话和约束/入口，禁止往里粘源文件正文。** 变更记录只追加 `ITERATION.md`。详见 MEMORY 模板「体量」节。
 
-测试 / 验收：新建 `tests/YYYYMMDD-任务名.md` 写战报；逐轮结果、逐缺陷状态、复跑取证只进 `tests/`，**不进 MEMORY**；截图 / 原始 JSON / stdout 放 `docs/memory/tests/_raw/`，`.gitignore` 加同名路径，只提交手写 `.md`（`tests/` 若按任务分子目录，则用 `docs/memory/tests/*/_raw/`）。
+交付 / 验收：新建 `annex/VERIFY-YYYYMMDD-任务名.md`；研究摘录用 `NOTE-`；手工步骤用 `CHECKLIST-`。逐轮结果、逐缺陷状态、复跑取证只进 `annex/`，**不进 MEMORY**；截图 / 原始 JSON / stdout 放 `docs/memory/annex/_raw/`，`.gitignore` 加同名路径，只提交手写 `.md`（`annex/` 若按任务分子目录，则用 `docs/memory/annex/*/_raw/`）。
 
 **不**在日常任务里创建行事哲学 01~05、`references/` 副本、额外哲学文档。
 
@@ -130,11 +133,19 @@ AGENTS.md
 - 跨阶段必知事实（环境 / 路径 / 账号位置 / 工具 / 结论 / 坑）→ 影响 HANDOVER
 - 外部对标 / 外部系统 / 来源地址 → 影响 REFERENCES
 
-## 测试日志文件名
+## annex 文件名前缀
 
-`docs/memory/tests/YYYYMMDD-短任务名.md`，例如 `20260828-milvus-bm25.md`。
+按内容选前缀（**不是** pytest，**不是** 评测黄金集）：
 
-每个里程碑收口后，把旧的 TEST-LOG 挪到 `docs/memory/tests/_archive/`，MEMORY §0 只留最近里程碑的指针，避免 `tests/` 无限累积。
+| 前缀 | 何时 | 例 |
+| --- | --- | --- |
+| `VERIFY-` | 交付验收：改了什么、跑过什么 | `VERIFY-20260828-milvus-bm25.md` |
+| `NOTE-` | REFERENCES 研究正文 | `NOTE-20260828-zimage-preset.md` |
+| `CHECKLIST-` | 给人走的手工步骤 | `CHECKLIST-20260828-seed-l1.md` |
+
+取证进 `_raw/`。任务很大可建 `YYYYMMDD-短名/` 子目录，日志仍用上述前缀。
+
+每个里程碑收口后，把旧的 VERIFY 挪到 `docs/memory/annex/_archive/`，MEMORY §0 只留最近里程碑的指针，避免 `annex/` 无限累积。
 
 ## 改 kit 本身（同步）
 

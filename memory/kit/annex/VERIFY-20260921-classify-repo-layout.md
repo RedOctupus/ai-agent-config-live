@@ -1,4 +1,4 @@
-# 测试日志：目录三分（脚手架 / 记忆 / 本地物料）
+# VERIFY：目录三分（脚手架 / 记忆 / 本地物料）
 
 - 日期：2026-09-21
 - 关联 TODO：已完成「目录三分」；R8
@@ -15,7 +15,7 @@
 | --- | --- | --- |
 | 手工 | `python scaffold/scripts/check-memory-size.py`（仓库根） | PASS：退出码 0；MEMORY 210 行 / §0 实义 6 行·504 字符 / 最长行 179 |
 | 手工 | 关键路径 Test-Path（脚本、kit MEMORY、hermes 导出、skills/agent-skills/tools/plans、`_local/.gitkeep`） | PASS：全部 OK；旧根 `docs`/`scripts`/`agent-skills`/`hermes`/`skills`/`tools`/`plans` 均 gone |
-| 手工 | `git check-ignore -v` 抽样 | PASS：`memory/kit/tests/_raw/`、`materials/_local/*`、`.env` 命中忽略；`materials/_local/.gitkeep` 例外保留；`materials/hermes/.env.template` 未忽略 |
+| 手工 | `git check-ignore -v` 抽样 | PASS：`memory/kit/annex/_raw/`、`materials/_local/*`、`.env` 命中忽略；`materials/_local/.gitkeep` 例外保留；`materials/hermes/.env.template` 未忽略 |
 | 手工 | kit 模板副本仍含 `docs/memory/MEMORY.md` | PASS：`materials/agent-skills/cursor/project-memory-kit/scripts/check-memory-size.py` 未改 |
 
 ## 未执行

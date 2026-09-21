@@ -9,7 +9,7 @@
 
 - **项目是什么：** 私人备份 Hermes / Cursor / Claude 技能与本机工具清单，并作为 project-memory-kit 权威仓。
 - **当前进度：** 目录已三分：`scaffold/`、`memory/{kit,hermes}/`、`materials/`。README Last sync **2026-05-24** 可能过期。
-- **端到端 / 测试覆盖：** [20260921-classify-repo-layout](tests/20260921-classify-repo-layout.md)
+- **端到端 / 交付记录：** [20260921-classify-repo-layout](annex/VERIFY-20260921-classify-repo-layout.md)
 - **必知事实：** 见 [HANDOVER](HANDOVER.md)（仅供参考，行动前先核实）
 - **外部：** 见 [REFERENCES](REFERENCES.md)；计划见 [plans/2026-05-24_192600-agent-config-repo.md](../../materials/plans/2026-05-24_192600-agent-config-repo.md)
 - **工作分支：** `main` @ `5958bc1`
@@ -100,9 +100,9 @@ memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-mem
 | `memory/kit/FLOW.md` | 人定型，Agent 同步链路 | 实现流程定稿或端到端怎么走变了 |
 | `memory/kit/TODO.md` | Agent 随任务 | 大任务开始/完成打钩。**每条要有可判定的验收**（写不出 ⇒ 还不是待办）；已知限制归 HANDOVER，不进 TODO；结构约定见模板 |
 | `memory/kit/ITERATION.md` | Agent | 目的/范围/条目/框架/链路变更时追加 |
-| `memory/kit/tests/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制；**里程碑后旧 TEST-LOG 归档 `tests/_archive/`** |
+| `memory/kit/annex/*.md` | Agent | **代码实现后的交付**新建一份；小改动不强制；**里程碑后旧 VERIFY 归档 `annex/_archive/`** |
 | `memory/kit/HANDOVER.md` | 人为主，Agent 随任务 | **跨阶段必知事实**（环境 / 路径 / 账号位置 / 工具版本 / 结论 / 坑 / 已排除的路）；**行内改，可增删**（≠ ITERATION 只追加）；改完刷新「核实日期」并追加一行 `ITERATION.md` |
-| `memory/kit/REFERENCES.md` | 人为主，Agent 随任务 | **外部对标 / 外部系统 / 来源的地址簿**；**行内改，可增删**；**只放指针**，原文摘录 / 提示词 / 阈值另写 `tests/` 一份；不再用的条目**直接删** |
+| `memory/kit/REFERENCES.md` | 人为主，Agent 随任务 | **外部对标 / 外部系统 / 来源的地址簿**；**行内改，可增删**；**只放指针**，原文摘录 / 提示词 / 阈值另写 `annex/NOTE-YYYYMMDD-短名.md`；不再用的条目**直接删** |
 | 项目根 `AGENTS.md` | Init 由 `templates/AGENTS.md` 生成 | Claude Code / 非 Cursor Agent 的**常驻管理文件**；不读 `.cursor` 的 Agent 以它为准 |
 | `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
@@ -121,17 +121,17 @@ memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-mem
 | 端到端怎么走不够 | `FLOW.md` |
 | 服务对象现状不够 | `ENVIRONMENT.md` |
 | 环境 / 路径 / 账号位置 / 命令 / 已知的坑不够 | `HANDOVER.md`（**事实仅供参考，用前核实未过时**） |
-| 要对标某个外部产品 / 查外部系统怎么接 / 找参考实现 | `REFERENCES.md`（**只放地址；研究正文在 `tests/`**） |
+| 要对标某个外部产品 / 查外部系统怎么接 / 找参考实现 | `REFERENCES.md`（**只放地址；研究正文是 `annex/NOTE-…`**） |
 
-**TODO、待办、测试、变更史**
+**TODO、待办、交付记录、变更史**
 
 | 这时 | 做什么 |
 | --- | --- |
 | 开始或接续大任务、看进度、打钩 | 打开 `TODO.md`（进行中 / 待办 / 已完成） |
 | 一次性聊天里的零碎清单 | **不要**写入 TODO；TODO 只留项目级待办 |
-| **代码实现后要交付 / 验收** | 新建 `memory/kit/tests/YYYYMMDD-任务名.md`（用 `_TEMPLATE.md`） |
-| 小改动、改文案、明确小 bug | 不强制写测试日志 |
-| 续做同一任务、或用户问上次怎么验 | 只打开**那一份**测试日志，不要读完全部 `tests/` |
+| **代码实现后要交付 / 验收** | 新建 `memory/kit/annex/VERIFY-YYYYMMDD-任务名.md`（模板 `VERIFY.md`） |
+| 小改动、改文案、明确小 bug | 不强制写 VERIFY |
+| 续做同一任务、或用户问上次怎么验 | 只打开**那一份** VERIFY，不要读完全部 `annex/` |
 | 查或记「为什么变成现在这样」 | 打开 / 追加 `ITERATION.md` |
 
 **Skill `references/`（不在本仓库）**
@@ -160,7 +160,7 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 | 需求目的一句话 | 拆开的条目、验收句 → `REQUIREMENTS.md` |
 | 框架骨架一句话 | 选型、模块表、分层 → `FRAMEWORK.md` |
 | 实现流程一句话 | 步骤、分支、每步 I/O → `FLOW.md` |
-| 约束与入口（短） | 函数、参数、schema → 代码；步骤/待办 → `TODO.md`；验证记录 → `tests/`；变更史 → `ITERATION.md` |
+| 约束与入口（短） | 函数、参数、schema → 代码；步骤/待办 → `TODO.md`；验证记录 → `annex/`；变更史 → `ITERATION.md` |
 | 必知事实（只留指针，见 §0） | 环境 / 路径 / 账号位置 / 工具版本 / 结论 / 坑 → `HANDOVER.md` |
 | 外部地址（只留指针，见 §0） | 对标产品文档 / 外部服务端点与本机路径 / 参考仓库 → `REFERENCES.md` |
 
@@ -170,8 +170,8 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 - **超了就外移。** 单节 >40 行删细节留文件名；全文 >400 行走下方裁剪门闸。
 - **§0 只数实义行。** 配额是 **≤ 15 行实义内容 / ≤ 900 字符**，**单行 ≤ 300 字符**。空行、标题、`>` 说明块**不计**。
 - **每个文件最多链一次。** 后续提及用反引号文件名。
-- **战报不进 MEMORY。** → `tests/` 各 TEST-LOG。
-- **取证不入库。** 截图 / 原始 JSON / stdout → `memory/kit/tests/_raw/`。
+- **战报不进 MEMORY。** → `annex/` 各 VERIFY。
+- **取证不入库。** 截图 / 原始 JSON / stdout → `memory/kit/annex/_raw/`。
 
 **裁剪门闸：** 跑 `python scaffold/scripts/check-memory-size.py`。
 
@@ -206,5 +206,5 @@ MEMORY 只保留各阶段**当前一句话**和编码门闸（约束、入口）
 5. 不要为答门闸而把全部 memory 文件读一遍；只打开当前不够的那一份。
 6. **大任务**要进 Plan 或写代码时：`FRAMEWORK.md` 仍空 → 先提醒【框架讨论】；`FLOW.md` 仍空 → 先提醒【实现流程】。用户书面确认跳过、或声明这是小任务后，才可以动手。
 7. **技术选型硬阀门：** 框架未立或某技术栈用户未点头 → 禁止写入「已定」、禁止按该栈编码。先列出待选，逐项等确认。建议不等于已定。
-8. 交付时写测试日志；打钩看 TODO。不要为答门闸去读完全部 `tests/` 或 Skill `references/`。
+8. 交付时写 VERIFY；打钩看 TODO。不要为答门闸去读完全部 `annex/` 或 Skill `references/`。
 9. **碰环境 / 路径 / 账号 / 命令前：** 先看 `HANDOVER.md`，并核对它的「核实日期」与顶部「最后核实」没过时。那里的事实**仅供参考**，用前核实；与现场冲突以现场为准。

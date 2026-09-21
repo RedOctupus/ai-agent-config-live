@@ -14,7 +14,7 @@
 一行，**行数可以不涨、字符却一路涨**，只数行的门闸一次都不会响。所以两个维度都要查。
 
 另外**顺带报告**同目录 HANDOVER.md 的行数，超过 200 行时打印一条提醒：**只提醒，不影响退出码**。
-HANDOVER 是「必知事实」的终点——没有 tests/ 那样的外移退路，「超了就裁」的 SOP 在那里不成立
+HANDOVER 是「必知事实」的终点——没有 annex/ 那样的外移退路，「超了就裁」的 SOP 在那里不成立
 （过期事实该删、现状事实必须留）。过提醒线时该做的是逐条问「这条还成立吗」，不成立就删。
 
 同样**顺带报告**同目录 REFERENCES.md 的**行数与条目数**（条目 = 行首 "## "），超过 80 行时提醒：
@@ -161,7 +161,7 @@ def main() -> int:
     if problems:
         for p in problems:
             print(f"  ✗ {p}")
-        print("  裁剪 SOP 见 MEMORY.md §5「体量」节（战报→tests/ 指针，仓库地图→FRAMEWORK.md）。")
+        print("  裁剪 SOP 见 MEMORY.md §5「体量」节（战报→annex/ 指针，仓库地图→FRAMEWORK.md）。")
         return 1
     print("  ✓ 体量达标")
     return 0

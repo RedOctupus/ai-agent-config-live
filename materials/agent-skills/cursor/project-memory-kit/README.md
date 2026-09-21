@@ -18,7 +18,7 @@ docs/memory/TODO.md
 docs/memory/ITERATION.md
 docs/memory/HANDOVER.md     # 跨阶段必知事实（可增删改）
 docs/memory/REFERENCES.md   # 外部对标 / 外部系统 / 来源的地址簿（可增删改）
-docs/memory/tests/_TEMPLATE.md
+docs/memory/annex/_TEMPLATE.md  # 选 VERIFY / NOTE / CHECKLIST
 scripts/check-memory-size.py # 体量门闸（模板按项目内相对路径调用，故须随 init 落地）
 AGENTS.md
 .cursor/rules/project-memory.mdc
@@ -68,12 +68,12 @@ https://github.com/RedOctupus/ai-agent-config-live
 | `FLOW.md` | **实现流程**：端到端步骤、分支、每步 I/O |
 | `ITERATION.md` | 变更记录（**只追加**） |
 | `HANDOVER.md` | **跨阶段必知事实**：环境 / 路径 / 账号位置 / 工具版本 / 研究结论 / 坑 / 已排除的路。**可增删改**，不是追加 |
-| `REFERENCES.md` | **外部参考地址簿**：对标产品文档 / 外部服务端点与本机路径 / 参考仓库 @ commit / 工具来源。**只放指针**，研究正文进 `tests/`；**可增删改** |
+| `REFERENCES.md` | **外部参考地址簿**：对标产品文档 / 外部服务端点与本机路径 / 参考仓库 @ commit / 工具来源。**只放指针**，研究正文进 `annex/` 的 NOTE；**可增删改** |
 
-项目做完一版：勾 `REQUIREMENTS` 状态；改对应源文件；MEMORY 只改变了的那句快照；写 ITERATION 和测试日志。  
+项目做完一版：勾 `REQUIREMENTS` 状态；改对应源文件；MEMORY 只改变了的那句快照；写 ITERATION 和 VERIFY。  
 **只有服务对象真实办事方式变了**才改 ENVIRONMENT。不要把源文件正文堆进 MEMORY。
 
-日常阅读规则（含 TODO、测试日志、待办、`references/`）在项目里的 `MEMORY.md` 第 5 节，**不在**这份 README 里。Skill 只负责 init 和按需打开 `references/`。
+日常阅读规则（含 TODO、annex、待办、`references/`）在项目里的 `MEMORY.md` 第 5 节，**不在**这份 README 里。Skill 只负责 init 和按需打开 `references/`。
 
 ## 多人 / 多模块
 

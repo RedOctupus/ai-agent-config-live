@@ -26,10 +26,10 @@ Thumbs.db
 desktop.ini
 
 # --- kit 取证（不入库）---
-docs/memory/tests/_raw/
-docs/memory/tests/*/_raw/
-memory/kit/tests/_raw/
-memory/kit/tests/*/_raw/
+docs/memory/annex/_raw/
+docs/memory/annex/*/_raw/
+memory/kit/annex/_raw/
+memory/kit/annex/*/_raw/
 
 # --- 本机临时物料（不入库）---
 materials/_local/*

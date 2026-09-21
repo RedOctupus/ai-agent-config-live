@@ -47,7 +47,7 @@
 
 写验证必须给**可复现命令 + 实际结果**，禁止只写「已通过」。例如 `python -m pytest -k 'not test_sprint'` → `896 passed`，或 `node 09-advisor-pages.mjs` → 退出码 0。
 
-交付时写 `docs/memory/tests/YYYYMMDD-任务名.md`。
+交付时写 `docs/memory/annex/VERIFY-YYYYMMDD-任务名.md`。研究摘录写 `NOTE-`；手工步骤写 `CHECKLIST-`。
 
 ## 当次汇报（对话里）
 

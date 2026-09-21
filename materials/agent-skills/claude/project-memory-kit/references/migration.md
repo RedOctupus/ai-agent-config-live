@@ -26,7 +26,7 @@
 ### 收敛步骤
 
 1. **盘点现状**：列出 `docs/memory/` 下所有文件与各自行数；标记哪些是「快照/约束」、哪些是「源文件正文」、哪些是「战报/逐轮结果」、哪些是「跨阶段必知事实」（后者常被堆在 MEMORY 的「约束/特殊规则」节里）。
-2. **建 tests/ 外移战报**：把 MEMORY 里的逐轮结果、逐缺陷状态、E2E 明细、复跑取证 → 新建 `tests/YYYYMMDD-任务名.md`（用 `_TEMPLATE.md`）；MEMORY 只留一行 `见 [TEST-LOG](tests/…)` 指针。
+2. **建 annex/ 外移战报**：把 MEMORY 里的逐轮结果、逐缺陷状态、E2E 明细、复跑取证 → 新建 `annex/VERIFY-YYYYMMDD-任务名.md`；MEMORY 只留一行 `见 [VERIFY](annex/…)` 指针。研究摘录用 `NOTE-`。若存量仍是 `docs/memory/tests/` 或文件名 `TEST-LOG-*`，分别改成 `annex/` 与 `VERIFY-`；**不要**和仓库根目录的 pytest `tests/` 搞混。
 3. **按骨架重建源文件**：缺哪个补哪个；把已有正文按性质归位：
    - 对方现在怎么办事 → `ENVIRONMENT.md`
    - 拆解条目 / 验收 → `REQUIREMENTS.md`
@@ -34,7 +34,7 @@
    - 端到端怎么走 → `FLOW.md`
    - 变更史 → `ITERATION.md`
    - 跨阶段必知事实（环境路径 / 账号位置 / 工具版本 / 研究结论 / 坑 / 已排除的路）→ `HANDOVER.md`
-   - 外部对标 / 外部系统端点与本机路径 / 参考仓库 → `REFERENCES.md`（**只搬地址；研究正文另立 `tests/` 一份**）
+   - 外部对标 / 外部系统端点与本机路径 / 参考仓库 → `REFERENCES.md`（**只搬地址；研究正文另立 `annex/` 一份**）
 4. **MEMORY 裁回 ≤400 行**：只留各阶段一句话 + 约束/入口 + §0 指针；跑 `python scripts/check-memory-size.py` 确认达标。
 5. **不可丢内容用指针保留**：任何舍不得删的正文，都放回对应源文件，MEMORY 里留「见 X.md」指针，而不是留在 MEMORY 里。
 

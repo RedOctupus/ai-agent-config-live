@@ -1,4 +1,4 @@
-# 测试日志：init-memory-kit
+# VERIFY：init-memory-kit
 
 - 日期：2026-09-21
 - 关联 TODO：已完成「init 本仓 docs/memory/」；R7
@@ -14,7 +14,7 @@
 | 类型 | 命令或步骤 | 结果 |
 | --- | --- | --- |
 | 手工 | `python scripts/check-memory-size.py`（仓库根） | PASS：退出码 0；MEMORY 210 行 / §0 实义 6 行·484 字符 / 最长行 179 |
-| 手工 | glob `docs/memory/**` | PASS：MEMORY 及 ENVIRONMENT/REQUIREMENTS/FRAMEWORK/FLOW/TODO/ITERATION/HANDOVER/REFERENCES/`tests/_TEMPLATE.md` 均在 |
+| 手工 | glob `docs/memory/**` | PASS：MEMORY 及 ENVIRONMENT/REQUIREMENTS/FRAMEWORK/FLOW/TODO/ITERATION/HANDOVER/REFERENCES/`annex/_TEMPLATE.md` 均在 |
 | 手工 | `hostname` | PASS：`DESKTOP-DKO2LI9`，已写入 HANDOVER |
 
 ## 未执行

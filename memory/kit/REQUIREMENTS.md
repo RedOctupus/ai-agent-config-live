@@ -21,7 +21,7 @@
 | R4 | 灾难恢复有书面步骤：clone → restore → 填密钥 → doctor | `README.md` Quick Recovery + `scaffold/scripts/restore.sh` | 已对照 |  |
 | R5 | 仓内不出现 API key 正文 | 仅 `materials/hermes/.env.template`；无提交的 `.env` | 已对照 |  |
 | R6 | project-memory-kit 在本仓维护 Cursor/Claude 两份 | `materials/agent-skills/cursor/project-memory-kit` 与 `.../claude/project-memory-kit` | 已对照 |  |
-| R7 | 本仓自身可用 kit 交接（本仓路径是 `memory/kit/`） | 存在 MEMORY 及源文件，`python scaffold/scripts/check-memory-size.py` 退出 0 | 已对照 | 见 tests/20260921-init-memory-kit.md |
-| R8 | 脚手架、记忆、本地物料分开放；密钥/取证/本机临时夹进 gitignore | 根目录仅入口文档；三层目录存在；`.gitignore` 含 `.env`、`_raw`、`materials/_local` | 已对照 | 见 tests/20260921-classify-repo-layout.md |
+| R7 | 本仓自身可用 kit 交接（本仓路径是 `memory/kit/`） | 存在 MEMORY 及源文件，`python scaffold/scripts/check-memory-size.py` 退出 0 | 已对照 | 见 annex/VERIFY-20260921-init-memory-kit.md |
+| R8 | 脚手架、记忆、本地物料分开放；密钥/取证/本机临时夹进 gitignore | 根目录仅入口文档；三层目录存在；`.gitignore` 含 `.env`、`_raw`、`materials/_local` | 已对照 | 见 annex/VERIFY-20260921-classify-repo-layout.md |
 
 状态：`未做` → `开发中` → `已对照`。

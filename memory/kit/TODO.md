@@ -15,5 +15,5 @@
 
 ## 已完成
 
-- [x] 2026-09-21 init 本仓 `docs/memory/`（后迁到 `memory/kit/`）— 见 `tests/20260921-init-memory-kit.md`
-- [x] 2026-09-21 目录三分：脚手架 / 记忆 / 本地物料，并补 gitignore — 见 `tests/20260921-classify-repo-layout.md`
+- [x] 2026-09-21 init 本仓 `docs/memory/`（后迁到 `memory/kit/`）— 见 `annex/VERIFY-20260921-init-memory-kit.md`
+- [x] 2026-09-21 目录三分：脚手架 / 记忆 / 本地物料，并补 gitignore — 见 `annex/VERIFY-20260921-classify-repo-layout.md`

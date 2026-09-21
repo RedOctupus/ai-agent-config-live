@@ -21,7 +21,7 @@ docs/memory/
     ├── FRAMEWORK.md    # 模块内选型 / 分层
     ├── FLOW.md         # 模块内端到端流程
     ├── TODO.md         # 模块待办
-    └── tests/
+    └── annex/
 ```
 
 每个模块一个子目录，复用同一套模板，就是一份缩小版 memory。**按模块拆，不按人拆**：人会流动，模块边界才稳定清晰。
@@ -47,7 +47,7 @@ docs/memory/
 | 模块子目录 | 该模块负责人，别人只读 | 模块内单人 = 不撞 |
 | `GLOBAL/` | 架构/技术负责人 | 单一 owner = 不撞 |
 | 根 `MEMORY.md` + `OWNERS.md` | 架构负责人维护（增删模块时才改） | 单一低频 = 不撞 |
-| `ITERATION.md` / `tests/` | 人人追加 / 一人一文件 | 追加+命名空间 = 不撞 |
+| `ITERATION.md` / `annex/` | 人人追加 / 一人一文件 | 追加+命名空间 = 不撞 |
 
 ## 两条硬规则
 
@@ -77,7 +77,7 @@ docs/memory/ITERATION.md merge=union
 ```
 
 - `HANDOVER.md` / `REFERENCES.md`：**行内改**文件，**不得**套用上面的 union —— union 会把旧值和新值都留在文件里，而「改一条事实 / 换一个地址」的语义必须人工取舍。规则：改前先 pull，冲突人工解；改完追加一行 `ITERATION.md` 留痕（多 Agent 同机未提交时，那行是唯一线索）
-- `tests/`：文件名带日期+任务，不同人不同文件，物理不冲突
+- `annex/`：文件名带日期+任务，不同人不同文件，物理不冲突
 
 ## 两拨「文件」别混
 
