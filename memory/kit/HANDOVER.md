@@ -3,7 +3,7 @@
 > 接手先看这里。事实仅供参考，用前核实；与现场冲突以现场为准。
 > 2026-09-21 从 README、tools/catalog.md、memory 导出、git、本机 hostname 搜集；catalog 停在 2026-05-24。
 
-**最后核实：** `2026-09-21` · HEAD `e35eb2b`（kit v1.3.0 改动尚未提交）
+**最后核实：** `2026-09-21` · HEAD `e35eb2b`（kit v1.3.1 改动尚未提交）
 
 > 短哈希**只写这一处**。`MEMORY.md` §0「工作分支」只留分支名。
 
@@ -56,7 +56,7 @@
 | 本次会话本机抽查 | git `2.55.0.windows.3`；Node `v22.23.1`（Winget Node 22 路径） | 同机其它任务 `git --version` / `node -v` | 2026-09-21 |
 | GPU 档案 | RTX 5070 Ti 16GB；CUDA driver 13.2 / toolkit 13.1 | `memory/hermes/machine.md` | 2026-05-24 |
 | catalog 维护说明 | Git Bash (MSYS) 不用 PowerShell；与 Cursor Agent 常用 PowerShell **可能不一致** | `materials/tools/catalog.md` | 2026-05-24 |
-| project-memory-kit 版本 | **`v1.3.0`**（记在 kit `SKILL.md` 顶部 YAML `kit-version` 与正文 `kit v…`）；项目侧应在自己 `MEMORY.md` §5 记录所依版本，用于判断是否该跟版 | kit `SKILL.md` | 2026-09-21 |
+| project-memory-kit 版本 | **`v1.3.1`**（记在 kit `SKILL.md` 顶部 YAML `kit-version` 与正文 `kit v…`）；项目侧应在自己 `MEMORY.md` §5 记录所依版本，用于判断是否该跟版 | kit `SKILL.md` | 2026-09-21 |
 
 ## 5. 研究结论（已确认）
 

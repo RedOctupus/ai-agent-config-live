@@ -1,7 +1,7 @@
 # 设计：支持「当日索引」 + JinRong 存量收敛
 
 > 日期 2026-09-21 · 状态：**已获用户批准**（双向改动 + 按日期日志降级为当日索引）
-> **实施进度：Part 1 已实施并校验（kit `v1.1.0`）；`v1.1.1` 把 init 模板改名为 `templates/annex/_INDEX.md`（避免与 `INDEX-YYYYMMDD.md` 撞名）；`v1.2.0` 为纠正版本号——该改名动了 init 拷贝目标，按升版规则算「改维护口令」，应为中位 +1，原先记成 `1.1.1` 属误标；`v1.2.1` 补 `templates/MEMORY.md` §5 的 HANDOVER 行漏写的「顶部『最后核实』」，并把「补句 vs 改口令」判据补进 `SKILL.md` 升版规则；`v1.3.0` MEMORY §0「工作分支」只留分支名，短哈希只写 HANDOVER 顶部「最后核实」；Part 2 未开始**——用户指示先搁置 JinRong、专做 kit 迭代。
+> **实施进度：** Part 1 已落地（当前版本见 `SKILL.md` 顶部）；Part 2 未开始——用户指示先搁置 JinRong。
 > 落地对象：`project-memory-kit`（`claude/` 与 `cursor/` 两份副本，改完 `diff -r` 逐字校验）
 > 本文是 kit 的**演进设计记录**，不是操作指引——日常任务不要读它。
 
@@ -40,58 +40,19 @@
 
 ------
 
-## 3. Part 1 · kit 侧改动（4 项 + 1 处顺带修复）
+## 3. Part 1 · kit 侧（已落地）
 
-### 3.1 新增当日索引模板
+批准时的四项：当日索引、按日期日志归位处方、gitignore 片段、kit 版本号；顺带修权威源路径。**现网以模板为准**，不要照抄设计当时的文件名（曾用无日期 `INDEX.md`）。
 
-- 新建 `templates/annex/INDEX.md`，定义 `annex/INDEX-YYYYMMDD.md`。
-- 形态：**纯索引**。一行一事 + 指针；当日定下的口径 / 未闭环也只留指针，正文归 `ITERATION.md` / `TODO.md`。
-- 硬约束写进模板：**禁止贴正文**；**一天只有一件事时不建此文件**（直接写 VERIFY）。
-- 在 `templates/annex/_TEMPLATE.md` 的「类型 / 前缀」表加 `INDEX` 行，并说明它与 `VERIFY` 的分工。
-- `SKILL.md` 的 annex 前缀节同步。
-
-### 3.2 `migration.md` 补「按日期工作日志」收敛处方
-
-在 `references/migration.md` 的存量收敛节新增一步，给出**四类归位目标**：
-
-| 日志里的内容 | 去哪里 |
+| 批准项 | 现网 |
 | --- | --- |
-| 逐任务战报（改动面 / 验证 / 突变验证 / 冒烟 PASS） | `annex/VERIFY-YYYYMMDD-短名.md`（一任务一份） |
-| 坑 / 环境事实 / 研究结论 / 已排除的路 | `HANDOVER.md` §1/§2/§5/§6/§7 |
-| 决策 / 口径裁定 / 用户拍板 | `ITERATION.md` |
-| 下一步 / 未闭环 / 登记开口 | `TODO.md` |
-| 原文件本身 | 降级为 `annex/INDEX-YYYYMMDD.md`（只留指针） |
+| 当日索引 | `templates/annex/_INDEX.md`（真下发 `INDEX-YYYYMMDD.md`） |
+| 按日期日志归位 | `references/migration.md` |
+| 取证忽略片段 | `templates/gitignore-memory.txt` |
+| 版本号 | `SKILL.md` 顶部 `kit-version`；项目 `MEMORY.md` §5 |
+| 权威源路径 | `materials/agent-skills/{claude,cursor}/project-memory-kit/` |
 
-并显式写明：**这一步必须走「先复制 → 逐条回读对照 → 确认零遗漏 → 才删原处」**（沿用该文件已有的强制顺序），因为这里要拆 1000+ 行到 4 个目标，漏一条坑或裁定就永久丢失。
-
-### 3.3 新增项目用 `.gitignore` 片段模板
-
-- 新建 `templates/gitignore-memory.txt`：
-
-```text
-# project-memory-kit 取证不入库
-docs/memory/annex/_raw/
-docs/memory/annex/*/_raw/
-```
-
-- `SKILL.md` 的 init 拷贝表加一行指向它。
-- 理由：原逻辑只散在正文口语描述（「`.gitignore` 加同名路径」），JinRong 手写时因此只忽略了 `shots/`。给一份可直接追加的片段，比让人照着散文写可靠。
-
-### 3.4 kit 版本号
-
-- `SKILL.md` frontmatter 区加 `kit-version: 1.1.0`（首个带版本号的基线）。
-- `templates/MEMORY.md` §5 文档资产表加一行：「本记忆按 kit **v1.1.0** 建立；kit 升版后按 `references/migration.md` 二、骨架升级跟版」。
-- 理由：没有版本号，「该跟版」这件事永远只能靠人想起来——JinRong 停版正是这个后果。
-
-> **落地戳（2026-09-21）：** 本节两条里的 `1.1.0` 是**设计当时的基线号**，不是当前版本——照本节动手时按当前版本号写，别照抄 `1.1.0`。实际落地为 `kit-version` YAML + 正文双写；当前版本见文首进度戳与 `SKILL.md` 顶部。
-
-### 3.5 顺带修：权威源路径过时
-
-`SKILL.md` 第 156–157 行的权威源路径 `agent-skills/{claude,cursor}/project-memory-kit/` 在本仓库已不存在（仓内做过目录三分，kit 现位于 `materials/agent-skills/...`）。改为实际路径，否则按图索骥必然失败。
-
-### 3.6 同步
-
-两份副本（`claude/` + `cursor/`）改完执行 `diff -r` 逐字校验，范围 `SKILL.md` / `README.md` / `templates/` / `references/` / `scripts/`，排除 `_sandbox/`。
+战报从 `annex/VERIFY-20260921-kit-v1.1.0.md` 起。两份副本改完 `diff -r`。
 
 ------
 
