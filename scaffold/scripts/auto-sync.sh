@@ -24,30 +24,34 @@ fi
 cd "$REPO_DIR"
 git pull origin main 2>/dev/null || true
 
+SKILLS_DIR="materials/skills"
+HERMES_MEM="memory/hermes"
+mkdir -p "$SKILLS_DIR" "$HERMES_MEM"
+
 # 2. Sync skills
 log "Syncing skills..."
-rm -rf skills/*/ 2>/dev/null || true
+rm -rf "$SKILLS_DIR"/*/ 2>/dev/null || true
 for dir in "$HERMES_HOME/skills"/*/; do
     name=$(basename "$dir")
     case "$name" in
         .*|DESCRIPTION.md) continue ;;
     esac
-    cp -r "$dir" "skills/$name" 2>/dev/null || true
+    cp -r "$dir" "$SKILLS_DIR/$name" 2>/dev/null || true
 done
 
 # Clean metadata
-find skills -name ".curator_state" -delete 2>/dev/null || true
-find skills -name ".bundled_manifest" -delete 2>/dev/null || true
+find "$SKILLS_DIR" -name ".curator_state" -delete 2>/dev/null || true
+find "$SKILLS_DIR" -name ".bundled_manifest" -delete 2>/dev/null || true
 
-skill_count=$(find skills -name "SKILL.md" | wc -l)
+skill_count=$(find "$SKILLS_DIR" -name "SKILL.md" | wc -l)
 log "Skills synced: $skill_count"
 
-# 3. Sync memory
+# 3. Sync memory (Hermes export only)
 log "Syncing memory..."
 for f in MEMORY.md USER.md; do
     if [ -f "$HERMES_HOME/memories/$f" ]; then
         base=$(echo "$f" | tr '[:upper:]' '[:lower:]' | sed 's/\.md$//')
-        cp "$HERMES_HOME/memories/$f" "memory/${base}.md" 2>/dev/null || true
+        cp "$HERMES_HOME/memories/$f" "$HERMES_MEM/${base}.md" 2>/dev/null || true
     fi
 done
 log "Memory synced"

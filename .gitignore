@@ -1,0 +1,36 @@
+# --- secrets ---
+.env
+.env.*
+!.env.template
+!**/.env.template
+*.pem
+*.key
+credentials.json
+**/secrets/
+
+# --- python / node ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+
+# --- logs / local runtime ---
+*.log
+logs/
+.opencodereview/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- kit 取证（不入库）---
+docs/memory/tests/_raw/
+docs/memory/tests/*/_raw/
+memory/kit/tests/_raw/
+memory/kit/tests/*/_raw/
+
+# --- 本机临时物料（不入库）---
+materials/_local/*
+!materials/_local/.gitkeep

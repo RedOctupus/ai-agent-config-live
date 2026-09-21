@@ -1,14 +1,16 @@
 #!/bin/bash
 # sync-skills.sh - Pull skills from Hermes to this repo
-# Usage: ./scripts/sync-skills.sh
-# Run from repo root
+# Usage (from repo root): ./scaffold/scripts/sync-skills.sh
 
 set -e
 
 HERMES_SKILLS="${HERMES_HOME:-$HOME/.hermes}/skills"
-REPO_SKILLS="$(cd "$(dirname "$0")/.." && pwd)/skills"
+REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+REPO_SKILLS="$REPO_ROOT/materials/skills"
 
 echo "=== Syncing skills from $HERMES_SKILLS to $REPO_SKILLS ==="
+
+mkdir -p "$REPO_SKILLS"
 
 # Remove old skills (keep manifest)
 rm -rf "$REPO_SKILLS"/*/

@@ -11,7 +11,7 @@ agent-skills/
 
 ## Cursor 同步规则（重要）
 
-1. **只往远程更新**：本机 `~/.cursor/skills` → 本仓库 `agent-skills/cursor/`。有新技能或内容变更才 commit/push。
+1. **只往远程更新**：本机 `~/.cursor/skills` → 本仓库 `materials/agent-skills/cursor/`。有新技能或内容变更才 commit/push。
 2. **不自动拉本机、不自动注册**：除非明确说「从远端拉某某技能下来用」，否则不要把仓库里的技能拷进 `~/.cursor/skills`，也不要替本机注册/启用。
 3. **目录形态**：目前个人技能主要平铺在 `cursor/<name>/`；成套技能放进 `cursor/suites/<suite-name>/`。技能多了以后会再按主题分类，不必永远平铺。
 4. **Superpowers 插件**：也纳入定时备份。来源是本机 `~/.cursor/plugins/cache/cursor-public/superpowers/<hash>/skills`，远端落在 `cursor/plugins/superpowers/`。这是插件技能备份，不等于自动重装插件；恢复方式以 Cursor 插件安装为准，除非另有说明。
@@ -39,7 +39,7 @@ agent-skills/
 | 夹 | 技能 |
 |---|---|
 | portable | anchoring-persona-memory |
-| cursor（平铺） | anchoring-persona-memory, book-to-skill, ai-agents-in-depth-zh-cn, ai-finance-dev-guide, project-memory-kit, persona-jailbreak-inject, zimage-scene-image, codebase-to-course |
+| cursor（平铺） | anchoring-persona-memory, book-to-skill, ai-agents-in-depth-zh-cn, ai-finance-dev-guide, project-memory-kit, persona-jailbreak-inject, zimage-scene-image, codebase-to-course, open-code-review |
 | cursor/suites/parallel-collaboration | parallel-collaboration（总控）, collaboration-contract, compatibility-layer, mock-collaboration, legacy-mock-cleanup |
 | cursor/plugins/superpowers | Superpowers 插件 skills（brainstorming、tdd、writing-plans 等） |
 | claude | canvas-design, notebook-tutor, task-framework, code-example, temp-literature-search, project-memory-kit |

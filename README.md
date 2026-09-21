@@ -9,12 +9,12 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 
 ## Cursor 个人技能备份规则
 
-仓库：`agent-skills/cursor/`（详见 [`agent-skills/README.md`](agent-skills/README.md)）。
+仓库：`materials/agent-skills/cursor/`（详见 [`materials/agent-skills/README.md`](materials/agent-skills/README.md)）。
 
 - **只往远程更新**：本机 `~/.cursor/skills` → 本仓库；有变化才提交推送。
 - **不自动拉本机、不自动注册**：除非明确说从远端拉某个技能下来用。
 - **目录**：目前一个运行时夹里平铺；成套技能放 `cursor/suites/`。以后技能多了可能再分类。
-- **含 Superpowers 插件技能备份**：落到 `agent-skills/cursor/plugins/superpowers/`（来自插件缓存，不是 `~/.cursor/skills`）。
+- **含 Superpowers 插件技能备份**：落到 `materials/agent-skills/cursor/plugins/superpowers/`（来自插件缓存，不是 `~/.cursor/skills`）。
 - **不含**：Cursor 内置 `skills-cursor`；其他插件默认仍不备份。
 
 ## Quick Recovery
@@ -25,7 +25,7 @@ git clone git@github.com:RedOctupus/ai-agent-config-live.git
 cd ai-agent-config-live
 
 # 2. Restore
-./scripts/restore.sh
+./scaffold/scripts/restore.sh
 
 # 3. Fill in API keys
 cp ~/.hermes/.env.template ~/.hermes/.env
@@ -38,37 +38,42 @@ hermes
 
 ## Structure
 
+三层分开存放，根目录只留入口文档与 Cursor 规则：
+
 ```
-├── README.md              ← This file
-├── hermes/                ← Hermes config (redacted)
-│   ├── config.yaml        ← Key settings (no API keys)
-│   ├── SOUL.md            ← Agent persona
-│   └── .env.template      ← Required env vars
-├── skills/                ← Hermes skill backup
-│   └── <category>/<name>/SKILL.md
-├── agent-skills/          ← 按运行时分类的个人技能（Cursor/Claude/portable）
-│   └── cursor/            ← 平铺技能 + suites/ 成套技能
-├── memory/                ← Persistent memory exports
-│   ├── user-profile.md
-│   ├── environment.md
-│   └── machine.md
-├── tools/                 ← Installed CLI/Agent tools catalog
-│   └── catalog.md
-├── scripts/               ← Sync & restore automation
-│   ├── sync-skills.sh     ← Pull latest skills from Hermes
-│   ├── sync-memory.sh     ← Export memory to markdown
-│   └── restore.sh         ← Full disaster recovery
-└── plans/                 ← Project plans
+├── README.md / AGENTS.md / .gitignore / .cursor/rules/
+├── scaffold/                 ← 脚手架（同步、恢复、体量门闸）
+│   └── scripts/
+│       ├── sync-skills.sh
+│       ├── sync-memory.sh
+│       ├── restore.sh
+│       ├── auto-sync.sh
+│       └── check-memory-size.py
+├── memory/                   ← 记忆（两套，不要混）
+│   ├── kit/                  ← 本仓 project-memory-kit（日常只读 MEMORY.md）
+│   └── hermes/               ← Hermes 长期记忆导出
+└── materials/                ← 本地物料（技能、配置、清单、计划）
+    ├── hermes/               ← Hermes 配置（脱敏；无 API keys）
+    ├── skills/               ← Hermes 技能备份
+    ├── agent-skills/         ← Cursor / Claude / portable 个人技能
+    ├── tools/                ← CLI/Agent 工具清单
+    ├── plans/                ← 历史计划
+    └── _local/               ← 本机临时物料（git 忽略）
 ```
+
+其他项目里 kit 默认仍是 `docs/memory/`；**只有本仓**把 kit 记忆放在 `memory/kit/`，以免和 Hermes 导出抢根目录 `memory/`。
 
 ## Maintenance
 
 ```bash
 # Sync skills after installing new ones
-./scripts/sync-skills.sh
+./scaffold/scripts/sync-skills.sh
 
-# Export latest memory
-./scripts/sync-memory.sh
+# Export latest Hermes memory → memory/hermes/
+./scaffold/scripts/sync-memory.sh
+
+# This repo's kit size gate
+python scaffold/scripts/check-memory-size.py
 
 # Commit changes
 git add -A

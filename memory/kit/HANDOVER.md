@@ -1,0 +1,93 @@
+# 项目交接文档（必知事实）
+
+> 接手先看这里。事实仅供参考，用前核实；与现场冲突以现场为准。
+> 2026-09-21 从 README、tools/catalog.md、memory 导出、git、本机 hostname 搜集；catalog 停在 2026-05-24。
+
+**最后核实：** `2026-09-21` · HEAD `5958bc1`（目录三分尚未提交）
+
+------
+
+## 1. 运行环境
+
+| 事实 | 值 / 结论 | 证据或出处 | 核实日期 |
+| --- | --- | --- | --- |
+| 本次所在机 | `DESKTOP-DKO2LI9`（约定中的学校笔记本） | `hostname` | 2026-09-21 |
+| 另一台 | 家里台式机 `SC-202601081030`；冲突拿不准偏它 | `materials/agent-skills/README.md` | 2026-09-21 |
+| OS（档案） | Windows 10 workstation | `README.md` · `memory/hermes/machine.md` | 2026-05-24 |
+| 本仓远程 | `https://github.com/RedOctupus/ai-agent-config-live` 私仓 | `git remote -v` · README | 2026-09-21 |
+| 默认分支 | `main` | `git rev-parse` | 2026-09-21 |
+| 本仓无常驻服务 | 备份仓，不跑 HTTP/DB | 目录结构 / README | 2026-09-21 |
+
+## 2. 关键路径
+
+| 事实 | 值 / 结论 | 证据或出处 | 核实日期 |
+| --- | --- | --- | --- |
+| 仓库工作副本 | `D:\杂货铺\新建文件夹\ai-agent-config-live` | 本次打开路径 | 2026-09-21 |
+| Hermes 源码/安装 | `D:\09-其他\hermes-agent\` | `memory/hermes/machine.md` | 2026-05-24 |
+| Hermes 本机配置 | `~/.hermes/`（config.yaml、skills、memories、state.db） | `memory/hermes/machine.md` | 2026-05-24 |
+| Cursor 个人技能（本机） | `~/.cursor/skills/` | `materials/agent-skills/README.md` | 2026-09-21 |
+| Cursor 个人技能（仓内） | `materials/agent-skills/cursor/` | 同上 | 2026-09-21 |
+| Claude 技能（仓内） | `materials/agent-skills/claude/` | 同上 | 2026-09-21 |
+| Hermes 技能（仓内） | `materials/skills/` | README Structure | 2026-09-21 |
+| Hermes 配置（仓内） | `materials/hermes/` | README | 2026-09-21 |
+| Hermes 记忆导出（仓内） | `memory/hermes/` | README；**不是** `memory/kit/` | 2026-09-21 |
+| 本仓 kit 记忆 | `memory/kit/` | 本仓特例；其它项目 kit 默认仍是 `docs/memory/` | 2026-09-21 |
+| Superpowers 备份 | `materials/agent-skills/cursor/plugins/superpowers/` | agent-skills README | 2026-09-21 |
+| 脚手架脚本 | `scaffold/scripts/` | restore / sync / auto-sync / check-memory-size | 2026-09-21 |
+| 体量门闸 | `python scaffold/scripts/check-memory-size.py`（默认 `memory/kit/MEMORY.md`） | 本仓脚本 | 2026-09-21 |
+| 本机临时物料 | `materials/_local/`（gitignore） | `.gitignore` | 2026-09-21 |
+
+## 3. 账号与凭据位置
+
+| 事实 | 值 / 结论 | 证据或出处 | 核实日期 |
+| --- | --- | --- | --- |
+| GitHub | 账号 RedOctupus；gh 在 `C:\Program Files\GitHub CLI\gh.exe` | `memory/hermes/environment.md` | 2026-05-24 |
+| 机主档案 | `memory/hermes/user-profile.md`（含邮箱；勿把密钥抄进本文件） | 该文件 | 2026-05-24 |
+| Hermes / LLM key | **只在本机** `~/.hermes/.env`；仓内 `materials/hermes/.env.template` | README Quick Recovery | 2026-09-21 |
+| OpenAI Pro / Codex | 档案写已订阅；登录方式见 `materials/tools/catalog.md` | catalog | 2026-05-24 |
+
+## 4. 工具链版本
+
+| 事实 | 值 / 结论 | 证据或出处 | 核实日期 |
+| --- | --- | --- | --- |
+| 档案快照（可能过期） | Hermes 0.14.0；Codex 0.133.0；gh 2.92.0；git 2.53.0；Node 24.14.0；Python 3.11.14/3.13.9 | `README.md` · `materials/tools/catalog.md` | 2026-05-24 |
+| 本次会话本机抽查 | git `2.55.0.windows.3`；Node `v22.23.1`（Winget Node 22 路径） | 同机其它任务 `git --version` / `node -v` | 2026-09-21 |
+| GPU 档案 | RTX 5070 Ti 16GB；CUDA driver 13.2 / toolkit 13.1 | `memory/hermes/machine.md` | 2026-05-24 |
+| catalog 维护说明 | Git Bash (MSYS) 不用 PowerShell；与 Cursor Agent 常用 PowerShell **可能不一致** | `materials/tools/catalog.md` | 2026-05-24 |
+
+## 5. 研究结论（已确认）
+
+| 事实 | 值 / 结论 | 证据或出处（**必填**） | 核实日期 |
+| --- | --- | --- | --- |
+| kit 权威源在本仓 | Cursor/Claude 两份 `project-memory-kit` 应逐字一致 | kit `SKILL.md`「改 kit 本身」 | 2026-09-21 |
+| 本仓 kit 路径是特例 | 本仓用 `memory/kit/`；kit 模板副本仍写 `docs/memory/`（给其它项目用） | 用户要求三分目录；未改 kit 模板 | 2026-09-21 |
+| 根目录无 AGENTS.md（init 前） | 本次由模板生成 | `Test-Path AGENTS.md` 曾为 False | 2026-09-21 |
+
+## 6. 已知的坑 / 反直觉行为
+
+| 事实 | 值 / 结论 | 证据或出处（**必填**） | 核实日期 |
+| --- | --- | --- | --- |
+| 两套 memory 仍分开 | `memory/hermes/` = Hermes 导出；`memory/kit/` = 本仓 kit | README Structure | 2026-09-21 |
+| 同步方向单向 | 把仓当「技能商店」往本机装会违反明文规则 | `materials/agent-skills/README.md` 第 2 条 | 2026-09-21 |
+| 版本清单易过期 | Last sync 2026-05-24 与 2026-09-21 现场 git/node 已对不上 | README vs 本机命令 | 2026-09-21 |
+| 恢复脚本是 sh | 笔记本上若只用 PowerShell，须用 Git Bash 跑 `./scaffold/scripts/*.sh` | `scaffold/scripts/*.sh` · catalog「Always use POSIX」 | 2026-09-21 |
+| 脚本相对根目录上移一层 | 脚本在 `scaffold/scripts/`，`REPO_ROOT` 是 `dirname $0/../..` | restore.sh 注释 | 2026-09-21 |
+
+## 7. 已排除的路（别重试）
+
+| 事实 | 值 / 结论 | 证据或出处（**必填**） | 核实日期 |
+| --- | --- | --- | --- |
+| 备份 Cursor 内置技能 | 明确不含 `~/.cursor/skills-cursor` | `materials/agent-skills/README.md` | 2026-09-21 |
+| clone 完自动注册全部技能 | 「不自动拉本机、不自动注册」 | 同上第 2 条 | 2026-09-21 |
+| 改 kit 模板里的默认路径来迁就本仓 | 其它项目仍用 `docs/memory/` | 用户约束：不改 skill 备份里的 kit 副本 | 2026-09-21 |
+
+------
+
+## 不写什么（落笔前看一眼）
+
+| 这类内容 | 写到哪 |
+| --- | --- |
+| 密钥 / token / 密码本身 | **哪都不写**（只写位置，见第 3 节） |
+| 函数实现、文件清单、步骤 | Plan / 代码 |
+| 逐轮验证结果 | `memory/kit/tests/` |
+| 「为什么变成现在这样」 | `ITERATION.md` |
