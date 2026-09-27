@@ -3,7 +3,7 @@
 > 接手先看这里。事实仅供参考，用前核实；与现场冲突以现场为准。
 > 2026-09-21 从 README、tools/catalog.md、memory 导出、git、本机 hostname 搜集；catalog 停在 2026-05-24。
 
-**最后核实：** `2026-09-21` · HEAD `e35eb2b`（kit v1.3.1 改动尚未提交）
+**最后核实：** `2026-09-27` · HEAD `01e2e7a`（业务上下文优先 Agent 设计 Skill + kit v1.4.0 + 三运行时本机注册已完成；本地已提交，待推送）
 
 > 短哈希**只写这一处**。`MEMORY.md` §0「工作分支」只留分支名。
 
@@ -19,6 +19,7 @@
 | 本仓远程 | `https://github.com/RedOctupus/ai-agent-config-live` 私仓 | `git remote -v` · README | 2026-09-21 |
 | 默认分支 | `main` | `git rev-parse` | 2026-09-21 |
 | 本仓无常驻服务 | 备份仓，不跑 HTTP/DB | 目录结构 / README | 2026-09-21 |
+| 业务上下文优先 Skill | 三份通用副本：`materials/agent-skills/{portable,claude,cursor}/business-context-first-agent-design/`；Kit 两份副本已升到 v1.4.0，并新增 `templates/BUSINESS-CONTEXT.md` | 本轮 artifact checks + DeepSeek 六场景 RED/GREEN 复测 | 2026-09-27 |
 
 ## 2. 关键路径
 
@@ -28,6 +29,8 @@
 | Hermes 源码/安装 | `D:\09-其他\hermes-agent\` | `memory/hermes/machine.md` | 2026-05-24 |
 | Hermes 本机配置 | `~/.hermes/`（config.yaml、skills、memories、state.db） | `memory/hermes/machine.md` | 2026-05-24 |
 | Cursor 个人技能（本机） | `~/.cursor/skills/` | `materials/agent-skills/README.md` | 2026-09-21 |
+| Claude 个人技能（本机） | `~/.claude/skills/`；本轮已更新 `project-memory-kit` 并注册 `business-context-first-agent-design` | 本轮用户明确授权后的本机校验 | 2026-09-27 |
+| Codex / 通用 Agent 技能（本机） | `~/.agents/skills/`；本轮已注册 `business-context-first-agent-design` | 本轮用户明确授权后的本机校验 | 2026-09-27 |
 | Cursor 个人技能（仓内） | `materials/agent-skills/cursor/` | 同上 | 2026-09-21 |
 | Claude 技能（仓内） | `materials/agent-skills/claude/` | 同上 | 2026-09-21 |
 | Hermes 技能（仓内） | `materials/skills/` | README Structure | 2026-09-21 |
@@ -56,7 +59,7 @@
 | 本次会话本机抽查 | git `2.55.0.windows.3`；Node `v22.23.1`（Winget Node 22 路径） | 同机其它任务 `git --version` / `node -v` | 2026-09-21 |
 | GPU 档案 | RTX 5070 Ti 16GB；CUDA driver 13.2 / toolkit 13.1 | `memory/hermes/machine.md` | 2026-05-24 |
 | catalog 维护说明 | Git Bash (MSYS) 不用 PowerShell；与 Cursor Agent 常用 PowerShell **可能不一致** | `materials/tools/catalog.md` | 2026-05-24 |
-| project-memory-kit 版本 | **`v1.3.1`**（记在 kit `SKILL.md` 顶部 YAML `kit-version` 与正文 `kit v…`）；项目侧应在自己 `MEMORY.md` §5 记录所依版本，用于判断是否该跟版 | kit `SKILL.md` | 2026-09-21 |
+| project-memory-kit 版本 | **`v1.4.0`**（新增可选 `BUSINESS-CONTEXT.md` 模板与 L2/L3 Agent 设计路由）；项目侧应在自己 `MEMORY.md` §5 记录所依版本，用于判断是否该跟版 | kit `SKILL.md`、模板与 README | 2026-09-27 |
 
 ## 5. 研究结论（已确认）
 
@@ -96,3 +99,4 @@
 | 函数实现、文件清单、步骤 | Plan / 代码 |
 | 逐轮验证结果 | `memory/kit/annex/` |
 | 「为什么变成现在这样」 | `ITERATION.md` |
+

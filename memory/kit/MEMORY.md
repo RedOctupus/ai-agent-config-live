@@ -98,6 +98,7 @@ memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-mem
 | `memory/kit/REQUIREMENTS.md` | 人定稿条目，Agent 改状态 | 需求讨论定稿、条目增删、对照验收打状态 |
 | `memory/kit/FRAMEWORK.md` | 人定型，Agent 同步选型/模块 | 框架讨论定稿或选型/模块变更 |
 | `memory/kit/FLOW.md` | 人定型，Agent 同步链路 | 实现流程定稿或端到端怎么走变了 |
+| `memory/kit/BUSINESS-CONTEXT.md` | Agent 设计任务按需启用 | L2/L3 Agent、能力模块、角色视图、多 Agent 或跨域流程；只留索引、门闸和缺口 |
 | `memory/kit/TODO.md` | Agent 随任务 | 大任务开始/完成打钩。**每条要有可判定的验收**（写不出 ⇒ 还不是待办）；已知限制归 HANDOVER，不进 TODO；结构约定见模板 |
 | `memory/kit/ITERATION.md` | Agent | 目的/范围/条目/框架/链路变更时追加 |
 | `memory/kit/annex/*.md` | Agent | **代码实现后的交付**新建一份 `VERIFY-`；**一天做成多件事**再加一份 `INDEX-YYYYMMDD.md` 串起来（只放指针）；小改动不强制；**里程碑后旧 VERIFY / INDEX 归档 `annex/_archive/`** |
@@ -107,7 +108,7 @@ memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-mem
 | `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
 
-> **本记忆按 kit v1.3.1 建立。** 判断该不该跟版：读 kit `SKILL.md` 顶部的 `kit-version` / `kit v…` 与本行比对，不同则按 `references/migration.md` 的「二、骨架升级」补齐，改完把本行版本号更新。
+> **本记忆按 kit v1.4.0 建立。** 判断该不该跟版：读 kit `SKILL.md` 顶部的 `kit-version` / `kit v…` 与本行比对，不同则按 `references/migration.md` 的「二、骨架升级」补齐，改完把本行版本号更新。
 
 ### 阅读策略（默认只读 MEMORY）
 
@@ -120,6 +121,7 @@ memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-mem
 | --- | --- |
 | 对照 R1、R2 或勾验收状态 | `REQUIREMENTS.md` |
 | 模块 / 选型不够 | `FRAMEWORK.md` |
+| Agent / 能力模块 / 角色视图 / 多 Agent / 跨域流程设计不够 | `BUSINESS-CONTEXT.md`，再按指针打开 REQUIREMENTS / FLOW / FRAMEWORK |
 | 端到端怎么走不够 | `FLOW.md` |
 | 服务对象现状不够 | `ENVIRONMENT.md` |
 | 环境 / 路径 / 账号位置 / 命令 / 已知的坑不够 | `HANDOVER.md`（**事实仅供参考，用前核实未过时**） |

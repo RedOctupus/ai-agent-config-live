@@ -4,7 +4,7 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 
 **Machine:** Windows 10 workstation  
 **Hermes:** v0.14.0 (DeepSeek v4 Pro)  
-**Last sync:** 2026-05-24
+**Last sync:** 2026-09-27
 
 
 ## Cursor 个人技能备份规则
@@ -16,6 +16,21 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 - **目录**：目前一个运行时夹里平铺；成套技能放 `cursor/suites/`。以后技能多了可能再分类。
 - **含 Superpowers 插件技能备份**：落到 `materials/agent-skills/cursor/plugins/superpowers/`（来自插件缓存，不是 `~/.cursor/skills`）。
 - **不含**：Cursor 内置 `skills-cursor`；其他插件默认仍不备份。
+
+## 新增设计模块
+
+本仓新增 `business-context-first-agent-design`，用于在新增或修改 Agent、能力模块、角色视图、多 Agent 协作、记忆行为和跨业务域流程前，先完成：
+
+```text
+业务域 → 生命周期 → 角色任务 → 上下文 → Agent 业务结果
+→ 原子能力 → 能力模块 → 角色视图 → 跨域回流
+```
+
+- portable、Claude、Cursor 三份 Skill 保持同步；
+- project-memory-kit 升级到 v1.4.0；
+- Kit 项目使用 `BUSINESS-CONTEXT.md` 作为索引和开发前门闸；
+- 本仓 `memory/kit/` 已记录该模块的需求、框架、流程、验证和交接信息；
+- 详细验证记录见 `memory/kit/annex/VERIFY-20260927-business-context-agent-design.md`。
 
 ## Quick Recovery
 

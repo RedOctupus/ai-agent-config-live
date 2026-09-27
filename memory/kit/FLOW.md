@@ -41,7 +41,24 @@ Superpowers：备份插件缓存到 materials/agent-skills/cursor/plugins/superp
 | 恢复 | 空本机 / 新机器 | 本机 Hermes 配置 + 技能 | 密钥不在仓内，须手填 |
 | 本仓记忆维护 | 任务结果 | `memory/kit/` 源文件 + 必要时 MEMORY 一句 | 改完就同步，别等用户问 |
 
-## 5. 关键数据约定
+## 5. Agent / 复杂业务设计路由
+
+```text
+用户提出 Agent / 能力模块 / 角色视图 / 多 Agent / 记忆或跨域需求
+↓
+项目入口规则读取 MEMORY 并判断 L0–L3
+↓
+L2/L3 加载 business-context-first-agent-design
+↓
+有 Kit：使用 memory/kit/BUSINESS-CONTEXT.md 并回写 REQUIREMENTS / FLOW / FRAMEWORK / TODO / ITERATION
+无 Kit：按 Skill 兼容模式使用 docs/agent-context/
+↓
+GREEN 可实现；YELLOW 只能做受控原型；RED 先补业务上下文
+↓
+实现后更新 VERIFY 和项目记忆
+```
+
+## 6. 关键数据约定
 
 ```text
 技能身份 = 目录名；入口文件必须是 SKILL.md

@@ -14,6 +14,7 @@ docs/memory/ENVIRONMENT.md  # 服务对象大环境
 docs/memory/REQUIREMENTS.md # 需求条目
 docs/memory/FRAMEWORK.md    # 项目框架
 docs/memory/FLOW.md         # 实现流程
+docs/memory/BUSINESS-CONTEXT.md # Agent / 复杂业务上下文索引（L2/L3 可选）
 docs/memory/TODO.md
 docs/memory/ITERATION.md
 docs/memory/HANDOVER.md     # 跨阶段必知事实（可增删改）
@@ -52,7 +53,7 @@ https://github.com/RedOctupus/ai-agent-config-live
 
 > 路径含 `materials/` 前缀：本仓库做过目录三分（`scaffold/` · `memory/` · `materials/`），kit 落在 `materials/` 下。按 `agent-skills/...` 找会落空。
 
-**版本：** 本 kit 当前 `v1.3.1`，见 `SKILL.md` 顶部 `kit-version`。项目侧在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用来判断是否该跟版（`references/migration.md` 二、骨架升级）。
+**版本：** 本 kit 当前 `v1.4.0`，见 `SKILL.md` 顶部 `kit-version`。项目侧在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用来判断是否该跟版（`references/migration.md` 二、骨架升级）。
 
 改任一副本 → push 到该仓库 → 另一份同步 → `diff -r` 校验逐字一致，否则分叉。
 
@@ -86,3 +87,8 @@ https://github.com/RedOctupus/ai-agent-config-live
 ## 多人 / 多模块
 
 多个维护者 / 多模块、或有跨模块共享层（DB / 认证 / 接口）时 → `references/team.md`：按模块拆目录、owner 认领、大记忆不可动、共享层变更协议、merge 策略、kit 分发。
+
+
+## Agent / 复杂业务设计接入
+
+当任务涉及 Agent、能力模块、角色视图、多 Agent 协作、记忆读写或跨业务域流程时，先加载 `business-context-first-agent-design`。启用 Kit 的项目使用 `docs/memory/BUSINESS-CONTEXT.md` 作为业务上下文索引；它不替代 `REQUIREMENTS.md`、`FLOW.md`、`FRAMEWORK.md`。没有 Kit 的项目使用该 Skill 的 `docs/agent-context/` 兼容模式。

@@ -23,5 +23,8 @@
 | R6 | project-memory-kit 在本仓维护 Cursor/Claude 两份 | `materials/agent-skills/cursor/project-memory-kit` 与 `.../claude/project-memory-kit` | 已对照 |  |
 | R7 | 本仓自身可用 kit 交接（本仓路径是 `memory/kit/`） | 存在 MEMORY 及源文件，`python scaffold/scripts/check-memory-size.py` 退出 0 | 已对照 | 见 annex/VERIFY-20260921-init-memory-kit.md |
 | R8 | 脚手架、记忆、本地物料分开放；密钥/取证/本机临时夹进 gitignore | 根目录仅入口文档；三层目录存在；`.gitignore` 含 `.env`、`_raw`、`materials/_local` | 已对照 | 见 annex/VERIFY-20260921-classify-repo-layout.md |
+| R9 | 涉及 Agent / 能力模块 / 角色视图 / 多 Agent / 记忆读写 / 跨域流程时，先经过业务上下文优先设计门闸 | 能识别 L0–L3；L2/L3 明确业务域、生命周期、角色任务、上下文、Agent 边界、原子能力、视图和跨域回流 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design.md |
+| R10 | Kit 项目有可选 `BUSINESS-CONTEXT.md` 槽位，详情回 REQUIREMENTS / FLOW / FRAMEWORK | 两份 kit 模板含同名文件；不创建平行 `agent-design/` 记忆树 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design.md |
+| R11 | 无 Kit 的 Agent 项目可用独立 Skill 的兼容模式初始化最小业务上下文槽位 | Skill 说明 `docs/agent-context/`，且不覆盖已有项目文档 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design.md |
 
 状态：`未做` → `开发中` → `已对照`。

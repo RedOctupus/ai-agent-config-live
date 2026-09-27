@@ -1,17 +1,18 @@
 ---
 name: project-memory-kit
-kit-version: 1.3.1
+kit-version: 1.4.0
 description: >-
   Initializes and maintains compact project memory for humans and agents.
   Use when the user says init a new project, 初始化项目记忆, 新建项目脚手架,
   or when a repo already has docs/memory/ and the task changes requirements,
   requirement breakdown, architecture, TODOs, 服务对象大环境, 项目框架, 实现流程,
   or needs an annex VERIFY / NOTE / CHECKLIST / INDEX.
+  Use the business-context-first Agent design workflow when the task adds or changes Agents, capability modules, role views, multi-Agent coordination, memory behavior, or cross-domain business flows.
 ---
 
 # Project Memory Kit
 
-> **kit v1.3.1** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
+> **kit v1.4.0** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
 
 人读 [README.md](README.md)。Agent 以本文件为准。
 
@@ -27,6 +28,7 @@ docs/memory/ENVIRONMENT.md  # 服务对象大环境（现状）
 docs/memory/REQUIREMENTS.md # 拆解条目，对照开发
 docs/memory/FRAMEWORK.md    # 项目框架：选型、能力模块、分层
 docs/memory/FLOW.md         # 实现流程：端到端怎么走
+docs/memory/BUSINESS-CONTEXT.md # Agent / 复杂业务上下文索引（L2/L3 可选）
 docs/memory/TODO.md
 docs/memory/ITERATION.md
 docs/memory/HANDOVER.md     # 跨阶段必知事实（可增删改，非追加）
@@ -39,6 +41,7 @@ AGENTS.md
 
 本 Skill 目录：`templates/` 可拷贝；`references/` 不拷进项目，按需再读。
 
+- 业务上下文优先的 Agent 设计：加载独立 `business-context-first-agent-design` Skill；Kit 只负责项目内落点和路由
 - 协作 / 模式选择：[references/collaboration.md](references/collaboration.md)
 - 阅读、最小修改、测试汇报：[references/agent-rules.md](references/agent-rules.md)
 - MVC 与工程骨架：[references/scaffold.md](references/scaffold.md)
@@ -75,6 +78,7 @@ AGENTS.md
 | `templates/FLOW.md` | `docs/memory/FLOW.md` |
 | `templates/TODO.md` | `docs/memory/TODO.md` |
 | `templates/ENVIRONMENT.md` | `docs/memory/ENVIRONMENT.md` |
+| `templates/BUSINESS-CONTEXT.md` | `docs/memory/BUSINESS-CONTEXT.md`（仅 Agent / 复杂业务 L2/L3；已有则不覆盖） |
 | `templates/ITERATION.md` | `docs/memory/ITERATION.md` |
 | `templates/HANDOVER.md` | `docs/memory/HANDOVER.md` |
 | `templates/REFERENCES.md` | `docs/memory/REFERENCES.md` |
@@ -100,6 +104,12 @@ AGENTS.md
 6. 向用户汇报创建了哪些路径。
 
 ## 日常维护（已 init）
+
+### Agent / 复杂业务设计路由
+
+Kit 不动态执行另一个 Skill；它通过项目入口规则路由：涉及新增或修改 Agent、能力模块、角色视图、多 Agent 协作、记忆读写或跨业务域流程时，先加载 `business-context-first-agent-design`。Kit 项目优先使用 `docs/memory/BUSINESS-CONTEXT.md`，不要创建平行的 `agent-design/` 记忆树。没有 Kit 的项目由该独立 Skill 以兼容模式使用 `docs/agent-context/`。
+
+当任务级别为 L0/L1 时只检查受影响的上下文；L2/L3 时先完成业务域 → 生命周期 → 角色任务 → 上下文 → Agent → 原子能力 → 能力模块 → 角色视图 → 跨域回流门闸。
 
 不是 Cursor 出厂默认；依赖项目里的 `project-memory.mdc`。按任务规模更新：
 
