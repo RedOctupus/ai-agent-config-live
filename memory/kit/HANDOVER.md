@@ -3,7 +3,7 @@
 > 接手先看这里。事实仅供参考，用前核实；与现场冲突以现场为准。
 > 2026-09-21 从 README、tools/catalog.md、memory 导出、git、本机 hostname 搜集；catalog 停在 2026-05-24。
 
-**最后核实：** `2026-09-27` · HEAD `6e15230`（业务上下文优先 Agent 设计 Skill + kit v1.4.0 + 三运行时本机注册已完成；已推送 origin/main）
+**最后核实：** `2026-09-27` · HEAD `70dca84`（业务上下文优先 Agent 设计 Skill 已精简；Kit v1.5.0 补齐协作契约与多对多边界；三运行时本机副本已更新；待推送 origin/main）
 
 > 短哈希**只写这一处**。`MEMORY.md` §0「工作分支」只留分支名。
 
@@ -19,7 +19,7 @@
 | 本仓远程 | `https://github.com/RedOctupus/ai-agent-config-live` 私仓 | `git remote -v` · README | 2026-09-21 |
 | 默认分支 | `main` | `git rev-parse` | 2026-09-21 |
 | 本仓无常驻服务 | 备份仓，不跑 HTTP/DB | 目录结构 / README | 2026-09-21 |
-| 业务上下文优先 Skill | 三份通用副本：`materials/agent-skills/{portable,claude,cursor}/business-context-first-agent-design/`；Kit 两份副本已升到 v1.4.0，并新增 `templates/BUSINESS-CONTEXT.md` | 本轮 artifact checks + DeepSeek 六场景 RED/GREEN 复测 | 2026-09-27 |
+| 业务上下文优先 Skill | 三份通用副本：`materials/agent-skills/{portable,claude,cursor}/business-context-first-agent-design/`；Kit 两份副本已升到 v1.5.0；`templates/BUSINESS-CONTEXT.md` 已补齐协作契约与多对多说明 | 本轮 artifact checks + DeepSeek 六场景 RED/GREEN 复测 | 2026-09-27 |
 
 ## 2. 关键路径
 
@@ -59,7 +59,7 @@
 | 本次会话本机抽查 | git `2.55.0.windows.3`；Node `v22.23.1`（Winget Node 22 路径） | 同机其它任务 `git --version` / `node -v` | 2026-09-21 |
 | GPU 档案 | RTX 5070 Ti 16GB；CUDA driver 13.2 / toolkit 13.1 | `memory/hermes/machine.md` | 2026-05-24 |
 | catalog 维护说明 | Git Bash (MSYS) 不用 PowerShell；与 Cursor Agent 常用 PowerShell **可能不一致** | `materials/tools/catalog.md` | 2026-05-24 |
-| project-memory-kit 版本 | **`v1.4.0`**（新增可选 `BUSINESS-CONTEXT.md` 模板与 L2/L3 Agent 设计路由）；项目侧应在自己 `MEMORY.md` §5 记录所依版本，用于判断是否该跟版 | kit `SKILL.md`、模板与 README | 2026-09-27 |
+| project-memory-kit 版本 | **`v1.5.0`**（在 `BUSINESS-CONTEXT.md` 增加 Agent 协作契约、多对多边界与前门闸）；项目侧应在自己 `MEMORY.md` §5 记录所依版本，用于判断是否该跟版 | kit `SKILL.md`、模板与 README | 2026-09-27 |
 
 ## 5. 研究结论（已确认）
 
