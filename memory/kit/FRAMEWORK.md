@@ -33,7 +33,7 @@
 | `materials/hermes/` | 脱敏后的 Hermes 配置与 env 模板 | 本机 `~/.hermes/` |
 | `materials/skills/` | Hermes 技能全量备份 + `manifest.md` | Hermes skills 目录 |
 | `materials/agent-skills/` | 按运行时分类的个人技能备份 | Cursor / Claude / 可移植约定 |
-| `business-context-first-agent-design` | 业务域 → 生命周期 → 角色任务 → 上下文 → Agent → 原子能力 → 能力模块 → 角色视图 → 跨域回流的设计门闸 | `project-memory-kit` 路由 + 可选 `BUSINESS-CONTEXT.md` 模板 |
+| `business-context-first-agent-design` | 业务域 → 生命周期 → 角色任务 → 上下文 → Agent 业务结果 → 原子能力 → Agent 协作契约 → 能力模块 → 角色视图 → 跨域回流的设计门闸 | `project-memory-kit` 路由 + 可选 `BUSINESS-CONTEXT.md` 模板 |
 | `materials/tools/` | 本机 CLI/Agent 工具清单 | 人工维护 catalog |
 | `materials/plans/` | 历史计划 | 无运行时依赖 |
 | `materials/_local/` | 本机临时物料（不入库） | `.gitignore` |

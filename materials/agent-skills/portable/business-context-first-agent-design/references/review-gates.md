@@ -2,19 +2,16 @@
 
 ## GREEN
 
-Use when the domain, lifecycle stage, role task, context, Agent result, atomic capabilities, memory, human boundary, and role view are sufficiently defined.
+Domain, lifecycle stage, role task, business result, context, Agent contract, atomic capabilities, memory, human boundary, module, and role view are clear. Implementation may start.
 
 ## YELLOW
 
-Use when the result is a controlled prototype. List simulated data, assumptions, unavailable integrations, and the exact replacement point. Do not present simulated behavior as a production business decision.
+Some facts or integrations are simulated, assumed, or unavailable. List them, name the replacement point, and limit work to the controlled prototype.
 
 ## RED
 
-Use when the request is only a role label, Agent name, page, or tool idea. Stop implementation and ask the smallest questions that identify the domain, lifecycle, task, result, and decision owner.
+The request is only a role label, Agent name, page, or tool idea. Do not implement. Ask the smallest questions that identify domain, lifecycle, task, result, context, and decision owner.
 
-## Scope calibration
+## Required output
 
-- L0: do not demand a new domain model.
-- L1: inspect only the affected lifecycle slice and contract.
-- L2: complete the domain-to-view chain.
-- L3: add project-level orchestration, cross-domain handoffs, conflicts, and state return.
+State the level, domain/boundary, lifecycle position, role task/result, key context gaps, Agent/module boundary, human gate, decision color, and next action. For L3 also state cross-domain handoffs, conflict handling, project-state return, and memory updates.

@@ -5,20 +5,21 @@
 ```text
 Name:
 Business result owned:
-Lifecycle stage:
+Lifecycle stage / state transition:
 Inputs:
 Outputs:
-Collaborators:
+Collaborators (Agents):
 Atomic capabilities:
-Memory read:
-Memory write:
+Memory read / write:
 Human confirmation:
-Failure/conflict handling:
+Failure / conflict handling:
 Evaluation criterion:
 ```
 
-## Boundary tests
+## Decision tests
 
-An Agent is probably too broad when it owns unrelated lifecycle transitions, has no single result, or requires every project domain. It is probably too narrow when it only wraps one query, formatter, or API call and has no independent business evaluation.
+- **Coordinator Agent:** may call many Agents, but owns one composite, independently testable business result in one lifecycle slice and one human decision boundary.
+- **Capability module:** bundles multiple independently accepted results, independent lifecycle transitions, or distinct role-specific allocation/review boundaries. It may contain a coordinator Agent.
+- **Orchestrator/service:** routes, retries, passes state, calls tools, or merges data without owning a business result; do not call it an Agent.
 
-The same Agent may be called from multiple role views. Role-specific differences belong in permissions, context, output framing, and human gates unless the business result itself differs.
+Agent and capability module are many-to-many: one module may contain one or more Agents, and one Agent may be reused by multiple modules and role views. Role-specific differences normally belong in permissions, context, framing, and human gates.

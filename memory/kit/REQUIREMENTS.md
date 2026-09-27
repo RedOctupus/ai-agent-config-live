@@ -26,5 +26,6 @@
 | R9 | 涉及 Agent / 能力模块 / 角色视图 / 多 Agent / 记忆读写 / 跨域流程时，先经过业务上下文优先设计门闸 | 能识别 L0–L3；L2/L3 明确业务域、生命周期、角色任务、上下文、Agent 边界、原子能力、视图和跨域回流 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design.md |
 | R10 | Kit 项目有可选 `BUSINESS-CONTEXT.md` 槽位，详情回 REQUIREMENTS / FLOW / FRAMEWORK | 两份 kit 模板含同名文件；不创建平行 `agent-design/` 记忆树 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design.md |
 | R11 | 无 Kit 的 Agent 项目可用独立 Skill 的兼容模式初始化最小业务上下文槽位 | Skill 说明 `docs/agent-context/`，且不覆盖已有项目文档 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design.md |
+| R12 | Agent-to-Agent 协作先有输入/输出契约；Agent 与能力模块按多对多建模 | `BUSINESS-CONTEXT.md` 含协作契约表、模块复用说明和前门闸；具体编排框架不在 Kit 中拍板 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design-v1.5.md |
 
 状态：`未做` → `开发中` → `已对照`。

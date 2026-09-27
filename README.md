@@ -27,7 +27,7 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 ```
 
 - portable、Claude、Cursor 三份 Skill 保持同步；
-- project-memory-kit 升级到 v1.4.0；
+- project-memory-kit 升级到 v1.5.0：BUSINESS-CONTEXT 模板补齐 Agent 协作契约与 Agent↔能力模块多对多边界；
 - Kit 项目使用 `BUSINESS-CONTEXT.md` 作为索引和开发前门闸；
 - 本仓 `memory/kit/` 已记录该模块的需求、框架、流程、验证和交接信息；
 - 详细验证记录见 `memory/kit/annex/VERIFY-20260927-business-context-agent-design.md`。

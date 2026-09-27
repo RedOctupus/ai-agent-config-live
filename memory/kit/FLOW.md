@@ -50,7 +50,7 @@ Superpowers：备份插件缓存到 materials/agent-skills/cursor/plugins/superp
 ↓
 L2/L3 加载 business-context-first-agent-design
 ↓
-有 Kit：使用 memory/kit/BUSINESS-CONTEXT.md 并回写 REQUIREMENTS / FLOW / FRAMEWORK / TODO / ITERATION
+有 Kit：使用 memory/kit/BUSINESS-CONTEXT.md；Agent-to-Agent 实现前先记录协作契约，再回写 REQUIREMENTS / FLOW / FRAMEWORK / TODO / ITERATION
 无 Kit：按 Skill 兼容模式使用 docs/agent-context/
 ↓
 GREEN 可实现；YELLOW 只能做受控原型；RED 先补业务上下文
