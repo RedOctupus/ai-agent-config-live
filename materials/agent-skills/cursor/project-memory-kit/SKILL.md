@@ -1,6 +1,6 @@
 ---
 name: project-memory-kit
-kit-version: 1.5.0
+kit-version: 1.6.0
 description: >-
   Initializes and maintains compact project memory for humans and agents.
   Use when the user says init a new project, 初始化项目记忆, 新建项目脚手架,
@@ -12,7 +12,7 @@ description: >-
 
 # Project Memory Kit
 
-> **kit v1.5.0** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
+> **kit v1.6.0** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
 
 人读 [README.md](README.md)。Agent 以本文件为准。
 
@@ -180,7 +180,7 @@ https://github.com/RedOctupus/ai-agent-config-live
 （两份分叉过一次，别再让它发生。）
 
 **升版规则：** 动了 `templates/` / `references/` / `scripts/` 的可观察行为就改本文件顶部的 `kit v…`：
-补句 / 修错字 → 末位 +1（`1.4.0` → `1.4.1`）；新增模板、字段或改设计门闸 → 中位 +1（→ `1.5.0`）。
+补句 / 修错字 → 末位 +1（`1.4.0` → `1.4.1`）；新增模板、字段或改设计门闸 → 中位 +1（→ `1.6.0`）。
 项目侧靠 `MEMORY.md` §5 记的版本号判断该不该跟版。
 
 **判定「补句」还是「改口令」——看改完之后，照文档干活的 Agent 会不会多做 / 少做 / 换个做法：**

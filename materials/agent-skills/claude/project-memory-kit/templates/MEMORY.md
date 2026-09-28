@@ -91,6 +91,13 @@
 
 ------
 
+> **最小示例（可删）**
+> 项目一句话：内部知识库检索工具。
+> 当前阶段：MVP；当前优先级：稳定性。
+> 端到端：文档入库 → 检索 → 返回片段。
+
+------
+
 ## 5. 文档资产约定
 
 | 文件 | 谁维护 | 何时更新 |
@@ -109,7 +116,7 @@
 | `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
 
-> **本记忆按 kit v1.3.1 建立。** 判断该不该跟版：读 kit `SKILL.md` 顶部的 `kit-version` / `kit v…` 与本行比对，不同则按 `references/migration.md` 的「二、骨架升级」补齐，改完把本行版本号更新。小改动不必重写任何文件。
+> **本记忆按 kit v1.6.0 建立。** 判断该不该跟版：读 kit `SKILL.md` 顶部的 `kit-version` / `kit v…` 与本行比对，不同则按 `references/migration.md` 的「二、骨架升级」补齐，改完把本行版本号更新。小改动不必重写任何文件。
 
 ### 阅读策略（默认只读 MEMORY）
 

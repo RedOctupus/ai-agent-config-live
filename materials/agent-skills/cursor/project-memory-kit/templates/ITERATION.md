@@ -9,3 +9,4 @@
 | 日期 | 变更 | 原因 | 影响（模块/文档） |
 | --- | --- | --- | --- |
 | YYYY-MM-DD | init 项目记忆 | 新项目 | MEMORY / ENVIRONMENT / REQUIREMENTS / FRAMEWORK / FLOW / HANDOVER / REFERENCES |
+| 2026-01-02 | [示例，可删] R1 验收句变更 | 用户确认口径 | REQUIREMENTS |
