@@ -4,7 +4,7 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 
 **Machine:** Windows 10 workstation  
 **Hermes:** v0.14.0 (DeepSeek v4 Pro)  
-**Last sync:** 2026-09-27
+**Last sync:** 2026-10-01
 
 
 ## Cursor 个人技能备份规则
@@ -31,6 +31,8 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 - Kit 项目使用 `BUSINESS-CONTEXT.md` 作为索引和开发前门闸；
 - 本仓 `memory/kit/` 已记录该模块的需求、框架、流程、验证和交接信息；
 - 详细验证记录见 `memory/kit/annex/VERIFY-20260927-business-context-agent-design.md`。
+
+新增 portable `agent-memory-design` Skill：按业务痛点选择简单状态、Hindsight 局部能力或完整逻辑架构，并提供来源与回答回流规则、模块契约、实施配方、场景验收案例及可选 DeepEval 回归用例。
 
 ## Quick Recovery
 

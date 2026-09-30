@@ -20,3 +20,4 @@
 | 2026-09-27 | 精简 business-context-first-agent-design：明确协调型 Agent / 能力模块 / 编排器的决定性边界；补齐 Agent-to-Agent 协作契约；Kit v1.5.0 更新 BUSINESS-CONTEXT 模板与 L2/L3 门闸；三运行时本机副本同步 | 用户要求精简 Skill、必要时更新 Kit 并远端同步 | Skill 三份副本 / Kit Claude+Cursor / README / memory/kit / annex/VERIFY-20260927-business-context-agent-design-v1.5.md |
 | 2026-09-28 | kit v1.6.0：init 模板加入精简 few-shot 示例，并明确示例可删、不得当作真实事实 | 让后续 Agent 知道各槽位的最小合格填写方式；同步 Claude / Cursor 两份 kit | project-memory-kit（Claude+Cursor）· templates · SKILL.md / README.md · annex/VERIFY-20260928-fewshot-v1.6.0.md |
 | 2026-09-28 | HANDOVER 刷新为推送后 HEAD `acc0005`，并更新 Kit 版本为 v1.6.0 | 推送完成后交接事实不再指向待推送状态 | HANDOVER.md |
+| 2026-10-01 | 新增 portable `agent-memory-design`：按业务痛点选择简单/局部/完整记忆方案，补齐模块契约、证据来源与回答回流规则、工程配方、验收案例及可选 DeepEval 回归用例；更新技能目录与仓库快照 | 用户要求把刚创建的技能纳入本仓并与远端同步 | materials/agent-skills/portable/agent-memory-design · materials/agent-skills/README.md · README.md · MEMORY.md |
