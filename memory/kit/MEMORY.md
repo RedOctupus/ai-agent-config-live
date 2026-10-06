@@ -76,6 +76,7 @@ project-memory-kit 权威源是本仓 materials/agent-skills/ 下 cursor 与 cla
 ```text
 memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-memory-kit；其它项目 kit 默认仍是 docs/memory/
 本会话机器是 DESKTOP-DKO2LI9（学校笔记本）；materials/tools/catalog.md 版本号可能过期
+Cursor 用户规则全文在 `.cursor/rules/user-rules.mdc`；不读该规则的 Agent 先读它再干活
 ```
 
 ------
