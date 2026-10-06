@@ -77,6 +77,7 @@ hermes
 │   └── hermes/               ← Hermes 长期记忆导出
 └── materials/                ← 本地物料（技能、配置、清单、计划）
     ├── hermes/               ← Hermes 配置（脱敏；无 API keys）
+    ├── cursor-user-rules/    ← Cursor 账号 User Rules 快照（借鉴用，不注入本仓）
     ├── skills/               ← Hermes 技能备份
     ├── agent-skills/         ← Cursor / Claude / portable 个人技能
     ├── tools/                ← CLI/Agent 工具清单

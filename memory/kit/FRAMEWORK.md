@@ -32,6 +32,7 @@
 | `memory/kit/` | 本仓 project-memory-kit 交接 | kit 模板（其它项目默认仍是 docs/memory/） |
 | `memory/hermes/` | Hermes 长期记忆导出 | `~/.hermes/memories/` |
 | `materials/hermes/` | 脱敏后的 Hermes 配置与 env 模板 | 本机 `~/.hermes/` |
+| `materials/cursor-user-rules/` | 机主 Cursor 账号 User Rules 的可复用快照，供其他 Agent 借鉴 | 账号云端 User Rules；不回写、不注入本仓 |
 | `materials/skills/` | Hermes 技能全量备份 + `manifest.md` | Hermes skills 目录 |
 | `materials/agent-skills/` | 按运行时分类的个人技能备份 | Cursor / Claude / 可移植约定 |
 | `project-memory-kit` 工作区门闸 | 单人 clone 即工作区；多人读人类确认的集成分支，用 `scripts/kit-workspace.py` 只读准入/显式创建 worktree；AOCI 状态只在负责 MEMORY 槽位 | Git 状态与 Kit 入口；不代理 AOCI 命令状态机 |

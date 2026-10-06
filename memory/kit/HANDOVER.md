@@ -37,7 +37,7 @@
 | Hermes 配置（仓内） | `materials/hermes/` | README | 2026-09-21 |
 | Hermes 记忆导出（仓内） | `memory/hermes/` | README；**不是** `memory/kit/` | 2026-09-21 |
 | 本仓 kit 记忆 | `memory/kit/` | 本仓特例；其它项目 kit 默认仍是 `docs/memory/` | 2026-09-21 |
-| Cursor 用户规则全文 | `.cursor/rules/user-rules.mdc`。账号云端 User Rules 不在 Git 里；不读 mdc 的 Agent 从根 `AGENTS.md` 转到该文件 | 本会话对照注入的 User Rules 写入 | 2026-10-06 |
+| Cursor 用户全局规则快照 | `materials/cursor-user-rules/`（`README.md` 管借鉴与维护，`RULES.md` 是全文）。账号云端 User Rules 不在 Git 里。本仓不注入 | 2026-10-06 从误放的 `.cursor/rules/user-rules.mdc` 移出 | 2026-10-06 |
 | Superpowers 备份 | `materials/agent-skills/cursor/plugins/superpowers/` | agent-skills README | 2026-09-21 |
 | AOCI 隔离沙盒 | `experiments/aoci-memory-kit/sandbox/ssss-agent/`。原 SSSS 不在这个地址，不要去原项目测 | 沙盒 `.codex/config.toml` 指向 `experiments/aoci-memory-kit/artifacts/bin/aoci.exe` | 2026-10-06 |
 | AOCI 工作区试验 | `experiments/aoci-memory-kit/artifacts/workspace-fixtures/`（Git 忽略）；`integration` 与 `task-{codex,claude,cursor,merge-a,merge-b}` 各是独立绝对根。全局图只在集成源码之后重签；原 SSSS 330 文件未变 | `experiments/aoci-memory-kit/VERIFY-20261006-workspace-hosts.md` | 2026-10-06 |

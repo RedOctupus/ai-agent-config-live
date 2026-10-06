@@ -1,11 +1,8 @@
----
-description: 本仓备份的 Cursor User Rules 全文。账号云端规则之外，本仓会话也必须遵守。
-alwaysApply: true
----
+# Cursor 用户全局规则（快照）
 
-# Cursor 用户规则（全文备份）
-
-以下与本机 Cursor Settings → Rules → User Rules 一致。改这里时同时改账号里的 User Rules，避免两处漂移。
+> 快照日期：2026-10-06。来源是当时注入会话的 Cursor 账号 User Rules。
+> 这是给其他 Agent 借鉴的正文。维护约定在同目录 `README.md`。
+> 本文件改了不会回写账号。账号规则改了也不会自动改本文件。
 
 ## 提交
 

@@ -76,7 +76,7 @@ project-memory-kit 权威源是本仓 materials/agent-skills/ 下 cursor 与 cla
 ```text
 memory/hermes/ 是 Hermes 长期记忆导出；memory/kit/ 是本仓 project-memory-kit；其它项目 kit 默认仍是 docs/memory/
 本会话机器是 DESKTOP-DKO2LI9（学校笔记本）；materials/tools/catalog.md 版本号可能过期
-Cursor 用户规则全文在 `.cursor/rules/user-rules.mdc`；不读该规则的 Agent 先读它再干活
+Cursor 账号 User Rules 的可复用快照在 `materials/cursor-user-rules/`；供其他 Agent 借鉴，本仓会话不注入
 ```
 
 ------
@@ -84,7 +84,7 @@ Cursor 用户规则全文在 `.cursor/rules/user-rules.mdc`；不读该规则的
 ## 4. 入口与运行
 
 ```text
-关键文件：README.md ； materials/agent-skills/README.md ； materials/skills/manifest.md
+关键文件：README.md ； materials/agent-skills/README.md ； materials/skills/manifest.md ； materials/cursor-user-rules/README.md
 如何启动：本仓无常驻服务。恢复走 ./scaffold/scripts/restore.sh ；技能备份走 ./scaffold/scripts/sync-skills.sh
 配置位置：本机 ~/.hermes/.env（不进 git）；模板 materials/hermes/.env.template
 ```
