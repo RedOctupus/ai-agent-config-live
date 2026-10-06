@@ -9,3 +9,5 @@
 - **宿主验证：** Codex 新会话真实调用一次 `aoci_header`，收到 `not_initialized`（预期），没有初始化；该次仅允许 AOCI header 工具并使用 `--approve-for-me`。CC `claude mcp get aoci` 最终 Connected；Cursor ready / tools 9。这验收部署与连接，当前仓没有完整 Overview/Attestation，不能称地图认知已验收。
 - **安全复核：** 原 SSSS 330 文件与预检一致；本仓机器路径配置、安装备份、临时 fixture 不提交。提交前运行体量、diff、包校验和暂存文件检查；远端结果以 HANDOVER 最后核实为准。
 - **后续：** git pull 后显式 install 应用；Kit 单独更新不改 AOCI。更换 AOCI 版本需先走升级清单，再 `--component aoci --upgrade-aoci`，各工作区用 `configure --replace-aoci` 切换并复验。当前只捆绑 Windows AMD64；没有做跨 AOCI 版本或第二台机器实测。
+
+- **远端放行：** 本轮实现与此前已确认的 Kit/AOCI 改动已推送私仓 `origin/main`；随后从远端全新 sparse clone，校验 ZIP / EXE 并在临时 home 安装，三份 Kit 完整镜像和 EXE 版本通过。机器路径/备份/试验原始资产未入库。
