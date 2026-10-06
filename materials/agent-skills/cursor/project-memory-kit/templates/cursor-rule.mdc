@@ -6,6 +6,7 @@ alwaysApply: true
 # 项目记忆
 
 改代码前默认只读 `docs/memory/MEMORY.md`。不要每个任务把 memory 目录读全。
+若有 `docs/memory/ROOT-MEMORY.md`，新人 clone 后先看集成分支；多人源码写入前运行 `python scripts/kit-workspace.py status --repo . --mode team --integration-branch <集成分支>`。在集成分支先创建/切换独立工作区，不得静默创建。单人 clone 可直接使用。
 对照条目再读 REQUIREMENTS；模块/选型再读 FRAMEWORK；端到端怎么走再读 FLOW；现状再读 ENVIRONMENT；环境/路径/账号/命令再读 HANDOVER（事实仅供参考，用前核实未过时）；找外部对标/外部系统再读 REFERENCES。答不出 MEMORY 门闸则禁止编码。
 维护哪些文件、口令：只看 MEMORY 第 5–6 节，此处不重复。
 MEMORY 只改各阶段一句话和约束/入口，禁止粘源文件正文；变更追加 ITERATION。

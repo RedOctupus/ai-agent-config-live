@@ -1,6 +1,7 @@
 ---
 name: project-memory-kit
-kit-version: 1.6.0
+metadata:
+  kit-version: "1.7.1"
 description: >-
   Initializes and maintains compact project memory for humans and agents.
   Use when the user says init a new project, 初始化项目记忆, 新建项目脚手架,
@@ -12,7 +13,7 @@ description: >-
 
 # Project Memory Kit
 
-> **kit v1.6.0** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
+> **kit v1.7.1** —— 项目侧应在自己的 `MEMORY.md` §5 记下「按哪个版本建立」，用于判断是否该按 [references/migration.md](references/migration.md) 的「二、骨架升级」跟版。
 
 人读 [README.md](README.md)。Agent 以本文件为准。
 
@@ -67,6 +68,18 @@ AGENTS.md
 
 目标目录：当前工作区根；若用户指定了路径，用用户路径。
 
+### 初始化前的两个独立选择
+
+Kit 的**单人 / 多人**维护模式与**AOCI 源码地图：启用 / 不启用**是两个独立选择。单人模式默认不强制选择：用户独自 clone 项目即可用 Kit，不必先回答工作区问题；只有明确多人维护或结构无法判断时才问维护模式。AOCI 仍须用户明确启用；未答时不安装，MEMORY 标为“未启用／待确认”。不因多人默认启用 AOCI，也不因 AOCI 改多人骨架。
+
+**单人 clone 本身就是可用工作区**，不强制创建 worktree；用户主动并行开发时才考虑独立 worktree。多人模式则在根 `ROOT-MEMORY.md` 记录人类确认的集成分支；不能猜 `main` 或 `master`。新人 clone 后先由项目入口提醒工作区准入，集成分支检出目录不直接写源码。独立 clone 的功能分支或 linked worktree 均可作为工作区；不得静默创建。
+
+用户选择不启用：保留目标 MEMORY 的“未启用”状态，**不得运行 aoci init**，不配置项目级 MCP；日常仍直接核对源码和测试，按 Kit §5 回写。用户确认启用后：先核对 AOCI 版本、许可、宿主与安装来源，遵守各项技术选型确认；AOCI 是项目级 stdio MCP，Kit 本身是 Skill，不是第二个 MCP。按当前 AOCI 官方安装说明在**目标 Git 仓**配置所选宿主，不覆盖既有配置；宿主配置含本机绝对路径，必须忽略且每台机器分别配置。再按当前机器 Guide 决定 Scope、scan 和模型编写索引，不把 AOCI 的执行状态机复制进 Kit。
+
+**本仓安装来源优先：** 已安装时先读 `~/.local/share/ai-agent-config/memory-tools.json` 的 `source_repo` / `aoci.binary`，复用校验过的本机 AOCI。为当前工作区注册 MCP，用该源仓的 `scaffold/scripts/install-memory-tools.py configure --repo <绝对 Git 根> --hosts <当前宿主> --apply`；注册后再按当前 AOCI init/Guide 建图。没有本机定位时先询问本仓 clone 路径，按仓内 `materials/tools/aoci/README.md` 安装；**init 不自动从 AOCI GitHub 下载**。仅明确要替换既有 AOCI 配置时才用 `--replace-aoci`。包来源与版本集中由源仓维护，Kit 不复制二进制。
+
+单人项目由 `docs/memory/MEMORY.md` 的 `kit:aoci-status` 行负责状态；多人项目由架构负责人维护根 `ROOT-MEMORY.md` 的同名状态，模块 MEMORY 只指向根状态，不各自宣布启用。启用状态只在 MCP 可用且正式索引对齐后写入；仅装二进制或配置 MCP 不等于已启用。
+
 1. 若目标已有 `docs/memory/MEMORY.md`：结构不合骨架（缺源文件 / 超长 / 战报堆正文）→ 走 [references/migration.md](references/migration.md) 收敛；结构已合则只补缺文件、不覆盖。
 2. 从本 Skill 的 `templates/` 与 `scripts/` 拷贝（本 SKILL.md 所在目录为 kit 根）：
 
@@ -88,11 +101,12 @@ AGENTS.md
 | `templates/annex/CHECKLIST.md` | `docs/memory/annex/CHECKLIST.md` |
 | `templates/annex/_INDEX.md` | `docs/memory/annex/_INDEX.md`（当日索引**模板**；真下发是 `INDEX-YYYYMMDD.md`） |
 | `scripts/check-memory-size.py` | `scripts/check-memory-size.py`（体量门闸；AGENTS.md / MEMORY 按**项目内相对路径**调用它，故须随 init 落地，否则那条命令在项目根直接失败） |
+| `scripts/kit-workspace.py` | `scripts/kit-workspace.py`（仅多人源码写入前做工作区状态检查；显式 `create` 才创建 worktree；单人可直接用 clone） |
 | `templates/AGENTS.md` | 项目根 `AGENTS.md`（已有则合并指针，不抹掉用户原文） |
 | `templates/cursor-rule.mdc` | `.cursor/rules/project-memory.mdc` |
 | `templates/gitignore-memory.txt` | 项目根 `.gitignore`（把内容**追加**进去——已有 `.gitignore` 时不要覆盖） |
 
-多模块 / 多人：走 [references/team.md](references/team.md)；根索引用 `templates/ROOT-MEMORY.md`、认领表用 `templates/OWNERS.md`，模块子目录复用上表单项目模板。
+多模块 / 多人：走 [references/team.md](references/team.md)；根索引用 `templates/ROOT-MEMORY.md`、认领表用 `templates/OWNERS.md`，模块子目录复用上表单项目模板。**将模块 MEMORY 的默认 AOCI 状态行替换为指向根 ROOT-MEMORY.md 的指针**（保留 `kit:aoci-status` 标记，用相对路径）；模块不得保留单人模板的“未启用”结论，也不得各自声明项目级 MCP 已启用。
 
 3. 只填 MEMORY 里立刻知道的项（文件夹名、当前阶段若用户已说）。其余留空，不编造业务。
 4. **老项目补句**：目标已有 `AGENTS.md` 或 `.cursor/rules/project-memory.mdc` 时（常见于早先 init 的项目），除合并指针外，**逐句对照本 kit 的 `templates/AGENTS.md` 与 `templates/cursor-rule.mdc`**，缺哪句补哪句。两处都是每轮注入，**必须同时改**——只改一处，不读 `.cursor` 的 Agent 就漏了。
@@ -104,6 +118,22 @@ AGENTS.md
 6. 向用户汇报创建了哪些路径。
 
 ## 日常维护（已 init）
+
+### 工作区隔离、集成与 AOCI
+
+工作区不等于人员或模块：它是有独立绝对根路径的**独立 clone 或 Git worktree**。同一人可有多个工作区，同一模块也可由不同工作区先后修改。`OWNERS.md` 仍管业务模块责任，不把 owner 表当作 worktree 清单。Git 状态能识别分支和 worktree，但**不能从 Git 状态证明没有其他 Agent 同时写该目录**；多人并行仍须约定一个工作区同一时刻只有一个写入者。
+
+多人源码任务前读根 `ROOT-MEMORY.md` 的集成分支，再运行 `python scripts/kit-workspace.py status --repo . --mode team --integration-branch <已确认分支>`。功能分支 clone/worktree 已可用时不重复创建；集成分支检出目录只读，不在此开发。需要新目录时先征询用户路径、分支和基线，再显式运行 `create`；不静默创建，也不自动复制本机 MCP 配置或 AOCI 运行状态。每个 AOCI 启用的工作区必须按当前版本官方接入说明单独校验 `--repo` 指向和地图治理，不能把另一个工作区的绝对路径配置当成可移植资产。单人项目默认不做此团队准入检查，当前 clone 可直接工作。
+
+个人 AOCI 地图只作为集成提案：分支可提交索引差异供审查，但**不得文本合并个人 aoci.code.txt** 到主分支。集成负责人串行处理，**先合并源码，再对合并后的源码重新签发**当前 AOCI 候选、核实个人提案与真实源码、写入全局 Entry，并依当前 Guide 完成 Verify/Check/Guide；源码与全局图对齐后才交付集成。个人候选的 SHA、batch、candidate ID 不能跨工作区重放；同一对象冲突、Meta/Scope 不兼容、证据不足或治理未对齐时停在人工裁决，不靠词句拼接或强制覆写。
+
+Kit 不内嵌 AOCI 版本和状态机：Kit 只负责是否启用、工作区准入、源码任务触发和 Kit 槽位回写；工具格式、认知建立与写入步骤取当前 MCP/Guide。AOCI 不可用不等于未启用：已启用时标记待维护、不能宣称闭环。独立更新 Kit 或 AOCI 时先做能力/宿主配置兼容检查，**不得自动升级 AOCI**，也**不得自动覆盖宿主配置**或本机已装 Kit；不兼容时保留源码/Kit 工作并报告阻断点。
+
+### 源码任务与 AOCI
+
+**仅启用 AOCI 的源码任务**：Kit `MEMORY.md` 的状态指针引到项目根 `AGENTS.md` 的 AOCI 区块；先依当前服务取得 `aoci_rules` 与完整 `aoci_overview`，Overview 交付确认只用本次返回的 `delivery_receipt_version`，不得猜协议版本；再按任务取 Entry 并回真实源码/测试核实。纯非代码任务不机械调用；只读源码且没有受管变更时不调用 Maintain。**最终代码和测试稳定后**依当前 MCP/Guide 调 `aoci_maintain` 并完成模型撰写的受影响 Entry，按返回命令依次 `verify → check → Guide` 证明对齐；随后同轮落 Kit VERIFY/ITERATION 及 §5 指定的其他槽位。AOCI 只管代码地图，不能把源码中出现的技术当作用户已确认选型，也不替代源码、测试或人审。
+
+已启用项目若 AOCI 不可用、冲突或无法对齐：可以继续用 Kit＋源码/测试做受限工作，但必须在交付中标出 AOCI 待维护，**不得宣称代码交付闭环完成**；不能静默把旧 Entry 当当前证据。未启用项目按 MEMORY 中“未启用”提示走 Kit-only，不制造待维护负债。
 
 ### Agent / 复杂业务设计路由
 

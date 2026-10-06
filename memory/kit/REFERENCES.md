@@ -41,6 +41,24 @@
 - **最近核实：** 2026-09-21
 ```
 
+## AOCI-CODE（Kit 可选源码地图接口）
+
+```text
+- **去哪看：** https://github.com/aoci-spec/aoci-code （README）；宿主接入 https://github.com/aoci-spec/aoci-code/blob/v0.1.0-rc18/docs/agent-integrations.md ；Overview 交付协议 https://github.com/aoci-spec/aoci-code/blob/v0.1.0-rc18/spec/public/aoci-overview-delivery-v1.txt ；发布包 https://github.com/aoci-spec/aoci-code/releases ；升级 https://github.com/aoci-spec/aoci-code/blob/main/docs/upgrading.md ；安装校验 https://github.com/aoci-spec/aoci-code/blob/main/docs/install.md ；回滚 https://github.com/aoci-spec/aoci-code/blob/main/docs/rollback.md
+- **本项目用途：** Kit v1.7.1 的可选项目级 MCP 接口；rc18 官方包保存在 materials/tools/aoci/，用户授权部署本配置仓；业务项目不自动建图
+- **相关指针：** materials/tools/aoci/README.md · annex/NOTE-20261006-aoci-code-memory-kit.md · annex/VERIFY-20261006-aoci-codex-session.md · annex/VERIFY-20261006-aoci-workspace-kit-v1.7.md · annex/VERIFY-20261006-aoci-upgrade-checklist.md · annex/VERIFY-20261006-memory-tools-deploy.md
+- **最近核实：** 2026-10-06（三宿主真会话与两分支集成试验）
+```
+
+## Cursor Agent CLI（AOCI 第三宿主待验）
+
+```text
+- **去哪看：** https://cursor.com/docs/cli/overview ；Windows 安装 https://prod.cursor.com/docs/cli/installation
+- **本项目用途：** 只为隔离试验安装并登录官方 CLI；工作区 MCP 真会话已验，不代表已把 Kit 安装进 Cursor
+- **相关指针：** annex/VERIFY-20261006-aoci-workspace-kit-v1.7.md
+- **最近核实：** 2026-10-06（CLI 已登录，隔离授权会话通过）
+```
+
 ## 建仓计划（来源）
 
 ```text

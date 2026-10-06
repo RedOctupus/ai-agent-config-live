@@ -23,6 +23,8 @@ agent-skills/
 **Claude Code：** 把 `claude/<name>/` 拷到 `~/.claude/skills/<name>/`。  
 **其他 Agent：** 优先用 `portable/`。
 
+**Project Memory Kit（v1.7.1）：** 两份权威副本一致；用户明确要求安装/更新时，在仓根运行 `python scaffold/scripts/install-memory-tools.py install --component kit --apply`，同时更新 Codex `~/.agents/skills`、Claude Code、Cursor 的 Kit，并备份旧副本。配套 AOCI 官方发布包和项目级 MCP 配置入口见 [仓内分发](../tools/aoci/README.md)；Kit/AOCI 分别更新，日常备份的单向规则不变。
+
 ## `anchoring-persona-memory` 能不能给非 Cursor 用？
 
 能。它是 Markdown 方法 + 空模板，不依赖 Cursor API。

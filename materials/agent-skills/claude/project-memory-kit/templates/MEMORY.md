@@ -89,6 +89,9 @@
 配置位置：（例如 .env，勿把密钥写入本文件）
 ```
 
+<!-- kit:aoci-status -->
+**AOCI 源码地图：未启用。** 需要理解或修改源码时，直接核对源码和测试，仍按 Kit §5 回写。用户明确启用、项目级 MCP 可用且索引对齐后，才把本行改为指向根 `AGENTS.md` AOCI 区块的入口；不要复制 AOCI 手册。
+
 ------
 
 > **最小示例（可删）**
@@ -116,7 +119,7 @@
 | `.cursor/rules/project-memory.mdc` | Init 由 `templates/cursor-rule.mdc` 生成 | Cursor 的**常驻规则**（alwaysApply，每轮注入） |
 | Skill `references/` | 不拷进本仓库 | 按需打开（规则见下方）；日常编码不要读 |
 
-> **本记忆按 kit v1.6.0 建立。** 判断该不该跟版：读 kit `SKILL.md` 顶部的 `kit-version` / `kit v…` 与本行比对，不同则按 `references/migration.md` 的「二、骨架升级」补齐，改完把本行版本号更新。小改动不必重写任何文件。
+> **本记忆按 kit v1.7.1 建立。** 判断该不该跟版：读 kit `SKILL.md` 顶部的 `kit-version` / `kit v…` 与本行比对，不同则按 `references/migration.md` 的「二、骨架升级」补齐，改完把本行版本号更新。小改动不必重写任何文件。
 
 ### 阅读策略（默认只读 MEMORY）
 

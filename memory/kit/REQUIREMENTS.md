@@ -27,5 +27,11 @@
 | R10 | Kit 项目有可选 `BUSINESS-CONTEXT.md` 槽位，详情回 REQUIREMENTS / FLOW / FRAMEWORK | 两份 kit 模板含同名文件；不创建平行 `agent-design/` 记忆树 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design.md |
 | R11 | 无 Kit 的 Agent 项目可用独立 Skill 的兼容模式初始化最小业务上下文槽位 | Skill 说明 `docs/agent-context/`，且不覆盖已有项目文档 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design.md |
 | R12 | Agent-to-Agent 协作先有输入/输出契约；Agent 与能力模块按多对多建模 | `BUSINESS-CONTEXT.md` 含协作契约表、模块复用说明和前门闸；具体编排框架不在 Kit 中拍板 | 已对照 | 见 annex/VERIFY-20260927-business-context-agent-design-v1.5.md |
+| R13 | Kit 的单人/多人骨架与 AOCI 启用彼此独立；单人 clone 不强制另建工作区，未启用时明确 Kit-only | 模板/CLI fixture 各验证默认未启用、单人 ready、无 MCP 安装 | 已对照 | 见 annex/VERIFY-20261006-aoci-workspace-kit-v1.7.md |
+| R14 | 多人按 clone/worktree 隔离，拉取代码的新 Agent 在写源码前得到集成分支准入提醒；不静默创建，不以人员或模块充当工作区 | 常驻入口提醒；显式 status/create 实测，集成分支阻断、功能分支放行、冲突不自动处理 | 已对照 | 同上 |
+| R15 | 个人 AOCI 地图只作提案，集成负责人先合源码，再在合并后的源码上更新全局地图；Kit/AOCI 可分别升级 | 两分支与集成工作区真实 Maintain/Verify/Check/Guide；Skill 不内嵌版本状态机；跨版本升级仍需另验 | 部分对照 | 同上 |
+| R16 | Codex、Claude Code、Cursor 三宿主各在独立工作区做真实 MCP/认知验收，不用配置或模拟器冒充 | 三宿主真实会话最终 Host delivery confirmed、Attestation 10/10；Cursor 需隔离试验的宽授权模式，不代表默认自动调用 | 已对照 | 同上 |
+| R17 | 已启用 AOCI 的项目可从 Kit README 按版本无关清单发起升级，不自动升级 Kit/AOCI、覆盖配置或重建索引 | 双权威 README 有目标版本确认、旧版冻结、新包校验、宿主实测、工作区回归和失败回滚门闸；TDD 定向及全量回归 | 已对照（文档入口；未执行跨版本升级） | 见 annex/VERIFY-20261006-aoci-upgrade-checklist.md |
+| R18 | 拉取本仓即可取得 Kit 和 AOCI 发布包，用显式命令独立更新/配置；本轮更新三宿主 Kit，MCP 绑定当前配置仓并同步远端 | 11 项安装器 TDD、真实包离线冷安装、三宿主接入、备份与旧版本保留；不初始化现有业务项目地图 | 已对照（部署；远端以 Git 核实为准） | 见 annex/VERIFY-20261006-memory-tools-deploy.md |
 
 状态：`未做` → `开发中` → `已对照`。

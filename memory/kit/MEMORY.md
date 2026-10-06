@@ -8,11 +8,12 @@
 ## 0. 交接清单
 
 - **项目是什么：** 私人备份 Hermes / Cursor / Claude 技能与本机工具清单，并作为 project-memory-kit 权威仓。
-- **当前进度：** 目录已三分：`scaffold/`、`memory/{kit,hermes}/`、`materials/`；README Last sync **2026-10-01**。
-- **端到端 / 交付记录：** [INDEX-20260921](annex/INDEX-20260921.md) · 最近 [fewshot-v1.6.0](annex/VERIFY-20260928-fewshot-v1.6.0.md) · 上一版 [kit-v1.3.1](annex/VERIFY-20260921-kit-v1.3.1.md)
+- **当前进度：** 三层目录已定；Kit v1.7.1 / AOCI 仓内分发与三宿主本机部署完成；README Last sync **2026-10-06**。
+- **端到端 / 交付记录：** [INDEX-20260921](annex/INDEX-20260921.md) · 最近 [INDEX-20261006](annex/INDEX-20261006.md) · 上一版 [fewshot-v1.6.0](annex/VERIFY-20260928-fewshot-v1.6.0.md)
 - **必知事实：** 见 [HANDOVER](HANDOVER.md)（仅供参考，行动前先核实）
 - **外部：** 见 [REFERENCES](REFERENCES.md)；计划见 [plans/2026-05-24_192600-agent-config-repo.md](../../materials/plans/2026-05-24_192600-agent-config-repo.md)
 - **工作分支：** `main`
+- **AOCI 源码地图：** MCP 已绑定本仓，索引未初始化；新项目建图仍须单独选择。<!-- kit:aoci-status -->
 
 ------
 
@@ -30,8 +31,8 @@
 | --- | --- | --- |
 | 服务对象大环境 | 机主在两台 Windows 上用 Hermes/Cursor/Claude 维护个人 Agent 技能，本仓是单向远程备份。 | `ENVIRONMENT.md` |
 | 需求目的 | 技能与配置能从 GitHub 私仓恢复，且 Cursor 技能只推不自动拉。 | `REQUIREMENTS.md` |
-| 项目框架 | 无应用运行时；三层目录 + Markdown 技能树 + shell 同步脚本 + GitHub 私仓。 | `FRAMEWORK.md` |
-| 实现流程 | 本机改技能 → 拷进 `materials/` 对应夹 → commit/push；灾难恢复走 `restore.sh`。 | `FLOW.md` |
+| 项目框架 | 无应用运行时；三层目录 + Markdown 技能树 + shell/Python 管理脚本 + GitHub 私仓。 | `FRAMEWORK.md` |
+| 实现流程 | 本机技能备份 → 仓库 commit/push；Kit/AOCI 从仓内显式安装，恢复走 `restore.sh`。 | `FLOW.md` |
 
 ------
 

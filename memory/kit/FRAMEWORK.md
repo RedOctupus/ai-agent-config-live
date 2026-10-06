@@ -17,6 +17,7 @@
 | 同步/恢复 | `scaffold/scripts/` 下 sync-skills / sync-memory / restore / auto-sync | 是否在笔记本改用 PowerShell 等价脚本（现有为 sh） |
 | 本仓目录分层 | `scaffold/` 脚手架；`memory/` 记忆；`materials/` 本地物料 |  |
 | 应用运行时 | 无（本仓不是服务） | 不要默认加 Docker / DB / Web 框架 |
+| Kit 可选源码地图接口 | Kit 仍是 Skill；用户明确启用时，AOCI 作为**目标工作区的项目级 stdio MCP**，与单人/多人骨架正交。此为用户批准的 Kit 接口，不是全仓默认安装 | AOCI rc18 只在隔离试验使用；任何正式项目的版本、许可、宿主与安装路径仍逐项确认 |
 
 ```text
 不用什么：不把本仓做成可部署应用；不备份 Cursor 内置技能
@@ -33,8 +34,11 @@
 | `materials/hermes/` | 脱敏后的 Hermes 配置与 env 模板 | 本机 `~/.hermes/` |
 | `materials/skills/` | Hermes 技能全量备份 + `manifest.md` | Hermes skills 目录 |
 | `materials/agent-skills/` | 按运行时分类的个人技能备份 | Cursor / Claude / 可移植约定 |
+| `project-memory-kit` 工作区门闸 | 单人 clone 即工作区；多人读人类确认的集成分支，用 `scripts/kit-workspace.py` 只读准入/显式创建 worktree；AOCI 状态只在负责 MEMORY 槽位 | Git 状态与 Kit 入口；不代理 AOCI 命令状态机 |
+| `experiments/aoci-memory-kit/` | 隔离 SSSS 快照、三宿主与两分支→集成试验，原 SSSS 不作写入对象 | 忽略的 fixture/二进制；不向现有项目配置 MCP |
 | `business-context-first-agent-design` | 业务域 → 生命周期 → 角色任务 → 上下文 → Agent 业务结果 → 原子能力 → Agent 协作契约 → 能力模块 → 角色视图 → 跨域回流的设计门闸 | `project-memory-kit` 路由 + 可选 `BUSINESS-CONTEXT.md` 模板 |
 | `materials/tools/` | 本机 CLI/Agent 工具清单 | 人工维护 catalog |
+| `materials/tools/aoci/` + `scaffold/scripts/install-memory-tools.py` | 已验证的官方 Windows AMD64 包与标准库安装器；三宿主 Kit、本机 AOCI、目标工作区 MCP 分开显式安装/配置，旧资产备份 | 本轮用户授权；仓内 ZIP/manifest/notices，不新增 Python 依赖 |
 | `materials/plans/` | 历史计划 | 无运行时依赖 |
 | `materials/_local/` | 本机临时物料（不入库） | `.gitignore` |
 
@@ -52,5 +56,5 @@
 ## 4. 骨架一句话（与 MEMORY 第 2 节「项目框架」同一句）
 
 ```text
-无应用运行时；三层目录 + Markdown 技能树 + shell 同步脚本 + GitHub 私仓。
+无应用运行时；三层目录 + Markdown 技能树 + shell/Python 管理脚本 + GitHub 私仓。
 ```

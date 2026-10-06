@@ -66,3 +66,30 @@ Cursor 成套技能放 materials/agent-skills/cursor/suites/<suite>/
 memory/hermes/ ≠ memory/kit/
 其它项目的 kit 默认路径仍是 docs/memory/（不要改 kit 模板副本）
 ```
+
+## 7. Kit 可选 AOCI 与团队集成（不改变本仓备份主链路）
+
+```text
+Kit init：单人 clone 默认可用；明确多人时根 MEMORY 记录用户确认的集成分支
+  ├─ AOCI 未启用：负责槽位提示 Kit-only；源码/测试 + Kit 回写，不安装 MCP
+  └─ 用户确认启用：目标工作区各自配置本机绝对 --repo / 项目级 MCP，按当前 AOCI Guide 建图
+
+多人新任务：入口读根集成分支 → kit-workspace.py status
+  ├─ 集成分支：源码写入前显式创建/切换功能工作区，禁止静默创建
+  └─ 功能分支 clone/worktree：独立读写自己的源码与地图（同目录并发写仍需人协商）
+
+集成：个人地图只供审查 → 冲突人审 → 先纳入源码并测试
+  → 集成 Agent 对合并后的真实源码重新 Maintain/撰写全局 Entry
+  → Verify → Check → Guide 对齐 → 单独交付全局图与 Kit VERIFY/ITERATION
+失配：AOCI 待维护而非自动改“未启用”；Kit 与 AOCI 升级各自先验兼容，不自动覆盖配置。
+
+AOCI 版本升级（仅已启用项目）：Kit README 清单 → 用户确认目标版本/工作区/宿主
+  → 冻结旧二进制/配置/对齐状态并清理未完事务 → 按目标版本官方文档校验新包、并存试跑
+  → 经确认逐宿主切换并核对实际运行版本/--repo → 各受影响工作区 Verify/Check/Guide 与真实宿主回归
+  → 全部通过才记录交付；否则按官方说明回滚或因不可逆迁移停下。Kit 不随 AOCI 自动升版。
+
+本仓分发：git pull → install-memory-tools.py verify → install（默认预览，--apply 写入）
+  → 三宿主 Kit / 本机 AOCI 与旧资产备份；--component kit/aoci 可分别更新
+  → configure --repo <目标根>（显式 --apply）合并三宿主本机配置、先忽略机器路径
+  → 宿主批准/目标项目信任 → 真实工具发现 → 需要建图时才按 Kit/AOCI init 与 Guide 进行。
+```

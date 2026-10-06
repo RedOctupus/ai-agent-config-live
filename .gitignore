@@ -34,3 +34,10 @@ memory/kit/annex/*/_raw/
 # --- 本机临时物料（不入库）---
 materials/_local/*
 !materials/_local/.gitkeep
+
+# Local AOCI host paths (generated per machine/workspace)
+/.codex/config.toml
+/.mcp.json
+/.cursor/mcp.json
+
+/.claude/settings.local.json

@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0-rc18",
+  "platform": "windows-amd64",
+  "archive": "aoci_0.1.0-rc18_windows_amd64.zip",
+  "archive_sha256": "012072baeead1d37062e431f3191d3338e2e67789baec79549a8e0fd12c4a09b",
+  "binary_member": "aoci.exe",
+  "binary_sha256": "ee7ee51f325a9030b93ee8680ea85a1aa6ed219448f24319ee24fbe6d7581925",
+  "notices": [
+    "LICENSE",
+    "NOTICE",
+    "PATENTS",
+    "THIRD-PARTY-NOTICES",
+    "TRADEMARKS"
+  ],
+  "upstream": "https://github.com/aoci-spec/aoci-code",
+  "release_url": "https://github.com/aoci-spec/aoci-code/releases/tag/v0.1.0-rc18",
+  "source_commit": "ffbdafac512d339aa87342d5b9d1a4f27a299aaf",
+  "provenance": "AOCI-CODE_v0.1.0-rc18.provenance.sigstore.json",
+  "verified_on": "2026-10-06"
+}
