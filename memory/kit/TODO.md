@@ -6,7 +6,7 @@
 
 ## 进行中
 
-（无）
+- [ ] Cursor CLI Controller 0.1.0 归档与远端发布（R23/R24）— 验收：源码/manifest 一致、61项控制器与9项安装器回归、真实 CLI 及隔离冷安装、明确署名 VERIFY、推送后 HEAD 与 origin/main 一致。
 
 ## 待办
 

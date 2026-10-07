@@ -4,6 +4,15 @@
 
 ## AI Agent Tools
 
+### Cursor CLI Controller（2026-10-07 新增）
+
+- **Version:** Skill/runtime 0.1.0；官方 MCP Python SDK 固定 2.3.0。
+- **Source:** 本仓原创 `materials/agent-skills/codex/cursor-cli-controller/`；无 Cursor/SDK 二进制分发。
+- **Verified:** Windows + Python 3.13.9 + Cursor Agent CLI 2026.10.01-e373342；实际 subagents、TDD、续接、独立验收及官方客户端断连回归。
+- **Prerequisites / install:** [版本与接入说明](cursor-controller/README.md)、标准库安装器 `scaffold/scripts/install-cursor-controller.py`（Python 3.11+、默认预览）。
+- **Memory:** Kit 可选；MCP 独立审计，项目记忆仅引用回执；不自动启用 AOCI。
+- 此条为本轮核实；下面原有工具条目继续以各自快照为准，没有借本次发布批量刷新。
+
 ### Codex CLI (OpenAI)
 - **Version:** 0.133.0
 - **Install:** `npm install -g @openai/codex`

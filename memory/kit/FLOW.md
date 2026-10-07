@@ -67,6 +67,19 @@ memory/hermes/ ≠ memory/kit/
 其它项目的 kit 默认路径仍是 docs/memory/（不要改 kit 模板副本）
 ```
 
+## Cursor 控制器资产发布与使用
+
+```text
+用户批准设计与责任分工 → 安装副本真实/fixture 验证 → 独立审阅与修复
+→ 单源码归档 codex/cursor-cli-controller → 来源/版本/哈希与前置说明
+→ 安装器检查/预览、隔离冷安装 → 明确提交本轮路径并推送 main → 核对远端提交
+
+显式安装：verify → install --apply（私有环境）→ configure --apply（只加本 MCP）
+使用：doctor + capabilities/Kit/AOCI 检测 → Codex 定目标/责任 → Cursor 执行
+→ 确认写者停止 → 必要记忆维护（各维护者各署名）→ 稳定文件 final verify
+→ 新批次证据与署名拍板 → MCP 独立审计；有 Kit 才引用到既有 VERIFY/ITERATION
+```
+
 ## 7. Kit 可选 AOCI 与团队集成（不改变本仓备份主链路）
 
 ```text

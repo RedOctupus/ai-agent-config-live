@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "name": "cursor-cli-controller",
+  "version": "0.1.0",
+  "verified_date": "2026-10-07",
+  "source": {
+    "repository": "https://github.com/RedOctupus/ai-agent-config-live",
+    "skill_path": "materials/agent-skills/codex/cursor-cli-controller",
+    "origin": "original approved implementation",
+    "git_revision": "Tracked by the containing Git commit; no self-referential embedded commit hash"
+  },
+  "dependencies": {
+    "installer_python_min": "3.11",
+    "tested_python": "3.13.9",
+    "mcp_sdk": "2.3.0",
+    "sdk_origin": "https://github.com/modelcontextprotocol/python-sdk",
+    "sdk_license": "MIT",
+    "tested_cursor_agent_cli": "2026.10.01-e373342",
+    "cursor_binary_bundled": false
+  },
+  "platform": {
+    "verified": "Windows",
+    "posix_verified": false,
+    "durable_worker_requires": [
+      "PowerShell",
+      "Task Scheduler",
+      "interactive current-user session",
+      "pythonw.exe"
+    ]
+  },
+  "project_memory": {
+    "required": false,
+    "reference_kit_version": "1.7.1",
+    "schema_version_detected_separately": true,
+    "aoci_requires_actual_enabled_state": true,
+    "kit_core_modified": false
+  },
+  "validation": {
+    "runtime_tests_total": 61,
+    "executed_passed": 59,
+    "skipped": 2,
+    "skip_reason": "Windows symlink creation privilege unavailable",
+    "installer_tests_passed": 9,
+    "live_tdd": true,
+    "live_native_explore_tasks": 2,
+    "live_resume_receipts_reset": true,
+    "independent_review": "passed; mixed-memory-rereview supersedes source no-go",
+    "isolated_cold_install": true
+  },
+  "files": {
+    "SKILL.md": "26edcecfcb29bed1922cdeaa142fb9db9ff92bc7a10bc3a6f901295ed35124df",
+    "SOURCE.md": "31849c57c3bea4ca8478e31195b58eecbdb6084123a482b26f68619c6d3e49f8",
+    "VERSION": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+    "agents/openai.yaml": "2b94ba409ddb1e932be97d06a35fea87ff679ebd1b3ed453795d0c400c0042a7",
+    "references/calling-and-memory.md": "e7f684de9c90584e58b9ed42e62ffce439b07508f9cfbb81643bfb3be7b9a45b",
+    "references/operations.md": "e46662f94d29b8926ad710ca9d5bc32d76646f5f0cfa4d34f71a45d1990e2b88",
+    "requirements.txt": "b2a3a41cb92969a57ba10746218731ed453fe6528322ddda667df989ac494035",
+    "scripts/cursor_broker_worker.py": "2b028958f975ce2c0a3a5166673c10bd5b886e004b853f92ced47f8136573c30",
+    "scripts/cursor_control.py": "880afe84fa79063515aff1c708c67d5d202dcf5a8e3752475ae38fb925acbf4b",
+    "scripts/cursor_launcher.ps1": "9b4855259f05d8bc84dafd1d073e4d764223c8d6dae08c1b0f8b9e9335d7b79b",
+    "scripts/cursor_runtime/__init__.py": "68f4760901caae8f6661a1fbc2a74a39c21859710a8ee98404bcc7ef50a4aabf",
+    "scripts/cursor_runtime/core.py": "eab9bfbebb94dcb52cae65b9e11c4dcddba927d7bc28309aeaf757df85c2ee90",
+    "scripts/cursor_runtime/processes.py": "cbfd392754a2bbbfe8cb36c910282e447df19397ba700e35c7b8fec163c11598",
+    "scripts/cursor_runtime/worker.py": "2a18030d3946e56889ab897422f43cd1012c37e7e209791cc41d85c360e6f85c",
+    "scripts/cursor_scheduler.ps1": "ddcbb500d1d4a0fcbab4a24ea2024906f79045606e3c6208ab4a741fed300666",
+    "scripts/mcp_server.py": "ae25f6b46b1457a61207675785fa27550c5118f412eee84aff0e6bed0ad8ae21",
+    "tests/fixture_agent.py": "f7087857cec03e4ae894d81f9ac219a907ce37589bb670010e68dcf7e2af1912",
+    "tests/test_capabilities.py": "ed6ef0b76516d35e801859e65ad183e0a5563e95b2bb33aec80a5fa065db6ad0",
+    "tests/test_mcp.py": "3fda78fa8ed1f2af4b98c31f3b03d3f2275f8c6c8c2332e1c96e478cd08a5607",
+    "tests/test_runtime.py": "c2ea354dcf56c85b242e34b7008b48b5a40be319b4784d31069b5b3891690c14",
+    "tests/test_scheduler.py": "7500bcc466e2d6fa99b0005b91027c684d674641a5f00f446e05909298173030"
+  },
+  "distribution": {
+    "source_eol": "Git -text preserves exact package bytes for manifest verification",
+    "virtual_environment_bundled": false,
+    "raw_audit_bundled": false
+  }
+}

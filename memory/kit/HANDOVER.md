@@ -47,6 +47,7 @@
 | 体量门闸 | `python scaffold/scripts/check-memory-size.py`（默认 `memory/kit/MEMORY.md`） | 本仓脚本 | 2026-09-21 |
 | Kit/AOCI 仓内安装来源 | `materials/tools/aoci/` 与 `scaffold/scripts/install-memory-tools.py`；本机 EXE 在 `~/.local/share/ai-agent-config/aoci/0.1.0-rc18/`，源仓定位 `memory-tools.json`。当前仓 MCP 已连接，索引未初始化 | `annex/VERIFY-20261006-memory-tools-deploy.md` | 2026-10-06 |
 | 本机临时物料 | `materials/_local/`（gitignore） | `.gitignore` | 2026-09-21 |
+| Cursor Controller 来源与安装 | 原创建 0.1.0 在 `materials/agent-skills/codex/cursor-cli-controller/`；`materials/tools/cursor-controller/` 说明前置/来源；显式安装器默认预览，SDK只进私有环境。已有本机 MCP 可调用；审计与 Kit 独立 | `annex/VERIFY-20261007-cursor-cli-controller.md` | 2026-10-07 |
 
 ## 3. 账号与凭据位置
 

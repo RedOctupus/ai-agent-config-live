@@ -8,7 +8,7 @@
 ## 0. 交接清单
 
 - **项目是什么：** 私人备份 Hermes / Cursor / Claude 技能与本机工具清单，并作为 project-memory-kit 权威仓。
-- **当前进度：** 三层目录已定；Kit v1.7.1 / AOCI 仓内分发与三宿主本机部署完成；README Last sync **2026-10-06**。
+- **当前进度：** Kit v1.7.1 / AOCI 分发已完成；新增 Cursor Controller 0.1.0、独立审计与显式安装资料；README Last sync **2026-10-07**。
 - **端到端 / 交付记录：** [INDEX-20260921](annex/INDEX-20260921.md) · 最近 [INDEX-20261006](annex/INDEX-20261006.md) · 上一版 [fewshot-v1.6.0](annex/VERIFY-20260928-fewshot-v1.6.0.md)
 - **必知事实：** 见 [HANDOVER](HANDOVER.md)（仅供参考，行动前先核实）
 - **外部：** 见 [REFERENCES](REFERENCES.md)；计划见 [plans/2026-05-24_192600-agent-config-repo.md](../../materials/plans/2026-05-24_192600-agent-config-repo.md)

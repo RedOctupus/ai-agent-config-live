@@ -54,6 +54,12 @@
 - 把 memory/hermes/ 与 memory/kit/ 混成一份
 ```
 
+## 2026-10-07 用户批准的 Cursor 控制器资产
+
+新增 `materials/agent-skills/codex/cursor-cli-controller/` 单源码目录和 `materials/tools/cursor-controller/` 介绍/manifest。薄 Skill 负责调用端决策；Python 标准库/SQLite 负责本地任务与独立审计；官方 MCP SDK 2.3.0 只在安装后的私有环境运行；Windows 宿主 Job 下使用当前用户最低权限的一次性隐藏 Scheduler worker。
+
+这是用户明确批准的可安装工具资产，不把备份仓改成常驻服务，不增加仓库全局运行依赖，也不改 Kit/AOCI 双权威副本。安装与注册使用 `scaffold/scripts/install-cursor-controller.py`，默认预览；角色/接口契约见该 Skill references。
+
 ## 4. 骨架一句话（与 MEMORY 第 2 节「项目框架」同一句）
 
 ```text

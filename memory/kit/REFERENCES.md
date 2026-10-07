@@ -10,6 +10,7 @@
 - **去哪看：** https://github.com/RedOctupus/ai-agent-config-live （私仓）
 - **本项目用途：** 备份与 kit 权威源
 - **相关指针：** README.md
+- **Cursor Controller 原创来源/前置/上游：** materials/tools/cursor-controller/README.md 与 manifest.json（0.1.0；2026-10-07 实测）
 - **最近核实：** 2026-09-21
 ```
 

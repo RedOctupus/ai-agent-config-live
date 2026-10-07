@@ -1,0 +1,6 @@
+interface:
+  display_name: "Cursor CLI Controller"
+  short_description: "Delegate Cursor tasks with progress, verification and actor audit"
+  default_prompt: "Use $cursor-cli-controller to assign this project task to Cursor, monitor it, verify the result, and record who executed and approved it."
+policy:
+  allow_implicit_invocation: true

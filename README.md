@@ -4,7 +4,7 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 
 **Machine:** Windows 10 workstation  
 **Hermes:** v0.14.0 (DeepSeek v4 Pro)  
-**Last sync:** 2026-10-06
+**Last sync:** 2026-10-07
 
 
 ## Cursor 个人技能备份规则
@@ -39,6 +39,12 @@ Private backup of my Hermes Agent configuration, skills, memory, and installed t
 权威源为 `materials/agent-skills/{claude,cursor}/project-memory-kit/` 两份一致副本。用户本轮明确授权后，Codex / Claude Code / Cursor 的本机 Kit 已更新；AOCI MCP 已绑定本配置仓，地图尚未初始化。新项目仍分别选择单人/多人、是否启用 AOCI；团队个人地图只作提案，源码先合后维护全局图。
 
 AOCI 官方 Windows AMD64 发布包、许可证与校验值保存在 `materials/tools/aoci/`。拉取本仓后运行 `python scaffold/scripts/install-memory-tools.py install --apply` 即可从本仓安装，项目 MCP 用 `configure --repo <绝对 Git 根> --apply` 注册；仅更新 Kit 可加 `--component kit`。默认预览，显式更新，保留旧版本和备份。详见 [安装与更新](materials/tools/aoci/README.md) 与 [本次部署验收](memory/kit/annex/VERIFY-20261006-memory-tools-deploy.md)。
+
+## Cursor CLI Controller（0.1.0）
+
+新增 [Codex 协调技能](materials/agent-skills/codex/cursor-cli-controller/SKILL.md)：按任务选择 Cursor 原生 subagents/TDD，分配、监控、停止、续接并独立验收。`cursor-controller` MCP 始终保存独立审计；有 Kit 时使用既有 VERIFY/ITERATION 作为带责任署名的项目记录，不修改 Kit 本体。
+
+使用前置、MCP/Kit 检测、版本来源、显式安装与配置命令见 [介绍与接入](materials/tools/cursor-controller/README.md)。原始环境、密钥和审计日志不入库；源码在 `materials/agent-skills/codex/`，依赖仅安装到技能私有环境。仓库拉取不自动安装/注册。
 
 ## Quick Recovery
 
