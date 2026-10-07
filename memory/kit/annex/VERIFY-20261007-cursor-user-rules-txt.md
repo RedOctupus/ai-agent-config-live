@@ -19,3 +19,12 @@
 - `git diff --check` 退出 0；当日索引链接 5/5 可解析；体量门闸退出 0（MEMORY 217 行、§0 实义 7 行 / 624 字符）。README、R22、HANDOVER 与 ITERATION 已同步。
 
 本轮验证的是格式与正文一致性，没有运行模型注意力或规则遵循效果实验。标签用于明确语义边界，不声称改变平台指令层级。
+
+## 远端同步核实
+
+- 2026-10-07 用户明确授权提交并推送本轮内容。
+- 同步前 `git fetch origin` 成功，HEAD 与 origin/main 没有分叉或落后。
+- 本轮 13 份规则 / 研究 / 记忆文档提交并推送到 main；内容提交编号只记在 HANDOVER 顶部。
+- 提交前再次检查：TXT / MD 13/13 章节匹配，当日索引 5/5 可解析，记忆体量与暂存差异检查通过。
+- `git push origin main` 成功；随后通过 `git ls-remote origin refs/heads/main` 确认内容提交与远端一致。本节仅补记该次已完成的内容同步。
+- Git 远端同步不会回写 Cursor Settings；账号规则仍需用户单独粘贴或启用。
