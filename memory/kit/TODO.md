@@ -6,7 +6,7 @@
 
 ## 进行中
 
-- [ ] Cursor CLI Controller 0.1.0 归档与远端发布（R23/R24）— 验收：源码/manifest 一致、61项控制器与9项安装器回归、真实 CLI 及隔离冷安装、明确署名 VERIFY、推送后 HEAD 与 origin/main 一致。
+（无）
 
 ## 待办
 
@@ -16,6 +16,8 @@
 - [ ] ⛔ 等 核对工具版本清单是否过期 —— 若确认过期则改 README Installed Tools 表 — 验收：表内 git/node 与本机命令输出一致
 
 ## 已完成
+
+- [x] 2026-10-07 Cursor CLI Controller 0.1.0（R23/R24）— 61项控制器（2项权限skip）与9项安装器通过；真实CLI、冷安装、21源码哈希、责任署名及远端新拉取核实；见 `annex/VERIFY-20261007-cursor-cli-controller.md`。
 
 - [x] 2026-10-06 Kit/AOCI 仓内分发与三宿主安装 — 11 项 TDD、真实包冷安装与 Codex/CC/Cursor 接入通过；见 `annex/VERIFY-20261006-memory-tools-deploy.md`。
 

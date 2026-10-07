@@ -3,7 +3,7 @@
 > 接手先看这里。事实仅供参考，用前核实；与现场冲突以现场为准。
 > 2026-09-21 从 README、tools/catalog.md、memory 导出、git、本机 hostname 搜集；catalog 停在 2026-05-24。
 
-**最后核实：** `2026-10-07` · User Rules 内容提交 `7782664` 已推送 `origin/main`，远端提交已核对一致；后续提交仅补本次同步核实记录。既有部署验收见 `annex/VERIFY-20261006-memory-tools-deploy.md`。
+**最后核实：** `2026-10-07` · Cursor Controller 0.1.0 源码/前置发布提交 `bb16359` 已推送 `origin/main`，远端新拉取在 autocrlf=true 下21源码哈希一致；后续提交补发布核实。User Rules 内容提交 `7782664` 已同步。见对应 VERIFY。
 
 > 短哈希**只写这一处**。`MEMORY.md` §0「工作分支」只留分支名。
 
