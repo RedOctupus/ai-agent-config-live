@@ -33,5 +33,9 @@
 | R16 | Codex、Claude Code、Cursor 三宿主各在独立工作区做真实 MCP/认知验收，不用配置或模拟器冒充 | 三宿主真实会话最终 Host delivery confirmed、Attestation 10/10；Cursor 需隔离试验的宽授权模式，不代表默认自动调用 | 已对照 | 同上 |
 | R17 | 已启用 AOCI 的项目可从 Kit README 按版本无关清单发起升级，不自动升级 Kit/AOCI、覆盖配置或重建索引 | 双权威 README 有目标版本确认、旧版冻结、新包校验、宿主实测、工作区回归和失败回滚门闸；TDD 定向及全量回归 | 已对照（文档入口；未执行跨版本升级） | 见 annex/VERIFY-20261006-aoci-upgrade-checklist.md |
 | R18 | 拉取本仓即可取得 Kit 和 AOCI 发布包，用显式命令独立更新/配置；本轮更新三宿主 Kit，MCP 绑定当前配置仓并同步远端 | 11 项安装器 TDD、真实包离线冷安装、三宿主接入、备份与旧版本保留；不初始化现有业务项目地图 | 已对照（部署及远端拉取安装） | 见 annex/VERIFY-20261006-memory-tools-deploy.md |
+| R19 | 按用户授权在 Cursor User Rules 仓内文档融合 STE 核心原则，保留既有操作协议，并明确中英文、精度与输出格式边界 | 规则 3 / 4、英文技术文本、冲突裁决和语言条款可逐项对照；原提交 / PR / 网页验收 / 规则 1 / 2 / 5 及既有 Superpowers 条款保留；仓内修订不冒充账号已同步 | 已对照（文档验收；未验证账号会话） | 见 annex/VERIFY-20261007-cursor-user-rules-ste.md |
+| R20 | 技能条款保留交付前的 Kit / AOCI 调用入口，收尾详则由项目 MEMORY、Kit 与当前 AOCI Guide 管理 | Kit 已使用、AOCI 已启用且修改受管源码的条件明确；记录落点、执行顺序与未完成说明不在 User Rules 重复展开 | 已对照（文档验收；未验证账号会话） | 见 annex/VERIFY-20261007-cursor-user-rules-compact.md；原详则新增见上一轮 VERIFY |
+| R21 | 整体压缩 User Rules，只去重与缩句，不放宽权限、精度或个人表达偏好 | 条款逐项对照；Git 授权和 amend 细则保留；表述 / 规则 1 / 规则 2 与其他 Skill 触发保持原文；同一编码比较压缩前后体量 | 已对照（文档验收；未验证模型执行效果） | 见 annex/VERIFY-20261007-cursor-user-rules-compact.md |
+| R22 | 提供可复制粘贴的语义标记 TXT，将优先级、触发条件、权限例外、适用范围与输出时机明确分块 | TXT 为 UTF-8，无维护元信息；13 个语义块全部保留 MD 正文，仅增加标签和调整顺序；README 明确 MD / TXT 维护关系 | 已对照（格式与正文一致性；未测模型注意力效果） | 见 annex/VERIFY-20261007-cursor-user-rules-txt.md |
 
 状态：`未做` → `开发中` → `已对照`。

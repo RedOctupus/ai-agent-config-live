@@ -59,6 +59,16 @@
 - **最近核实：** 2026-10-06（CLI 已登录，隔离授权会话通过）
 ```
 
+## ASD-STE100 Skill / SimpleEnglish（英文写作技能对标）
+
+```text
+- **去哪看：** https://github.com/danyuchn/asd-ste100-skill ；https://github.com/AminBlg/SimpleEnglish
+- **Cursor 规则机制：** https://cursor.com/docs/context/rules
+- **本项目用途：** Agent 英文指令消歧与面向人的英文文档写作规则候选
+- **相关指针：** annex/NOTE-20261007-ste-skills-comparison.md
+- **最近核实：** 2026-10-07（源码与文档研究）
+```
+
 ## 建仓计划（来源）
 
 ```text
