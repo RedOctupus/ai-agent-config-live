@@ -3,7 +3,7 @@
 > 接手先看这里。事实仅供参考，用前核实；与现场冲突以现场为准。
 > 2026-09-21 从 README、tools/catalog.md、memory 导出、git、本机 hostname 搜集；catalog 停在 2026-05-24。
 
-**最后核实：** `2026-10-07` · HEAD `f4e3a7f`（家里台式机已快进 `origin/main`。Kit v1.7.1 已装到 Cursor、Claude、`~/.agents/skills`，并镜像到 `~/.codex/skills`。Codex 已注册 `cursor-cli-controller` 与 `cursor-controller` MCP。`doctor` 报本机没有 Cursor Agent CLI。本机未装 AOCI）
+**最后核实：** `2026-10-07` · 同步提交 `eaca31e` 已在 `origin/main`。家里台式机已按官网安装 Cursor Agent CLI `2026.10.01-e373342`。`doctor` 已找到 CLI，认证仍是 `unauthenticated`。本机未装 AOCI。
 
 > 短哈希**只写这一处**。`MEMORY.md` §0「工作分支」只留分支名。
 
@@ -43,12 +43,13 @@
 | AOCI 隔离沙盒 | `experiments/aoci-memory-kit/sandbox/ssss-agent/`。原 SSSS 不在这个地址，不要去原项目测 | 沙盒 `.codex/config.toml` 指向 `experiments/aoci-memory-kit/artifacts/bin/aoci.exe` | 2026-10-06 |
 | AOCI 工作区试验 | `experiments/aoci-memory-kit/artifacts/workspace-fixtures/`（Git 忽略）；`integration` 与 `task-{codex,claude,cursor,merge-a,merge-b}` 各是独立绝对根。全局图只在集成源码之后重签；原 SSSS 330 文件未变 | `experiments/aoci-memory-kit/VERIFY-20261006-workspace-hosts.md` | 2026-10-06 |
 | 本机 Codex CLI | `C:\Users\Windows\AppData\Local\OpenAI\Codex\bin\5ea220ae823df3d7\codex.exe`，`codex-cli 0.160.1`；当前会话 PATH 可用 | `codex.exe --version` | 2026-10-06 |
-| 本机 Cursor Agent CLI | `C:\Users\Windows\AppData\Local\cursor-agent\cursor-agent.cmd`，`2026.10.01-e373342`；官方 Windows 安装与登录获本轮用户授权；隔离 worktree 用授权模式完成真实 AOCI MCP 会话 | `cursor-agent --version` / `status` 与本轮 VERIFY | 2026-10-06 |
+| 笔记本 Cursor Agent CLI | `C:\Users\Windows\AppData\Local\cursor-agent\cursor-agent.cmd`，`2026.10.01-e373342` | 2026-10-06 交接 | 2026-10-06 |
+| 本机 Cursor Agent CLI | `%LOCALAPPDATA%\cursor-agent\agent.cmd`，版本 `2026.10.01-e373342`；用户 PATH 已包含该目录。`doctor` 能找到它，认证是 `unauthenticated` | [VERIFY-20261007-cli](annex/VERIFY-20261007-cursor-agent-cli.md) | 2026-10-07 |
 | 脚手架脚本 | `scaffold/scripts/` | restore / sync / auto-sync / check-memory-size | 2026-09-21 |
 | 体量门闸 | `python scaffold/scripts/check-memory-size.py`（默认 `memory/kit/MEMORY.md`） | 本仓脚本 | 2026-09-21 |
 | Kit/AOCI 仓内安装来源 | `materials/tools/aoci/` 与 `scaffold/scripts/install-memory-tools.py`。学校笔记本已有 EXE `~/.local/share/ai-agent-config/aoci/0.1.0-rc18/`，并给那份工作区配了 MCP，索引未初始化。家里台式机本次没有安装 AOCI | `annex/VERIFY-20261006-memory-tools-deploy.md` · [VERIFY-20261007-desktop](annex/VERIFY-20261007-desktop-kit-controller-install.md) | 2026-10-07 |
 | 本机临时物料 | `materials/_local/`（gitignore） | `.gitignore` | 2026-09-21 |
-| Cursor Controller 来源与安装 | 原创建 0.1.0 在 `materials/agent-skills/codex/cursor-cli-controller/`。家里台式机已把技能和 `cursor-controller` MCP 写入 Codex 用户配置；`doctor` 返回 `agent_missing`，PATH 里没有 Cursor Agent CLI。审计目录与 Kit 独立 | `annex/VERIFY-20261007-cursor-cli-controller.md` · [VERIFY-20261007-desktop](annex/VERIFY-20261007-desktop-kit-controller-install.md) | 2026-10-07 |
+| Cursor Controller 来源与安装 | 原创建 0.1.0 在 `materials/agent-skills/codex/cursor-cli-controller/`。家里台式机的 Codex 已注册技能和 `cursor-controller` MCP。`doctor` 现为 `available: true`，认证 `unauthenticated`。审计目录与 Kit 独立 | `annex/VERIFY-20261007-cursor-cli-controller.md` · [VERIFY-20261007-cli](annex/VERIFY-20261007-cursor-agent-cli.md) | 2026-10-07 |
 
 ## 3. 账号与凭据位置
 
