@@ -3,7 +3,7 @@
 > 接手先看这里。事实仅供参考，用前核实；与现场冲突以现场为准。
 > 2026-09-21 从 README、tools/catalog.md、memory 导出、git、本机 hostname 搜集；catalog 停在 2026-05-24。
 
-**最后核实：** `2026-10-07` · Cursor Controller 0.1.0 源码/前置发布提交 `bb16359` 已推送 `origin/main`，远端新拉取在 autocrlf=true 下21源码哈希一致；后续提交补发布核实。User Rules 内容提交 `7782664` 已同步。见对应 VERIFY。
+**最后核实：** `2026-10-07` · HEAD `f4e3a7f`（家里台式机已快进 `origin/main`。Kit v1.7.1 已装到 Cursor、Claude、`~/.agents/skills`，并镜像到 `~/.codex/skills`。Codex 已注册 `cursor-cli-controller` 与 `cursor-controller` MCP。`doctor` 报本机没有 Cursor Agent CLI。本机未装 AOCI）
 
 > 短哈希**只写这一处**。`MEMORY.md` §0「工作分支」只留分支名。
 
@@ -13,8 +13,8 @@
 
 | 事实 | 值 / 结论 | 证据或出处 | 核实日期 |
 | --- | --- | --- | --- |
-| 本次所在机 | `DESKTOP-DKO2LI9`（约定中的学校笔记本） | `hostname` | 2026-09-21 |
-| 另一台 | 家里台式机 `SC-202601081030`；冲突拿不准偏它 | `materials/agent-skills/README.md` | 2026-09-21 |
+| 本次所在机 | `SC-202601081030`（家里台式机） | 本轮 `COMPUTERNAME` | 2026-10-07 |
+| 另一台 | 学校笔记本 `DESKTOP-DKO2LI9`；2026-10-06 的 Kit/AOCI 部署和 `C:\Users\Windows\...` 路径属于那台 | `materials/agent-skills/README.md`；此前交接 | 2026-10-07 |
 | OS（档案） | Windows 10 workstation | `README.md` · `memory/hermes/machine.md` | 2026-05-24 |
 | 本仓远程 | `https://github.com/RedOctupus/ai-agent-config-live` 私仓 | `git remote -v` · README | 2026-09-21 |
 | 默认分支 | `main` | `git rev-parse` | 2026-09-21 |
@@ -25,12 +25,13 @@
 
 | 事实 | 值 / 结论 | 证据或出处 | 核实日期 |
 | --- | --- | --- | --- |
-| 仓库工作副本 | `D:\杂货铺\新建文件夹\ai-agent-config-live` | 本次打开路径 | 2026-09-21 |
+| 仓库工作副本（本机） | `D:\11-AI Agent\agnet_config\ai-agent-config-live` | 本轮工作目录 | 2026-10-07 |
+| 仓库工作副本（笔记本） | `D:\杂货铺\新建文件夹\ai-agent-config-live` | 2026-10-06 交接 | 2026-10-06 |
 | Hermes 源码/安装 | `D:\09-其他\hermes-agent\` | `memory/hermes/machine.md` | 2026-05-24 |
 | Hermes 本机配置 | `~/.hermes/`（config.yaml、skills、memories、state.db） | `memory/hermes/machine.md` | 2026-05-24 |
 | Cursor 个人技能（本机） | `~/.cursor/skills/` | `materials/agent-skills/README.md` | 2026-09-21 |
-| Claude 个人技能（本机） | `~/.claude/skills/`；Kit 已更新 v1.7.1，旧 Skill 整树在 `~/.local/share/ai-agent-config/backups/` | 本轮用户明确授权后的本机校验 | 2026-10-06 |
-| Codex / 通用 Agent 技能（本机） | `~/.agents/skills/`；新增 Kit v1.7.1，已有 business-context-first-agent-design 保留 | 本轮用户明确授权后的本机校验 | 2026-10-06 |
+| Claude 个人技能（本机） | `~/.claude/skills/`；家里台式机 Kit 已是 v1.7.1 | [VERIFY-20261007-desktop](annex/VERIFY-20261007-desktop-kit-controller-install.md) | 2026-10-07 |
+| Codex 技能（本机） | 官方安装器写入 `~/.agents/skills/project-memory-kit`（v1.7.1）。这台 Codex 还从 `~/.codex/skills` 加载，该处 Kit 已从 v1.6.0 镜像为 v1.7.1，旧树在 backups。`cursor-cli-controller` 装在 `~/.codex/skills` | 同上 | 2026-10-07 |
 | Cursor 个人技能（仓内） | `materials/agent-skills/cursor/` | 同上 | 2026-09-21 |
 | Claude 技能（仓内） | `materials/agent-skills/claude/` | 同上 | 2026-09-21 |
 | Hermes 技能（仓内） | `materials/skills/` | README Structure | 2026-09-21 |
@@ -45,9 +46,9 @@
 | 本机 Cursor Agent CLI | `C:\Users\Windows\AppData\Local\cursor-agent\cursor-agent.cmd`，`2026.10.01-e373342`；官方 Windows 安装与登录获本轮用户授权；隔离 worktree 用授权模式完成真实 AOCI MCP 会话 | `cursor-agent --version` / `status` 与本轮 VERIFY | 2026-10-06 |
 | 脚手架脚本 | `scaffold/scripts/` | restore / sync / auto-sync / check-memory-size | 2026-09-21 |
 | 体量门闸 | `python scaffold/scripts/check-memory-size.py`（默认 `memory/kit/MEMORY.md`） | 本仓脚本 | 2026-09-21 |
-| Kit/AOCI 仓内安装来源 | `materials/tools/aoci/` 与 `scaffold/scripts/install-memory-tools.py`；本机 EXE 在 `~/.local/share/ai-agent-config/aoci/0.1.0-rc18/`，源仓定位 `memory-tools.json`。当前仓 MCP 已连接，索引未初始化 | `annex/VERIFY-20261006-memory-tools-deploy.md` | 2026-10-06 |
+| Kit/AOCI 仓内安装来源 | `materials/tools/aoci/` 与 `scaffold/scripts/install-memory-tools.py`。学校笔记本已有 EXE `~/.local/share/ai-agent-config/aoci/0.1.0-rc18/`，并给那份工作区配了 MCP，索引未初始化。家里台式机本次没有安装 AOCI | `annex/VERIFY-20261006-memory-tools-deploy.md` · [VERIFY-20261007-desktop](annex/VERIFY-20261007-desktop-kit-controller-install.md) | 2026-10-07 |
 | 本机临时物料 | `materials/_local/`（gitignore） | `.gitignore` | 2026-09-21 |
-| Cursor Controller 来源与安装 | 原创建 0.1.0 在 `materials/agent-skills/codex/cursor-cli-controller/`；`materials/tools/cursor-controller/` 说明前置/来源；显式安装器默认预览，SDK只进私有环境。已有本机 MCP 可调用；审计与 Kit 独立 | `annex/VERIFY-20261007-cursor-cli-controller.md` | 2026-10-07 |
+| Cursor Controller 来源与安装 | 原创建 0.1.0 在 `materials/agent-skills/codex/cursor-cli-controller/`。家里台式机已把技能和 `cursor-controller` MCP 写入 Codex 用户配置；`doctor` 返回 `agent_missing`，PATH 里没有 Cursor Agent CLI。审计目录与 Kit 独立 | `annex/VERIFY-20261007-cursor-cli-controller.md` · [VERIFY-20261007-desktop](annex/VERIFY-20261007-desktop-kit-controller-install.md) | 2026-10-07 |
 
 ## 3. 账号与凭据位置
 
@@ -67,7 +68,7 @@
 | Codex CLI（现场） | `0.160.1`。档案里的 Codex `0.133.0` 已过期 | `codex.exe --version` | 2026-10-06 |
 | GPU 档案 | RTX 5070 Ti 16GB；CUDA driver 13.2 / toolkit 13.1 | `memory/hermes/machine.md` | 2026-05-24 |
 | catalog 维护说明 | Git Bash (MSYS) 不用 PowerShell；与 Cursor Agent 常用 PowerShell **可能不一致** | `materials/tools/catalog.md` | 2026-05-24 |
-| project-memory-kit 版本 | **仓内权威副本与三宿主本机 `v1.7.1`**；单人/多人工作区、可选 AOCI 与仓内安装来源已加入。项目侧仍在自己 `MEMORY.md` §5 记录所依版本，升级不能静默覆盖项目 | 双副本 `SKILL.md`、模板、README、`scripts/kit-workspace.py` 校验 | 2026-10-06 |
+| project-memory-kit 版本 | **仓内权威副本 `v1.7.1`**。家里台式机的 Cursor、Claude、`~/.agents/skills`、`~/.codex/skills` 四份文件已对齐该版本。本机没有 AOCI 二进制 | 安装器 `filecmp` · [VERIFY-20261007-desktop](annex/VERIFY-20261007-desktop-kit-controller-install.md) | 2026-10-07 |
 
 ## 5. 研究结论（已确认）
 
